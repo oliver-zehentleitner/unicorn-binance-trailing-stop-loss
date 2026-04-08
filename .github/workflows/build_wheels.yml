@@ -13,7 +13,7 @@ jobs:
       CIBW_PYPY_VERSION: "7.3.10*"
     strategy:
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-11]
+        os: [ubuntu-24.04, windows-2025, macos-14]
     steps:
       - name: GitHub Checkout
         uses: actions/checkout@v4
@@ -29,19 +29,19 @@ jobs:
         run: echo $PATH
 
       - name: Build wheels Linux
-        if: matrix.os == 'ubuntu-20.04'
-        uses: pypa/cibuildwheel@v2.16.2
+        if: matrix.os == 'ubuntu-24.04'
+        uses: pypa/cibuildwheel@v3.4.1
 
       - name: Build wheels Mac
-        if: matrix.os == 'macos-11'
-        uses: pypa/cibuildwheel@v2.16.2
+        if: matrix.os == 'macos-14'
+        uses: pypa/cibuildwheel@v3.4.1
 
       - name: Build wheels Windows
-        if: matrix.os == 'windows-2019'
-        uses: pypa/cibuildwheel@v2.16.2
+        if: matrix.os == 'windows-2025'
+        uses: pypa/cibuildwheel@v3.4.1
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: ./wheelhouse/*.whl
 
@@ -56,7 +56,7 @@ jobs:
         run: pipx run build --sdist
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: dist/*.tar.gz
 
@@ -70,13 +70,13 @@ jobs:
       id-token: write
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact
           path: dist
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           body: |
             Please read the [CHANGELOG](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html) for further information.
