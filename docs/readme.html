@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>UNICORN Binance Trailing Stop Loss &#8212; unicorn-binance-trailing-stop-loss 1.2.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNICORN Binance Trailing Stop Loss &#8212; unicorn-binance-trailing-stop-loss 1.3.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=fdf8e9ae" />
@@ -97,7 +97,6 @@
 <li><a class="reference internal" href="#if-you-intend-to-use-real-money-use-it-at-your-own-risk">If you intend to use real money, use it at your own risk!</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#commercial-support">Commercial Support</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +207,6 @@
             
   <p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/releases"><img alt="GitHub Release" src="https://img.shields.io/github/release/oliver-zehentleitner/unicorn-binance-trailing-stop-loss.svg?label=github" /></a>
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/releases"><img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/total?color=blue" /></a>
-<img alt="Anaconda Release" src="https://img.shields.io/conda/v/lucit/unicorn-binance-trailing-stop-loss?color=blue" />
-<img alt="Anaconda Downloads" src="https://img.shields.io/conda/dn/lucit/unicorn-binance-trailing-stop-loss?color=blue" />
 <a class="reference external" href="https://pypi.org/project/unicorn-binance-trailing-stop-loss/"><img alt="PyPi Release" src="https://img.shields.io/pypi/v/unicorn-binance-trailing-stop-loss?color=blue" /></a>
 <a class="reference external" href="https://pepy.tech/project/unicorn-binance-trailing-stop-loss"><img alt="PyPi Downloads" src="https://pepy.tech/badge/unicorn-binance-trailing-stop-loss" /></a>
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue" /></a>
@@ -221,16 +218,15 @@
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml"><img alt="Build and Publish GH+PyPi" src="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml/badge.svg" /></a>
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml"><img alt="Build and Publish Anaconda" src="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml/badge.svg" /></a>
 <a class="reference external" href="https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/"><img alt="Read the Docs" src="https://img.shields.io/badge/read-%20docs-yellow" /></a>
-<a class="reference external" href="https://medium.lucit.tech"><img alt="Read How To`s" src="https://img.shields.io/badge/read-%20howto-yellow" /></a>
+<a class="reference external" href="https://technopathy.club"><img alt="Read How To`s" src="https://img.shields.io/badge/read-%20howto-yellow" /></a>
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss"><img alt="Github" src="https://img.shields.io/badge/source-github-cbc2c8" /></a>
-<a class="reference external" href="https://t.me/unicorndevs"><img alt="Telegram" src="https://img.shields.io/badge/community-telegram-41ab8c" /></a>
-<a class="reference external" href="https://gitter.im/unicorn-binance-suite/unicorn-binance-trailing-stop-loss?utm_source=badge&amp;amp;utm_medium=badge&amp;amp;utm_campaign=pr-badge&amp;amp;utm_content=badge"><img alt="Gitter" src="https://img.shields.io/badge/community-gitter-41ab8c" /></a></p>
+<a class="reference external" href="https://t.me/unicorndevs"><img alt="Telegram" src="https://img.shields.io/badge/community-telegram-41ab8c" /></a></p>
 <section id="unicorn-binance-trailing-stop-loss">
 <h1>UNICORN Binance Trailing Stop Loss<a class="headerlink" href="#unicorn-binance-trailing-stop-loss" title="Link to this heading">¶</a></h1>
 <p><a class="reference internal" href="#description">Description</a> | <a class="reference internal" href="#smart-entry">Smart Entry</a> | <a class="reference internal" href="#installation-and-upgrade">Installation</a> |
 <a class="reference internal" href="#documentation">Documentation</a> | <a class="reference internal" href="#examples">Examples</a> | <a class="reference internal" href="#change-log">Change Log</a> | <a class="reference internal" href="#wiki">Wiki</a> | <a class="reference internal" href="#social">Social</a> |
-<a class="reference internal" href="#receive-notifications">Notifications</a> | <a class="reference internal" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
-<a class="reference internal" href="#contributing">Contributing</a> | <a class="reference internal" href="#disclaimer">Disclaimer</a> | <a class="reference internal" href="#commercial-support">Commercial Support</a></p>
+<a class="reference internal" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
+<a class="reference internal" href="#contributing">Contributing</a> | <a class="reference internal" href="#disclaimer">Disclaimer</a></p>
 <p>A Python library with a <a class="reference external" href="https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/cli.html">command line interface</a> for a trailing stop loss and
 smart entry on the Binance exchange.</p>
 <p>Please read carefully all provided <a class="reference external" href="https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/">documentation</a>, our
@@ -238,7 +234,7 @@ smart entry on the Binance exchange.</p>
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues">issues</a> about known
 problems before using this tool - <em><strong>you use it at your own risk!</strong></em></p>
 <p>If you put this engine on a market, you should stop trading manually on this market yourself!</p>
-<p>Part of ‘<a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">UNICORN Binance Suite</a>’.</p>
+<p>Part of ‘<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-suite">UNICORN Binance Suite</a>’.</p>
 <section id="how-to-start-the-trailing-stop-loss-engine">
 <h2>How to start the trailing stop loss engine:<a class="headerlink" href="#how-to-start-the-trailing-stop-loss-engine" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">unicorn_binance_trailing_stop_loss</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinanceTrailingStopLossManager</span>
@@ -327,32 +323,32 @@ used API weight!)</p></li>
 <tr>
 <td><a href="https://www.binance.com">Binance</a></td>
 <td><code>binance.com</code></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
-<td><img alt="no" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
+<td><img alt="no" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
 </tr>
 <tr>
 <td><a href="https://testnet.binance.vision/">Binance Testnet</a></td>
 <td><code>binance.com-testnet</code></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
-<td><img alt="no" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
+<td><img alt="no" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
 </tr>
 <tr>
 <td><a href="https://www.binance.com">Binance Futures</a></td>
 <td><code>binance.com-futures</code></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
 </tr>
 <tr>
 <td><a href="https://www.binance.com">Binance Isolated Margin</a></td>
 <td><code>binance.com-isolated_margin</code></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /> (experimental)</td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /> (experimental)</td>
 </tr>
 <tr>
 <td><a href="https://www.binance.com">Binance Margin</a></td>
 <td><code>binance.com-margin</code></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
-<td><img alt="yes" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png" /></td>
+<td><img alt="yes" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png" /></td>
 </tr>
 </tbody>
 </table>
@@ -366,7 +362,7 @@ used API weight!)</p></li>
 functions and source code for easier debugging of the source code. <a class="reference internal" href="#installation-and-upgrade">To the installation.</a></p></li>
 <li><p>Well tested on Linux, Mac and Windows.</p></li>
 </ul>
-<p>If you like the project, please <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/stargazers"><img alt="star" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/star.png" /></a> it on
+<p>If you like the project, please <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/stargazers"><img alt="star" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/star.png" /></a> it on
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss">GitHub</a>!</p>
 </section>
 <section id="smart-entry">
@@ -422,6 +418,7 @@ configuration.</p>
 </section>
 <section id="a-conda-package-of-the-latest-version-with-conda-from-anaconda">
 <h3>A Conda Package of the latest version with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <a class="reference external" href="https://anaconda.org/lucit">Anaconda</a><a class="headerlink" href="#a-conda-package-of-the-latest-version-with-conda-from-anaconda" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-suite/issues/17">There is no conda support until the migration to conda-forge.</a></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">unicorn-binance-trailing-stop-loss</span></code> package is also available as a Cython version for the <code class="docutils literal notranslate"><span class="pre">linux-64</span></code>, <code class="docutils literal notranslate"><span class="pre">osx-64</span></code>
 and <code class="docutils literal notranslate"><span class="pre">win-64</span></code> architectures with <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> through the <a class="reference external" href="https://anaconda.org/lucit"><code class="docutils literal notranslate"><span class="pre">lucit</span></code> channel</a>.</p>
 <p>For optimal compatibility and performance, it is recommended to source the necessary dependencies from the
@@ -448,9 +445,9 @@ and <code class="docutils literal notranslate"><span class="pre">win-64</span></
 </section>
 <section id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h4>
-<p>Use the below command with the version (such as 1.2.0) you determined
+<p>Use the below command with the version (such as 1.3.0) you determined
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/releases/latest">here</a>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/archive/1.2.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/archive/1.3.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
 </section>
 </section>
 <section id="from-the-latest-source-dev-stage-with-pip-from-github">
@@ -503,20 +500,16 @@ and use:</p>
 <li><p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/discussions">Discussions</a></p></li>
 <li><p><a class="reference external" href="https://t.me/unicorndevs">https://t.me/unicorndevs</a></p></li>
 <li><p><a class="reference external" href="https://dev.binance.vision">https://dev.binance.vision</a></p></li>
-<li><p><a class="reference external" href="https://community.binance.org">https://community.binance.org</a></p></li>
 </ul>
 </section>
 <section id="receive-notifications">
 <h2>Receive Notifications<a class="headerlink" href="#receive-notifications" title="Link to this heading">¶</a></h2>
 <p>To receive notifications on available updates you can
-<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/watchers"><img alt="watch" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/watch.png" /></a>
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/watchers"><img alt="watch" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/watch.png" /></a>
 the repository on <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss">GitHub</a>, write your
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/example_version_of_this_package.py">own script</a>
 with using
-<a class="reference external" href="https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/unicorn_binance_trailing_stop_loss.html#unicorn_binance_trailing_stop_loss.manager.BinanceWebSocketApiManager.is_update_availabe"><code class="docutils literal notranslate"><span class="pre">is_update_available()</span></code></a>
-or you use the
-<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/wiki/UNICORN-Monitoring-API-Service">monitoring API service</a>.</p>
-<p>Follow us on <a class="reference external" href="https://www.linkedin.com/in/oliver-zehentleitner">LinkedIn</a>!</p>
+<a class="reference external" href="https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/unicorn_binance_trailing_stop_loss.html#unicorn_binance_trailing_stop_loss.manager.BinanceWebSocketApiManager.is_update_availabe"><code class="docutils literal notranslate"><span class="pre">is_update_available()</span></code></a>.</p>
 <p>To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://t.me/binance_api_announcements">https://t.me/binance_api_announcements</a></p></li>
@@ -529,7 +522,7 @@ or you use the
 <section id="how-to-report-bugs-or-suggest-improvements">
 <h2>How to report Bugs or suggest Improvements?<a class="headerlink" href="#how-to-report-bugs-or-suggest-improvements" title="Link to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement">List of planned features</a> -
-click <img alt="thumbs-up" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/thumbup.png" /> if you need one of them or suggest a new feature!</p>
+click <img alt="thumbs-up" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/thumbup.png" /> if you need one of them or suggest a new feature!</p>
 <p>Before you report a bug, <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss#installation-and-upgrade">try the latest release</a>. If the issue still exists, provide the error trace, OS
 and Python version and explain how to reproduce the error. A demo script is appreciated.</p>
 <p>If you don’t find an issue related to your topic, please open a new <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues">issue</a>!</p>
@@ -544,7 +537,7 @@ contribute follow
 <section id="contributors">
 <h3>Contributors<a class="headerlink" href="#contributors" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/graphs/contributors"><img alt="Contributors" src="https://contributors-img.web.app/image?repo=oliver-zehentleitner/unicorn-binance-trailing-stop-loss" /></a></p>
-<p>We <img alt="love" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/heart.png" /> open source!</p>
+<p>We <img alt="love" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/master/images/misc/heart.png" /> open source!</p>
 </section>
 </section>
 <section id="disclaimer">
@@ -559,10 +552,6 @@ jurisdiction.</p>
 <p>Under no circumstances will we be responsible or liable for any claims, damages, losses, expenses, costs or liabilities
 of any kind, including but not limited to direct or indirect damages for loss of profits.</p>
 </section>
-</section>
-<section id="commercial-support">
-<h2>Commercial Support<a class="headerlink" href="#commercial-support" title="Link to this heading">¶</a></h2>
-<p><em><strong>Do you need a developer, operator or consultant?</strong></em> <a class="reference external" href="https://about.me/oliver-zehentleitner">Contact me</a> for a non-binding initial consultation!</p>
 </section>
 </section>
 
@@ -627,7 +616,6 @@ of any kind, including but not limited to direct or indirect damages for loss of
 <li><a class="reference internal" href="#if-you-intend-to-use-real-money-use-it-at-your-own-risk">If you intend to use real money, use it at your own risk!</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#commercial-support">Commercial Support</a></li>
 </ul>
 </li>
 </ul>
@@ -734,7 +722,7 @@ of any kind, including but not limited to direct or indirect damages for loss of
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-suite#documentation">Index of all docs</a><br />
     &copy; <a href="/license.html">Copyright</a> 2022-2025, Oliver Zehentleitner.
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Apr 16 2026 at 19:48 (CET).
+    Last updated on Apr 16 2026 at 20:36 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.

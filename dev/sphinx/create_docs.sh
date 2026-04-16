@@ -41,4 +41,4 @@ rm build/html
 ln -s ../../../docs build/html
 make html -d
 echo "Creating CNAME file for GitHub."
-echo "unicorn-binance-trailing-stop-loss.docs.lucit.tech" >> build/html/CNAME
+echo "oliver-zehentleitner.github.io" > build/html/CNAME

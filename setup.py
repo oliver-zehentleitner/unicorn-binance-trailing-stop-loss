@@ -30,7 +30,7 @@ setup(
          'unicorn_binance_trailing_stop_loss/manager.py'],
         annotate=False),
      name='unicorn-binance-trailing-stop-loss',
-     version="1.2.0",
+     version="1.3.0",
      author="Oliver Zehentleitner",
      author_email='',
      url="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss",
