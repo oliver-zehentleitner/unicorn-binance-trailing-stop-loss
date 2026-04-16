@@ -1,20 +1,20 @@
-[![Get a UNICORN Binance Suite License](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/logo/LUCIT-UBS-License-Offer.png)](https://shop.lucit.services)
+[![Get a UNICORN Binance Suite License](https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-suite/master/images/logo/LUCIT-UBS-License-Offer.png)](https://shop.lucit.services)
 
-[![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
-[![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/releases)
-[![GitHub Downloads](https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/total?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/releases)
+[![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
+[![GitHub Release](https://img.shields.io/github/release/oliver-zehentleitner/unicorn-binance-trailing-stop-loss.svg?label=github)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/total?color=blue)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/releases)
 [![Anaconda Release](https://anaconda.org/lucit/unicorn-binance-trailing-stop-loss/badges/version.svg)](https://anaconda.org/lucit/unicorn-binance-trailing-stop-loss)
 [![Anaconda Downloads](https://anaconda.org/lucit/unicorn-binance-trailing-stop-loss/badges/downloads.svg)](https://anaconda.org/lucit/unicorn-binance-trailing-stop-loss)
 [![PyPi Release](https://img.shields.io/pypi/v/unicorn-binance-trailing-stop-loss?color=blue)](https://pypi.org/project/unicorn-binance-trailing-stop-loss/)
 [![PyPi Downloads](https://pepy.tech/badge/unicorn-binance-trailing-stop-loss)](https://pepy.tech/project/unicorn-binance-trailing-stop-loss)
-[![License](https://img.shields.io/badge/license-LSOSL-blue)](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/license.html)
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE)
 [![Supported Python Version](https://img.shields.io/pypi/pyversions/unicorn_binance_trailing_stop_loss.svg)](https://www.python.org/downloads/)
-[![PyPI - Status](https://img.shields.io/pypi/status/unicorn_binance_trailing_stop_loss.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues)
-[![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
-[![CodeQL](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml)
-[![Unit Tests](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml)
-[![Build and Publish GH+PyPi](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml)
-[![Build and Publish Anaconda](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml)
+[![PyPI - Status](https://img.shields.io/pypi/status/unicorn_binance_trailing_stop_loss.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues)
+[![codecov](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
+[![CodeQL](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml)
+[![Unit Tests](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml)
+[![Build and Publish GH+PyPi](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml)
+[![Build and Publish Anaconda](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml)
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/)
 [![Read How To`s](https://img.shields.io/badge/read-%20howto-yellow)](https://medium.lucit.tech)
 [![Telegram](https://img.shields.io/badge/chat-telegram-41ab8c)](https://t.me/unicorndevs)
@@ -43,7 +43,7 @@ with `pip` or `conda` and is used to interact with the [`unicorn-binance-trailin
 
 Please read carefully all provided [documentation](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/), our
 [disclaimer](#disclaimer) and look in the 
-[issues](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues) about known 
+[issues](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues) about known 
 problems before using this tool - ***you use it at your own risk!***
 
 If you put this engine on a market, you should stop trading manually on this market yourself!
@@ -56,9 +56,9 @@ To run modules of the *UNICORN Binance Suite* you need a [valid license](https:/
 
 ## Description
 After startup `ubtsl` tries to load a 
-[`ubtsl_config.ini`](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_config.ini) 
+[`ubtsl_config.ini`](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_config.ini) 
 and a 
-[`ubtsl_profiles.ini`](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini) 
+[`ubtsl_profiles.ini`](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini) 
 file from the `{home}/.lucit/` and the current working directory. Alternatively, you can specify these files explicitly with the 
 `--configfile` and `--profilesfile` parameters.
 
@@ -80,8 +80,8 @@ The CLI interface `ubtsl`/`ubtsl.exe` is installed during the
 [installation of `unicorn-binance-trailing-stop-loss`](https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html#installation-and-upgrade) 
 with `pip` or `conda` and is used to interact with the [`unicorn-binance-trailing-stop-loss`](https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html) Python library.
 
-Every parameter that can be configured via the [`ubtsl_profiles.ini`](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini) 
-or the [`ubtsl_config.ini`](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_config.ini) 
+Every parameter that can be configured via the [`ubtsl_profiles.ini`](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini) 
+or the [`ubtsl_config.ini`](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_config.ini) 
 file can also be defined as a command line argument. Therefore, both files are not mandatory, but it increases the 
 usability immensely.
 
@@ -274,7 +274,7 @@ $ ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
 ***This function is still in an experimental phase and only available for Isolated Margin.***
 
 Do a smart entry by using `engine = jump-in-and-trail` like it is defined within the profile `BTCUSDT_SMART_ENTRY` 
-of the [example_ubtsl_profiles.ini](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini).
+of the [example_ubtsl_profiles.ini](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini).
 
 By activating the `jump-in-and-trail` engine, it first buys the predefined asset amount and then trails them 
 automatically. 
@@ -309,8 +309,8 @@ $ ubtsl --profile "BTCUSDT_SELL" --listopenorders
 ```
 
 ## Example files
-- [example_ubtsl_config.ini](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_config.ini)
-- [example_ubtsl_profiles.ini](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini)
+- [example_ubtsl_config.ini](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_config.ini)
+- [example_ubtsl_profiles.ini](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini)
 
 ## Change Log
 [https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/CHANGELOG.html](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/CHANGELOG.html)
@@ -321,21 +321,21 @@ $ ubtsl --profile "BTCUSDT_SELL" --listopenorders
 - [CLI](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/CLI.html)
 
 ## Project Homepage
-[https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
+[https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
 
 ## Wiki
-[https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/wiki](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/wiki)
+[https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/wiki](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/wiki)
 
 ## Social
-- [Discussions](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/discussions)
+- [Discussions](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/discussions)
 - [https://t.me/unicorndevs](https://t.me/unicorndevs)
 - [https://dev.binance.vision](https://dev.binance.vision)
 - [https://community.binance.org](https://community.binance.org)
 
 ## Receive Notifications
 To receive notifications on available updates you can 
-[![watch](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/watch.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/watchers) 
-the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss).
+[![watch](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/watch.png)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/watchers) 
+the repository on [GitHub](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss).
 
 Follow us on [Twitter](https://twitter.com/LUCIT_SysDev) or on [Facebook](https://www.facebook.com/lucit.systems.and.development) 
 for general news about the [unicorn-binance-suite](https://www.lucit.tech/unicorn-binance-suite.html)!
@@ -351,24 +351,24 @@ To receive news (like inspection windows/maintenance) about the Binance API`s su
 - [https://t.me/BinanceExchange](https://t.me/BinanceExchange)
 
 ## How to report Bugs or suggest Improvements?
-[List of planned features](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) - 
+[List of planned features](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) - 
 click ![thumbs-up](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/thumbup.png) if you need one of them or suggest a new feature!
 
-Before you report a bug, [try the latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss#installation-and-upgrade). If the issue still exists, provide the error trace, OS 
+Before you report a bug, [try the latest release](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss#installation-and-upgrade). If the issue still exists, provide the error trace, OS 
 and Python version and explain how to reproduce the error. A demo script is appreciated.
 
-If you dont find an issue related to your topic, please open a new [issue](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues)!
+If you dont find an issue related to your topic, please open a new [issue](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues)!
 
-[Report a security bug!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/security/policy)
+[Report a security bug!](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/security/policy)
 
 ## Contributing
 [UNICORN Binance Trailing Stop Loss](https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html) is an open 
 source project which welcomes contributions which can be anything from simple documentation fixes and reporting dead links to new features. To 
 contribute follow 
-[this guide](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/CONTRIBUTING.md).
+[this guide](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/CONTRIBUTING.md).
  
 ### Contributors
-[![Contributors](https://contributors-img.web.app/image?repo=LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/graphs/contributors)
+[![Contributors](https://contributors-img.web.app/image?repo=oliver-zehentleitner/unicorn-binance-trailing-stop-loss)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/graphs/contributors)
 
 We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/heart.png) open source!
 
@@ -389,6 +389,6 @@ of any kind, including but not limited to direct or indirect damages for loss of
 
 ## Commercial Support
 
-[![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
+[![Get professional and fast support](https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
 
 ***Do you need a developer, operator or consultant?*** [Contact us](https://www.lucit.tech/contact.html) for a non-binding initial consultation!

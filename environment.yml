@@ -6,8 +6,7 @@ channels:
   - defaults
 
 dependencies:
-  - python>=3.7
-  - lucit::lucit-licensing-python
+  - python>=3.9
   - lucit::unicorn-binance-rest-api
   - lucit::unicorn-binance-websocket-api
   - cython

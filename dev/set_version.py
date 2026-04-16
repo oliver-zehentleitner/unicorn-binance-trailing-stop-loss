@@ -5,17 +5,17 @@
 #
 # Part of ‘UNICORN Binance Local Depth Cache’
 # Project website: https://www.lucit.tech/unicorn-binance-local-depth-cache.html
-# Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-local-depth-cache
+# Github: https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache
 # Documentation: https://unicorn-binance-local-depth-cache.docs.lucit.tech
 # PyPI: https://pypi.org/project/unicorn-binance-local-depth-cache
-# LUCIT Online Shop: https://shop.lucit.services/software
+
 #
-# License: LSOSL - LUCIT Synergetic Open Source License
-# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-local-depth-cache/blob/master/LICENSE
+# License: MIT
+# https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache/blob/master/LICENSE
 #
-# Author: LUCIT Systems and Development
+# Author: Oliver Zehentleitner
 #
-# Copyright (c) 2022-2023, LUCIT Systems and Development (https://www.lucit.tech)
+# Copyright (c) 2022-2025, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
 # All rights reserved.
 
 import sys

@@ -21,8 +21,8 @@ sys.path.insert(0, os.path.abspath('../../..'))
 # -- Project information -----------------------------------------------------
 
 project = 'unicorn-binance-trailing-stop-loss'
-copyright = '2022-2023, LUCIT Systems and Development and Oliver Zehentleitner'
-author = 'LUCIT Systems and Development'
+copyright = '2022-2025, Oliver Zehentleitner'
+author = 'Oliver Zehentleitner'
 
 # The short X.Y version
 version = ''
@@ -84,7 +84,7 @@ pygments_style = None
 # a list of builtin themes.
 
 html_theme = 'python_docs_theme_ubs'
-html_context = {'github_user_name': 'LUCIT-Systems-and-Development',
+html_context = {'github_user_name': 'oliver-zehentleitner',
                 'github_repo_name': 'unicorn-binance-trailing-stop-loss',
                 'project_name': project,
                 'matomo_url': "https://webmon.lucit.services/matomo.php?idsite=9&amp;rec=1",
@@ -146,7 +146,7 @@ latex_elements = {
 latex_documents = [
     (master_doc, 'unicorn-binance-trailing-stop-loss.tex',
      'unicorn-binance-trailing-stop-loss Documentation',
-     'LUCIT Systems and Development', 'manual'),
+     'Oliver Zehentleitner', 'manual'),
 ]
 
 

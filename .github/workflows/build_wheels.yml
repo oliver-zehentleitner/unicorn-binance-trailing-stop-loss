@@ -79,7 +79,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           body: |
-            Please read the [CHANGELOG](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html) for further information.
+            Please read the [CHANGELOG](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/CHANGELOG.md) for further information.
           discussion_category_name: releases
           draft: false
           files: | 
