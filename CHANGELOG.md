@@ -10,8 +10,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.3.0.dev (development stage/unreleased/unstable)
 
 ## 1.3.0
+### Added
+- Readable error messages for invalid or missing config files (closes #20)
+- Unit tests now run on all supported Python versions (3.9-3.14)
 ### Changed
-- build_wheels.yml: Upgraded `cibuildwheel` from `v2.16.2` to `v3.4.1`; updated runner OS from `ubuntu-20.04`/`windows-2019`/`macos-11` to `ubuntu-24.04`/`windows-2025`/`macos-14`; upgraded `upload-artifact`, `download-artifact` to `v4` and `action-gh-release` to `v2`
+- License changed back from LSOSL to MIT
+- Author/copyright updated to Oliver Zehentleitner
+- GitHub URLs migrated from `LUCIT-Systems-and-Development` to `oliver-zehentleitner`
+- Minimum Python version raised from 3.7 to 3.9, added support up to 3.14
+- CLI help output streamlined, removed LUCIT branding
+- build_wheels.yml: Fixed artifact upload so Linux and Mac wheels are published to PyPI (not just Windows); added explicit `CIBW_BUILD` for Python 3.9-3.14; upgraded `cibuildwheel` to `v3.4.1`; updated runner OS to `ubuntu-24.04`/`windows-2025`/`macos-14`
+- Unit tests switched to `binance.us` exchange for CI compatibility
+### Removed
+- LUCIT licensing dependency (`lucit-licensing-python`, `LucitLicensingManager`)
+- `licensing_manager.py` and `licensing_exceptions.py`
+- Gitter references (service is dead)
+- LUCIT branding from README, meta.yaml, CLI, badges, and all source file headers
 
 ## 1.1.0
 ### Added
