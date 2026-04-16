@@ -5,17 +5,16 @@
 #
 # Part of ‘UNICORN Binance Trailing Stop Loss’
 # Project website: https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html
-# Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss
+# Github: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
 # Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
 # PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss
-# LUCIT Online Shop: https://shop.lucit.services/software
 #
-# License: LSOSL - LUCIT Synergetic Open Source License
-# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE
+# License: MIT
+# https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE
 #
-# Author: LUCIT Systems and Development
+# Author: Oliver Zehentleitner
 #
-# Copyright (c) 2022-2023, LUCIT Systems and Development (https://www.lucit.tech)
+# Copyright (c) 2022-2025, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
 # All rights reserved.
 
 try:
@@ -41,7 +40,7 @@ async def cli():
     """
         UNICORN Binance Trailing Stop Loss Command Line Interface Documentation
 
-        More info: https://www.lucit.tech/ubtsl-cli.html
+        More info: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/cli.html
     """
     version = BinanceTrailingStopLossManager.get_version()
     os_type = platform.system()
@@ -50,8 +49,8 @@ async def cli():
     log_format = "{asctime} [{levelname:8}] {process} {thread} {module}: {message}"
 
     parser = argparse.ArgumentParser(
-        description=f"UNICORN Binance Trailing Stop Loss {version} by LUCIT Systems and "
-                    f"Development (LSOSL License)",
+        description=f"UNICORN Binance Trailing Stop Loss {version} by Oliver Zehentleitner "
+                    f"(MIT License)",
         prog=f"ubtsl",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=textwrap.dedent('''\
@@ -76,12 +75,12 @@ async def cli():
                  $ ubtsl --profile BTCUSDT_SELL --listopenorders 
              
              additional information:
-                 Author: https://www.lucit.tech
-                 Changes: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech//CHANGELOG.html
-                 Documentation: https://lucit-systems-and-development.github.io/unicorn-binance-trailing-stop-loss
-                 Issue Tracker: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues
-                 Source: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss
-                 Wiki: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/wiki
+                 Author: https://about.me/oliver-zehentleitner
+                 Changes: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html
+                 Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
+                 Issue Tracker: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues
+                 Source: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
+                 Wiki: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/wiki
                  
              disclaimer:
                  This project is for informational purposes only. You should not construe this information or any other material as 
@@ -305,7 +304,7 @@ async def cli():
         logger.info(f"load_examples_ini_from_github() started ")
         if example_name is None:
             return None
-        example_ini = f"https://raw.githubusercontent.com/LUCIT-Systems-and-Development/" \
+        example_ini = f"https://raw.githubusercontent.com/oliver-zehentleitner/" \
                       f"unicorn-binance-trailing-stop-loss/master/cli/example_ubtsl_{example_name}.ini"
         response = requests.get(example_ini)
         return response.text
@@ -368,7 +367,7 @@ async def cli():
     if options.checkupdate is True:
         ubtsl = BinanceTrailingStopLossManager(start_engine=False, warn_on_update=False)
         if ubtsl.is_update_available():
-            print("A new update is available: https://github.com/LUCIT-Systems-and-Development/"
+            print("A new update is available: https://github.com/oliver-zehentleitner/"
                   "unicorn-binance-trailing-stop-loss/releases/latest")
         else:
             print("No available updates found!")

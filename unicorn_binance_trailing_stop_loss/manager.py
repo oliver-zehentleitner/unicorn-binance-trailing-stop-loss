@@ -5,20 +5,18 @@
 #
 # Part of ‘UNICORN Binance Trailing Stop Loss’
 # Project website: https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html
-# Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss
+# Github: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
 # Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
 # PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss
-# LUCIT Online Shop: https://shop.lucit.services/software
 #
-# License: LSOSL - LUCIT Synergetic Open Source License
-# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE
+# License: MIT
+# https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE
 #
-# Author: LUCIT Systems and Development
+# Author: Oliver Zehentleitner
 #
-# Copyright (c) 2022-2023, LUCIT Systems and Development (https://www.lucit.tech)
+# Copyright (c) 2022-2025, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
 # All rights reserved.
 
-from .licensing_manager import LucitLicensingManager, NoValidatedLucitLicense
 from unicorn_binance_rest_api import BinanceRestApiManager, BinanceAPIException
 from unicorn_binance_websocket_api import BinanceWebSocketApiManager, UnknownExchange
 from typing import Optional, Union
@@ -157,17 +155,6 @@ class BinanceTrailingStopLossManager(threading.Thread):
 
     :param warn_on_update: set to `False` to disable the update warning
     :type warn_on_update: bool
-    :param lucit_api_secret: The `api_secret` of your UNICORN Binance Suite license from
-                             https://shop.lucit.services/software/unicorn-binance-suite
-    :type lucit_api_secret:  str
-    :param lucit_license_ini: Specify the path including filename to the config file (ex: `~/license_a.ini`). If not
-                              provided lucitlicmgr tries to load a `lucit_license.ini` from `/home/oliver/.lucit/`.
-    :type lucit_license_ini:  str
-    :param lucit_license_profile: The license profile to use. Default is 'LUCIT'.
-    :type lucit_license_profile:  str
-    :param lucit_license_token: The `license_token` of your UNICORN Binance Suite license from
-                                https://shop.lucit.services/software/unicorn-binance-suite
-    :type lucit_license_token:  str
     :param ubra_manager: Provide a shared unicorn_binance_rest_api.manager instance
     :type ubra_manager: BinanceRestApiManager
     :param ubwa_manager: Provide a shared unicorn_binance_websocket_api.manager instance.
@@ -207,10 +194,6 @@ class BinanceTrailingStopLossManager(threading.Thread):
                  trading_fee_discount_spot_percent: float = 25.0,
                  trading_fee_percent: float = 0.1,
                  trading_fee_use_bnb: bool = False,
-                 lucit_api_secret: str = None,
-                 lucit_license_ini: str = None,
-                 lucit_license_profile: str = None,
-                 lucit_license_token: str = None,
                  ubra_manager: Optional[Union[BinanceRestApiManager]] = None,
                  ubwa_manager: Optional[Union[BinanceWebSocketApiManager]] = None,
                  warn_on_update=True):
@@ -267,33 +250,14 @@ class BinanceTrailingStopLossManager(threading.Thread):
         self.trading_fee_percent = trading_fee_percent
         self.trading_fee_use_bnb = trading_fee_use_bnb
         self.user_stream_id = None
-        self.lucit_api_secret = lucit_api_secret
-        self.lucit_license_ini = lucit_license_ini
-        self.lucit_license_profile = lucit_license_profile
-        self.lucit_license_token = lucit_license_token
         self.ubra = ubra_manager
         self.ubwa = ubwa_manager
-        self.llm = LucitLicensingManager(api_secret=self.lucit_api_secret,
-                                         license_ini=self.lucit_license_ini,
-                                         license_profile=self.lucit_license_profile,
-                                         license_token=self.lucit_license_token,
-                                         parent_shutdown_function=self.stop_manager,
-                                         program_used=self.name,
-                                         needed_license_type="UNICORN-BINANCE-SUITE",
-                                         start=True)
-        licensing_exception = self.llm.get_license_exception()
-        if licensing_exception is not None:
-            raise NoValidatedLucitLicense(licensing_exception)
 
         self.ubra: BinanceRestApiManager = ubra_manager or BinanceRestApiManager(api_key=self.api_key,
                                                                                  api_secret=self.api_secret,
                                                                                  exchange=self.exchange,
                                                                                  disable_colorama=disable_colorama,
-                                                                                 warn_on_update=warn_on_update,
-                                                                                 lucit_api_secret=self.lucit_api_secret,
-                                                                                 lucit_license_ini=self.lucit_license_ini,
-                                                                                 lucit_license_profile=self.lucit_license_profile,
-                                                                                 lucit_license_token=self.lucit_license_token)
+                                                                                 warn_on_update=warn_on_update)
         if warn_on_update and self.is_update_available():
             update_msg = f"Release {self.name}_{self.get_latest_version()} is available, please consider updating! " \
                          f"(Changelog: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html)"
@@ -306,10 +270,6 @@ class BinanceTrailingStopLossManager(threading.Thread):
                                                                                    disable_colorama=disable_colorama,
                                                                                    high_performance=True,
                                                                                    warn_on_update=warn_on_update,
-                                                                                   lucit_api_secret=self.lucit_api_secret,
-                                                                                   lucit_license_ini=self.lucit_license_ini,
-                                                                                   lucit_license_profile=self.lucit_license_profile,
-                                                                                   lucit_license_token=self.lucit_license_token,
                                                                                    ubra_manager=self.ubra,
                                                                                    show_secrets_in_logs=True)
         except UnknownExchange:
@@ -630,7 +590,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
         :return: dict or False
         """
         try:
-            respond = requests.get('https://api.github.com/repos/LUCIT-Systems-and-Development/unicorn-binance-trailing'
+            respond = requests.get('https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-trailing'
                                    '-stop-loss/releases/latest')
             latest_release_info = respond.json()
             return latest_release_info
@@ -1247,9 +1207,6 @@ class BinanceTrailingStopLossManager(threading.Thread):
             self.ubwa.stop_manager()
         if self.ubra is not None:
             self.ubra.stop_manager()
-        # close lucit license manger and the api session
-        if close_api_session is True:
-            self.llm.close()
         return True
 
     def set_stop_loss_price(self, stop_loss_price: float = None) -> bool:

@@ -12,11 +12,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-11]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-        exclude:
-          - os: windows-2019
-            python-version: "3.12"
+        os: [ubuntu-24.04, windows-2025, macos-14]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
       - name: Conda environment creation and activation
@@ -40,7 +37,7 @@ jobs:
 
       - name: Install Python Tools
         run: |
-          pip install setuptools wheel --upgrade       
+          pip install setuptools wheel --upgrade
 
       - name: Install macOS SDK (only on macOS)
         if: runner.os == 'macOS'
@@ -59,7 +56,6 @@ jobs:
           conda config --add channels conda-forge
           conda config --add channels lucit
           conda config --show channels
-          conda search lucit::lucit-licensing-python
           conda search lucit::unicorn-binance-rest-api
           conda search lucit::unicorn-binance-websocket-api
           conda search lucit::unicorn-fy

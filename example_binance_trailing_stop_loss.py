@@ -5,17 +5,17 @@
 #
 # Part of ‘UNICORN Binance Trailing Stop Loss’
 # Project website: https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html
-# Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss
+# Github: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
 # Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
 # PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss
-# LUCIT Online Shop: https://shop.lucit.services/software
+
 #
-# License: LSOSL - LUCIT Synergetic Open Source License
-# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE
+# License: MIT
+# https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/blob/master/LICENSE
 #
-# Author: LUCIT Systems and Development
+# Author: Oliver Zehentleitner
 #
-# Copyright (c) 2022-2023, LUCIT Systems and Development (https://www.lucit.tech)
+# Copyright (c) 2022-2025, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
 # All rights reserved.
 
 from unicorn_binance_trailing_stop_loss.manager import BinanceTrailingStopLossManager

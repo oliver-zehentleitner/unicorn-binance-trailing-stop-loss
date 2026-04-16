@@ -2,16 +2,10 @@ blank_issues_enabled: true
 contact_links:
   - name: UNICORN Devs Chat
     url: https://t.me/unicorndevs
-    about: Chat to us about the UNICORN Binance WebSocket API and ask general questions.
+    about: Chat to us about the UNICORN Binance Suite and ask general questions.
   - name: UNICORN Binance Trailing Stop Loss Discussions
-    url: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/discussions
+    url: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/discussions
     about: Ask general questions.
   - name: UNICORN Binance Trailing Stop Loss documentation
     url: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/
     about: The complete UNICORN Binance Trailing Stop Loss documentation.
-  - name: Get Professional and Fast Support
-    url: https://www.lucit.tech/get-support.html
-    about: Contact the LUCIT Development Team.
-  - name: Get a UNICORN Binance Suite License
-    url: https://shop.lucit.services/software/unicorn-binance-suite
-    about: LUCIT Online Shop
