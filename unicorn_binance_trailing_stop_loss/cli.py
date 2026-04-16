@@ -22,7 +22,7 @@ try:
 except ModuleNotFoundError:
     from unicorn_binance_trailing_stop_loss.manager import BinanceTrailingStopLossManager
 from unicorn_binance_rest_api.manager import BinanceRestApiManager, BinanceAPIException
-from configparser import ConfigParser, ExtendedInterpolation
+from configparser import ConfigParser, ExtendedInterpolation, MissingSectionHeaderError, ParsingError
 from pathlib import Path
 from typing import Optional
 import asyncio
@@ -454,16 +454,30 @@ async def cli():
         logger.info(f"Loading configuration file `{config_file}`")
         print(f"Loading configuration file `{config_file}`")
         config = ConfigParser(interpolation=ExtendedInterpolation())
-        config.read(config_file)
-        public_key = config['BINANCE']['api_key']
-        private_key = config['BINANCE']['api_secret']
-        send_to_email_address = config['EMAIL']['send_to_email']
-        send_from_email_address = config['EMAIL']['send_from_email']
-        send_from_email_password = config['EMAIL']['send_from_password']
-        send_from_email_server = config['EMAIL']['send_from_server']
-        send_from_email_port = config['EMAIL']['send_from_port']
-        telegram_bot_token = config['TELEGRAM']['bot_token']
-        telegram_send_to = config['TELEGRAM']['send_to']
+        try:
+            config.read(config_file)
+        except (MissingSectionHeaderError, ParsingError) as error_msg:
+            msg = f"Error: Config file `{config_file}` is invalid: {error_msg}\n" \
+                  f"Use `ubtsl --createconfigini` to create a valid config file."
+            logger.critical(msg)
+            print(msg)
+            sys.exit(1)
+        try:
+            public_key = config['BINANCE']['api_key']
+            private_key = config['BINANCE']['api_secret']
+            send_to_email_address = config['EMAIL']['send_to_email']
+            send_from_email_address = config['EMAIL']['send_from_email']
+            send_from_email_password = config['EMAIL']['send_from_password']
+            send_from_email_server = config['EMAIL']['send_from_server']
+            send_from_email_port = config['EMAIL']['send_from_port']
+            telegram_bot_token = config['TELEGRAM']['bot_token']
+            telegram_send_to = config['TELEGRAM']['send_to']
+        except KeyError as error_msg:
+            msg = f"Error: Missing section or key in config file `{config_file}`: {error_msg}\n" \
+                  f"Use `ubtsl --createconfigini` to create a valid config file."
+            logger.critical(msg)
+            print(msg)
+            sys.exit(1)
 
     # Init trailing stop loss vars
     borrow_threshold = ""
