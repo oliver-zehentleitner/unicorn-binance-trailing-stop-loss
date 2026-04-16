@@ -8,36 +8,21 @@
 # Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss
 # Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
 # PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss
+# LUCIT Online Shop: https://shop.lucit.services/software
+#
+# License: LSOSL - LUCIT Synergetic Open Source License
+# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE
 #
 # Author: LUCIT Systems and Development
 #
-# Copyright (c) 2019-2023, LUCIT Systems and Development (https://www.lucit.tech) and Oliver Zehentleitner
+# Copyright (c) 2022-2023, LUCIT Systems and Development (https://www.lucit.tech)
 # All rights reserved.
-#
-# Permission is hereby granted, free of charge, to any person obtaining a
-# copy of this software and associated documentation files (the
-# "Software"), to deal in the Software without restriction, including
-# without limitation the rights to use, copy, modify, merge, publish, dis-
-# tribute, sublicense, and/or sell copies of the Software, and to permit
-# persons to whom the Software is furnished to do so, subject to the fol-
-# lowing conditions:
-#
-# The above copyright notice and this permission notice shall be included
-# in all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABIL-
-# ITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
-# SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-# IN THE SOFTWARE.
 
-from unicorn_binance_rest_api.manager import BinanceRestApiManager
-from unicorn_binance_rest_api.exceptions import BinanceAPIException
-from unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
-from unicorn_binance_websocket_api.exceptions import UnknownExchange
+from .licensing_manager import LucitLicensingManager, NoValidatedLucitLicense
+from unicorn_binance_rest_api import BinanceRestApiManager, BinanceAPIException
+from unicorn_binance_websocket_api import BinanceWebSocketApiManager, UnknownExchange
 from typing import Optional, Union
+import cython
 import datetime
 import logging
 import math
@@ -50,9 +35,9 @@ import sys
 import threading
 import time
 
-__app_name__ = "unicorn_binance_trailing_stop_loss"
-__logger__ = logging.getLogger(__app_name__)
-__version__ = "0.8.0"
+__app_name__ = "unicorn-binance-trailing-stop-loss"
+__version__ = "1.1.0.dev"
+__logger__ = logging.getLogger("unicorn_binance_trailing_stop_loss")
 
 
 class BinanceTrailingStopLossManager(threading.Thread):
@@ -75,13 +60,15 @@ class BinanceTrailingStopLossManager(threading.Thread):
 
     # Authentication parameters
 
-    :param binance_public_key: Provide Binance API public key.
-    :type binance_public_key: str
-    :param binance_private_key: Provide Binance API private key.
-    :type binance_private_key: str
+    :param api_key: Provide the Binance API key.
+    :type api_key: str
+    :param api_secret: Provide the Binance API secret.
+    :type api_secret: str
 
     # Engine Control parameters
 
+    :param disable_colorama: set to True to disable the use of `colorama <https://pypi.org/project/colorama/>`_
+    :type disable_colorama: bool
     :param engine: Activate standard trailing stop/loss with `trail` (default), or activate the experimental smart
     entry method by setting `jump-in-and-trail`
     :type engine: str
@@ -166,23 +153,35 @@ class BinanceTrailingStopLossManager(threading.Thread):
     :param telegram_send_to: Receiver's UserId (i.e. not username) on Telegram.
     :type telegram_send_to: str
 
-     # Unicorn Binance Suite parameters
+    # Unicorn Binance Suite parameters
 
+    :param warn_on_update: set to `False` to disable the update warning
+    :type warn_on_update: bool
+    :param lucit_api_secret: The `api_secret` of your UNICORN Binance Suite license from
+                             https://shop.lucit.services/software/unicorn-binance-suite
+    :type lucit_api_secret:  str
+    :param lucit_license_ini: Specify the path including filename to the config file (ex: `~/license_a.ini`). If not
+                              provided lucitlicmgr tries to load a `lucit_license.ini` from `/home/oliver/.lucit/`.
+    :type lucit_license_ini:  str
+    :param lucit_license_profile: The license profile to use. Default is 'LUCIT'.
+    :type lucit_license_profile:  str
+    :param lucit_license_token: The `license_token` of your UNICORN Binance Suite license from
+                                https://shop.lucit.services/software/unicorn-binance-suite
+    :type lucit_license_token:  str
     :param ubra_manager: Provide a shared unicorn_binance_rest_api.manager instance
     :type ubra_manager: BinanceRestApiManager
     :param ubwa_manager: Provide a shared unicorn_binance_websocket_api.manager instance.
     :type ubwa_manager: BinanceWebSocketApiManager
-    :param warn_on_update: Inform of availability of package updates. Disable with `False`.
-    :type warn_on_update: bool
     """
 
     def __init__(self,
-                 binance_public_key: str = None,
-                 binance_private_key: str = None,
+                 api_key: str = None,
+                 api_secret: str = None,
                  borrow_threshold: str = None,
                  callback_error: Optional[type(abs)] = None,
                  callback_finished: Optional[type(abs)] = None,
                  callback_partially_filled: Optional[type(abs)] = None,
+                 disable_colorama: bool = False,
                  engine: str = "trail",
                  exchange: str = "binance.com",
                  keep_threshold: str = None,
@@ -208,17 +207,21 @@ class BinanceTrailingStopLossManager(threading.Thread):
                  trading_fee_discount_spot_percent: float = 25.0,
                  trading_fee_percent: float = 0.1,
                  trading_fee_use_bnb: bool = False,
-                 ubra_manager: Optional[Union[BinanceRestApiManager, bool]] = False,
-                 ubwa_manager: Optional[Union[BinanceWebSocketApiManager, bool]] = False,
+                 lucit_api_secret: str = None,
+                 lucit_license_ini: str = None,
+                 lucit_license_profile: str = None,
+                 lucit_license_token: str = None,
+                 ubra_manager: Optional[Union[BinanceRestApiManager]] = None,
+                 ubwa_manager: Optional[Union[BinanceWebSocketApiManager]] = None,
                  warn_on_update=True):
         threading.Thread.__init__(self)
         self.name = __app_name__
         self.logger = __logger__
         self.version = __version__
-        self.logger.info(f"New instance of {self.get_user_agent()} on "
+        self.logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                          f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started")
-        self.binance_public_key = binance_public_key
-        self.binance_private_key = binance_private_key
+        self.api_key = api_key
+        self.api_secret = api_secret
         self.borrow_threshold = borrow_threshold
         self.callback_error = callback_error
         self.callback_finished = callback_finished
@@ -230,8 +233,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
         self.keep_threshold = keep_threshold
         self.last_update_check_github = {'timestamp': time.time(), 'status': {'tag_name': None}}
         self.lock_create_stop_loss_order = threading.Lock()
-        self.precision_crypto: int = 2
-        self.precision_fiat: int = 2
+        self.precision_price: int = 8
+        self.precision_quantity: int = 8
         self.print_notifications = print_notifications
         self.reset_stop_loss_price = True if reset_stop_loss_price is True else False
         self.send_to_email_address = send_to_email_address
@@ -252,7 +255,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
         self.stop_loss_quantity: float = 0.0
         self.stop_loss_trigger_gap = stop_loss_trigger_gap
         self.stop_loss_request: bool = False
-        self.stop_request: bool = False
+        self.stop_manager_request: bool = False
         self.symbol_info: dict = {}
         self.telegram_bot_token = telegram_bot_token
         self.telegram_send_to = telegram_send_to
@@ -264,22 +267,51 @@ class BinanceTrailingStopLossManager(threading.Thread):
         self.trading_fee_percent = trading_fee_percent
         self.trading_fee_use_bnb = trading_fee_use_bnb
         self.user_stream_id = None
-        self.ubra: BinanceRestApiManager = ubra_manager or BinanceRestApiManager(self.binance_public_key,
-                                                                                 self.binance_private_key,
+        self.lucit_api_secret = lucit_api_secret
+        self.lucit_license_ini = lucit_license_ini
+        self.lucit_license_profile = lucit_license_profile
+        self.lucit_license_token = lucit_license_token
+        self.ubra = ubra_manager
+        self.ubwa = ubwa_manager
+        self.llm = LucitLicensingManager(api_secret=self.lucit_api_secret,
+                                         license_ini=self.lucit_license_ini,
+                                         license_profile=self.lucit_license_profile,
+                                         license_token=self.lucit_license_token,
+                                         parent_shutdown_function=self.stop_manager,
+                                         program_used=self.name,
+                                         needed_license_type="UNICORN-BINANCE-SUITE",
+                                         start=True)
+        licensing_exception = self.llm.get_license_exception()
+        if licensing_exception is not None:
+            raise NoValidatedLucitLicense(licensing_exception)
+
+        self.ubra: BinanceRestApiManager = ubra_manager or BinanceRestApiManager(api_key=self.api_key,
+                                                                                 api_secret=self.api_secret,
                                                                                  exchange=self.exchange,
-                                                                                 warn_on_update=warn_on_update)
+                                                                                 disable_colorama=disable_colorama,
+                                                                                 warn_on_update=warn_on_update,
+                                                                                 lucit_api_secret=self.lucit_api_secret,
+                                                                                 lucit_license_ini=self.lucit_license_ini,
+                                                                                 lucit_license_profile=self.lucit_license_profile,
+                                                                                 lucit_license_token=self.lucit_license_token)
         if warn_on_update and self.is_update_available():
-            update_msg = f"Release {self.name}_{self.get_latest_version()} is available,"
-            "please consider updating! (Changelog: "
-            "https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/CHANGELOG.html)"
+            update_msg = f"Release {self.name}_{self.get_latest_version()} is available, please consider updating! " \
+                         f"(Changelog: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html)"
             print(update_msg)
             self.logger.warning(update_msg)
         try:
             self.ubwa: BinanceWebSocketApiManager = ubwa_manager or \
                                                         BinanceWebSocketApiManager(exchange=self.exchange,
                                                                                    output_default="UnicornFy",
+                                                                                   disable_colorama=disable_colorama,
                                                                                    high_performance=True,
-                                                                                   warn_on_update=warn_on_update)
+                                                                                   warn_on_update=warn_on_update,
+                                                                                   lucit_api_secret=self.lucit_api_secret,
+                                                                                   lucit_license_ini=self.lucit_license_ini,
+                                                                                   lucit_license_profile=self.lucit_license_profile,
+                                                                                   lucit_license_token=self.lucit_license_token,
+                                                                                   ubra_manager=self.ubra,
+                                                                                   show_secrets_in_logs=True)
         except UnknownExchange:
             self.logger.critical("BinanceTrailingStopLossManager() - Please use a valid exchange!")
             if test is None or "streams" in str(test):
@@ -338,7 +370,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
             self.start_streams()
             try:
                 i = 0
-                while self.stop_request is False:
+                while self.is_manager_stopping() is False:
                     i += 1
                     self.ubwa.print_summary(title=f"UNICORN Binance Trailing Stop Loss {self.version} - "
                                                   f"Testing streams")
@@ -357,6 +389,16 @@ class BinanceTrailingStopLossManager(threading.Thread):
                 self.logger.error(msg)
                 if self.print_notifications:
                     print(msg)
+
+    def __enter__(self):
+        self.logger.debug(f"Entering 'with-context' ...")
+        return self
+
+    def __exit__(self, exc_type, exc_value, error_traceback):
+        self.logger.debug(f"Leaving 'with-context' ...")
+        self.stop_manager()
+        if exc_type:
+            self.logger.critical(f"An exception occurred: {exc_type} - {exc_value} - {error_traceback}")
 
     def calculate_stop_loss_amount(self,
                                    amount: float
@@ -469,17 +511,22 @@ class BinanceTrailingStopLossManager(threading.Thread):
         """
         order_is_placed = False
         with self.lock_create_stop_loss_order:
-            if stop_loss_price > self.stop_loss_price:
+            if self.stop_loss_price is None and stop_loss_price is not None:
                 self.set_stop_loss_price(stop_loss_price)
-            else:
-                stop_loss_price = self.stop_loss_price
+            elif self.stop_loss_price is not None and stop_loss_price is None:
+                self.set_stop_loss_price(self.stop_loss_price)
+            elif self.stop_loss_price is not None and stop_loss_price is not None:
+                if stop_loss_price > self.stop_loss_price:
+                    self.set_stop_loss_price(stop_loss_price)
+                else:
+                    stop_loss_price = self.stop_loss_price
             if self.cancel_open_stop_loss_order():
                 return True
             total, free = self.update_stop_loss_asset_amount()
             if self.keep_threshold is not None:
                 stop_loss_quantity = self.round_decimals_down(self.update_stop_loss_quantity(total=total,
                                                                                              free=free),
-                                                              self.precision_crypto)
+                                                              self.precision_quantity)
             else:
                 stop_loss_quantity = self.calculate_stop_loss_amount(free)
 
@@ -516,7 +563,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
                                                            type="STOP_LOSS_LIMIT",
                                                            price=self.stop_loss_price,
                                                            stopPrice=self.get_stop_loss_trigger_price(stop_loss_price),
-                                                           quantity=stop_loss_quantity,
+                                                           quantity=str(round(stop_loss_quantity,
+                                                                              self.precision_quantity)),
                                                            timeInForce="GTC")
                     elif self.exchange == "binance.com-isolated_margin":
                         new_order = self.ubra.create_margin_order(symbol=self.market,
@@ -525,7 +573,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
                                                                   type="STOP_LOSS_LIMIT",
                                                                   price=self.stop_loss_price,
                                                                   stopPrice=self.get_stop_loss_trigger_price(stop_loss_price),
-                                                                  quantity=stop_loss_quantity,
+                                                                  quantity=str(round(stop_loss_quantity,
+                                                                                     self.precision_quantity)),
                                                                   timeInForce="GTC")
                     elif self.exchange == "binance.com-margin":
                         new_order = self.ubra.create_margin_order(symbol=self.market,
@@ -533,7 +582,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
                                                                   type="STOP_LOSS_LIMIT",
                                                                   price=self.stop_loss_price,
                                                                   stopPrice=self.get_stop_loss_trigger_price(stop_loss_price),
-                                                                  quantity=stop_loss_quantity,
+                                                                  quantity=str(round(stop_loss_quantity,
+                                                                                     self.precision_quantity)),
                                                                   timeInForce="GTC")
                     elif self.exchange == "binance.com-futures":
                         new_order = self.ubra.futures_create_order(symbol=self.market,
@@ -541,7 +591,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
                                                                    type="STOP_LOSS_LIMIT",
                                                                    price=self.stop_loss_price,
                                                                    stopPrice=self.get_stop_loss_trigger_price(stop_loss_price),
-                                                                   quantity=stop_loss_quantity,
+                                                                   quantity=str(round(stop_loss_quantity,
+                                                                                      self.precision_quantity)),
                                                                    timeInForce="GTC")
                     else:
                         self.logger.info(f"BinanceTrailingStopLossManager.create_stop_loss_order() - Invalid exchange "
@@ -550,9 +601,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
                             print(f"Invalid exchange `{self.exchange}`")
                         return False
                     self.stop_loss_order_id = new_order['orderId']
-                    self.logger.info(f"BinanceTrailingStopLossManager.create_stop_loss_order() - Created stop/loss order "
-                                     f"for market {new_order['symbol']} with orderId="
-                                     f"{new_order['orderId']} and side={new_order['side']}.")
+                    self.logger.info(f"BinanceTrailingStopLossManager.create_stop_loss_order() - Created stop/loss "
+                                     f"order for market {new_order['symbol']} - Response: {new_order}.")
                     if self.print_notifications:
                         print(f"Created stop/loss order for market {new_order['symbol']}: "
                               f"stop_loss_price={self.stop_loss_price} and "
@@ -676,15 +726,39 @@ class BinanceTrailingStopLossManager(threading.Thread):
             self.logger.error(f"BinanceTrailingStopLossManager.get_owning_amount() - {error_msg}")
             return None
 
-        for item in account_info['assets']:
-            base_asset_pool = item['baseAsset']
-            if base_asset_pool['asset'] == base_asset:
-                self.logger.info(f"BinanceTrailingStopLossManager.get_owning_amount() - Owning "
-                                 f"{base_asset_pool['asset']}: free={base_asset_pool['free']}, "
-                                 f"total={base_asset_pool['totalAsset']} "
-                                 f"(interest={base_asset_pool['interest']})")
-                return float(base_asset_pool['totalAsset']), float(base_asset_pool['free'])
+        if self.exchange == "binance.com":
+            for item in account_info['balances']:
+                base_asset_pool = item
+                if base_asset_pool['asset'] == base_asset:
+                    self.logger.info(f"BinanceTrailingStopLossManager.get_owning_amount() - Owning "
+                                     f"{base_asset_pool['asset']}: free={base_asset_pool['free']}, "
+                                     f"total={base_asset_pool['free']})")
+                    return float(base_asset_pool['free']), float(base_asset_pool['free'])
+        else:
+            for item in account_info['assets']:
+                base_asset_pool = item['baseAsset']
+                if base_asset_pool['asset'] == base_asset:
+                    self.logger.info(f"BinanceTrailingStopLossManager.get_owning_amount() - Owning "
+                                     f"{base_asset_pool['asset']}: free={base_asset_pool['free']}, "
+                                     f"total={base_asset_pool['totalAsset']} "
+                                     f"(interest={base_asset_pool['interest']})")
+                    return float(base_asset_pool['totalAsset']), float(base_asset_pool['free'])
         return None
+
+    @staticmethod
+    def get_precision(step_size=None):
+        if step_size is None:
+            return None
+        parts = str(step_size).split('.')
+        if len(parts) == 2:
+            count = 0
+            for char in parts[1]:
+                count += 1
+                if char == '1':
+                    return count
+            return count
+        else:
+            return 0
 
     def get_stop_loss_asset_amount(self) -> Optional[float]:
         """
@@ -692,7 +766,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
 
         :return: float
         """
-        return self.round_decimals_down(self.stop_loss_asset_amount, self.precision_crypto)
+        return self.round_decimals_down(self.stop_loss_asset_amount, self.precision_quantity)
 
     def get_stop_loss_asset_amount_free(self) -> Optional[float]:
         """
@@ -700,7 +774,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
 
         :return: float
         """
-        return self.round_decimals_down(self.stop_loss_asset_amount_free, self.precision_crypto)
+        return self.round_decimals_down(self.stop_loss_asset_amount_free, self.precision_quantity)
 
     def get_stop_loss_price(self) -> Optional[float]:
         """
@@ -708,10 +782,16 @@ class BinanceTrailingStopLossManager(threading.Thread):
 
         :return: float
         """
-        if self.symbol_info['quote'] == "USDT":
-            return self.round_decimals_down(self.stop_loss_price, 2)
+        if self.exchange == "binance.com":
+            if self.symbol_info['quoteAsset'] == "USDT":
+                return self.round_decimals_down(self.stop_loss_price, 2)
+            else:
+                return self.stop_loss_price
         else:
-            return self.stop_loss_price
+            if self.symbol_info['quote'] == "USDT":
+                return self.round_decimals_down(self.stop_loss_price, 2)
+            else:
+                return self.stop_loss_price
 
     def get_stop_loss_trigger_price(self,
                                     stop_loss_price: float = 0.0) -> Optional[float]:
@@ -726,11 +806,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
             trigger_gap = float(self.get_stop_loss_price()/100)*float(100.0-gap_percent)
         else:
             trigger_gap = float(self.stop_loss_trigger_gap)
-        trigger_gap = float(self.round_decimals_down(trigger_gap, self.precision_crypto))
-        if self.symbol_info['quote'] == "USDT":
-            precision = self.precision_fiat
-        else:
-            precision = self.precision_crypto
+        trigger_gap = float(self.round_decimals_down(trigger_gap, self.precision_quantity))
+        precision = self.precision_quantity
 
         if stop_loss_price == 0:
             stop_loss_price = self.stop_loss_price
@@ -749,7 +826,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
          """
         try:
             if self.exchange == "binance.com":
-                return None
+                symbol_info = self.ubra.get_symbol_info(symbol=symbol)
             elif self.exchange == "binance.com-futures":
                 symbol_info = self.ubra.get_symbol_info(symbol=symbol)
             elif self.exchange == "binance.com-margin":
@@ -783,6 +860,17 @@ class BinanceTrailingStopLossManager(threading.Thread):
         """
         return __version__
 
+    def is_manager_stopping(self):
+        """
+        Returns `True` if the manager has a stop request, 'False' if not.
+
+        :return: bool
+        """
+        if self.stop_manager_request is False:
+            return False
+        else:
+            return True
+
     def is_update_available(self) -> bool:
         """
         Is a new release of this package available?
@@ -809,64 +897,65 @@ class BinanceTrailingStopLossManager(threading.Thread):
         """
         self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream(stream_data={stream_data}, "
                           f"stream_buffer_name={stream_buffer_name}) started")
-        if stream_data['event_type'] == "executionReport":
-            if stream_data['order_id'] == self.stop_loss_order_id:
-                if stream_data['current_order_status'] == "FILLED":
-                    msg = f"Subject: unicorn-binance-trailing-stop-loss '{self.market}'\n\n" \
-                          f"STOP LOSS FILLED at price {stream_data['order_price']} (order_id={stream_data['order_id']})"
-                    msg_short = f"STOP LOSS FILLED at price {stream_data['order_price']} " \
-                                f"(order_id={stream_data['order_id']})"
-                    log_msg_short = " ".join(msg_short.strip())
-                    self.logger.info(f"BinanceTrailingStopLossManager.process_userdata_stream() - {log_msg_short}")
-                    if self.print_notifications:
-                        print(msg_short)
-                    self.send_telegram_notification(msg)
-                    self.send_email_notification(msg)
-                    self.stop_manager()
-                    if self.callback_finished is not None:
-                        self.callback_finished(stream_data)
-                    return True
-                elif stream_data['current_order_status'] == "CANCELED":
-                    self.logger.info(f"BinanceTrailingStopLossManager.process_userdata_stream() - "
-                                     f"Received CANCELED event, trigger creation of new order")
-                    if self.print_notifications:
-                        print("Received CANCELED event, creating a new order")
-                    self.create_stop_loss_order(self.stop_loss_price, current_price=self.current_price)
-                    return False
-                elif stream_data['current_order_status'] == "PARTIALLY_FILLED":
-                    self.logger.warning(f"BinanceTrailingStopLossManager.process_userdata_stream() - "
-                                        f"Received PARTIALLY_FILLED event")
-                    if self.print_notifications:
-                        print("Received PARTIALLY_FILLED event")
-                    if self.callback_partially_filled is not None:
-                        self.callback_partially_filled(stream_data)
-                    return False
+        if self.is_manager_stopping() is False:
+            if stream_data['event_type'] == "executionReport":
+                if stream_data['order_id'] == self.stop_loss_order_id:
+                    if stream_data['current_order_status'] == "FILLED":
+                        msg = f"Subject: unicorn-binance-trailing-stop-loss '{self.market}'\n\n" \
+                              f"STOP LOSS FILLED at price {stream_data['order_price']} (order_id={stream_data['order_id']})"
+                        msg_short = f"STOP LOSS FILLED at price {stream_data['order_price']} " \
+                                    f"(order_id={stream_data['order_id']})"
+                        log_msg_short = " ".join(msg_short.strip())
+                        self.logger.info(f"BinanceTrailingStopLossManager.process_userdata_stream() - {log_msg_short}")
+                        if self.print_notifications:
+                            print(msg_short)
+                        self.send_telegram_notification(msg)
+                        self.send_email_notification(msg)
+                        self.stop_manager()
+                        if self.callback_finished is not None:
+                            self.callback_finished(stream_data)
+                        return True
+                    elif stream_data['current_order_status'] == "CANCELED":
+                        self.logger.info(f"BinanceTrailingStopLossManager.process_userdata_stream() - "
+                                         f"Received CANCELED event, trigger creation of new order")
+                        if self.print_notifications:
+                            print("Received CANCELED event, creating a new order")
+                        self.create_stop_loss_order(self.stop_loss_price, current_price=self.current_price)
+                        return False
+                    elif stream_data['current_order_status'] == "PARTIALLY_FILLED":
+                        self.logger.warning(f"BinanceTrailingStopLossManager.process_userdata_stream() - "
+                                            f"Received PARTIALLY_FILLED event")
+                        if self.print_notifications:
+                            print("Received PARTIALLY_FILLED event")
+                        if self.callback_partially_filled is not None:
+                            self.callback_partially_filled(stream_data)
+                        return False
+                    elif stream_data['current_order_status'] == "NEW":
+                        self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received event: "
+                                          f"{str(stream_data)}")
+                    else:
+                        self.logger.critical(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received unknown"
+                                             f" event: {str(stream_data)}")
+                        if self.print_notifications:
+                            print("Unknown, please report:", str(stream_data))
                 elif stream_data['current_order_status'] == "NEW":
                     self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received event: "
                                       f"{str(stream_data)}")
+                elif stream_data['current_order_status'] == "CANCELED":
+                    self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received event: "
+                                      f"{str(stream_data)}")
                 else:
-                    self.logger.critical(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received unknown"
-                                         f" event: {str(stream_data)}")
+                    self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - "
+                                      f"Received stream_data: {stream_data}")
                     if self.print_notifications:
                         print("Unknown, please report:", str(stream_data))
-            elif stream_data['current_order_status'] == "NEW":
-                self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received event: "
-                                  f"{str(stream_data)}")
-            elif stream_data['current_order_status'] == "CANCELED":
-                self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received event: "
-                                  f"{str(stream_data)}")
+            elif stream_data['event_type'] == "outboundAccountPosition":
+                self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received: {stream_data}")
             else:
                 self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - "
-                                  f"Received stream_data: {stream_data}")
+                                  f"Received unknown stream_data: {stream_data}")
                 if self.print_notifications:
                     print("Unknown, please report:", str(stream_data))
-        elif stream_data['event_type'] == "outboundAccountPosition":
-            self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - Received: {stream_data}")
-        else:
-            self.logger.debug(f"BinanceTrailingStopLossManager.process_userdata_stream() - "
-                              f"Received unknown stream_data: {stream_data}")
-            if self.print_notifications:
-                print("Unknown, please report:", str(stream_data))
 
     def process_price_feed_stream(self,
                                   stream_data: dict = None,
@@ -883,22 +972,22 @@ class BinanceTrailingStopLossManager(threading.Thread):
             return True
         self.logger.debug(f"BinanceTrailingStopLossManager.process_price_feed_stream(stream_data={stream_data}, "
                           f"stream_buffer_name={stream_buffer_name}) started")
-        if stream_data.get('price'):
-            self.current_price = stream_data.get('price')
-            sl_price = self.calculate_stop_loss_price(stream_data.get('price'), self.stop_loss_limit)
-            if self.stop_loss_price is None:
-                self.logger.info(f"BinanceTrailingStopLossManager.process_price_feed_stream() - Setting "
-                                 f"stop_loss_price from None to {sl_price}!")
-                if self.print_notifications:
-                    print(f"Setting stop_loss_price from None to {sl_price}!")
-                self.create_stop_loss_order(sl_price, current_price=stream_data.get('price'))
-            elif self.stop_loss_price < sl_price:
-                self.logger.info(f"BinanceTrailingStopLossManager.process_price_feed_stream() - Setting "
-                                 f"stop_loss_price from {self.stop_loss_price} to {sl_price}!")
-                if self.print_notifications:
-                    print(f"Setting stop_loss_price from {self.stop_loss_price} to {sl_price}!")
-                self.create_stop_loss_order(sl_price, current_price=stream_data.get('price'))
-        return True
+        if self.is_manager_stopping() is False:
+            if stream_data.get('price'):
+                self.current_price = stream_data.get('price')
+                sl_price = self.calculate_stop_loss_price(stream_data.get('price'), self.stop_loss_limit)
+                if self.stop_loss_price is None:
+                    self.logger.info(f"BinanceTrailingStopLossManager.process_price_feed_stream() - Setting "
+                                     f"stop_loss_price from None to {sl_price}!")
+                    if self.print_notifications:
+                        print(f"Setting stop_loss_price from None to {sl_price}!")
+                    self.create_stop_loss_order(sl_price, current_price=stream_data.get('price'))
+                elif self.stop_loss_price < sl_price:
+                    self.logger.info(f"BinanceTrailingStopLossManager.process_price_feed_stream() - Setting "
+                                     f"stop_loss_price from {self.stop_loss_price} to {sl_price}!")
+                    if self.print_notifications:
+                        print(f"Setting stop_loss_price from {self.stop_loss_price} to {sl_price}!")
+                    self.create_stop_loss_order(sl_price, current_price=stream_data.get('price'))
 
     @staticmethod
     def round_decimals_down(number: float,
@@ -933,8 +1022,8 @@ class BinanceTrailingStopLossManager(threading.Thread):
         else:
             symbol = False
         self.user_stream_id = self.ubwa.create_stream("arr", "!userData",
-                                                      api_key=self.binance_public_key,
-                                                      api_secret=self.binance_private_key,
+                                                      api_key=self.api_key,
+                                                      api_secret=self.api_secret,
                                                       process_stream_data=self.process_userdata_stream,
                                                       symbols=symbol,
                                                       stream_label="UserData")
@@ -1016,7 +1105,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
                 print(f"Jumped in with buy price: {buy_price}")
         elif self.engine == "trail":
             msg = f"Starting `trail` engine"
-            self.logger.critical(msg)
+            self.logger.info(msg)
             if self.print_notifications:
                 print(msg)
         else:
@@ -1032,13 +1121,25 @@ class BinanceTrailingStopLossManager(threading.Thread):
         self.logger.debug(f"BinanceTrailingStopLossManager.run() - reset_stop_loss_price="
                           f"{self.reset_stop_loss_price}")
         self.symbol_info = self.get_symbol_info(symbol=self.market)
+
+        symbol_info_symbols = self.ubra.get_exchange_info(**{'symbol': self.market})['symbols']
+        for symbols in symbol_info_symbols:
+            if symbols.get('filters') is not None:
+                for filters in symbols.get('filters'):
+                    if filters.get('filterType') == "LOT_SIZE":
+                        self.precision_quantity = self.get_precision(filters['stepSize'])
+
         self.logger.info(f"BinanceTrailingStopLossManager.run() -  used_weight: {self.ubra.get_used_weight()}")
         if self.symbol_info is None:
             self.logger.critical(f"BinanceTrailingStopLossManager.run() - `symbol_info` is None")
             if self.print_notifications:
                 print(f"ERROR: `symbol_info` is None -> Stopping!")
+            self.stop_manager()
             sys.exit(1)
-        self.stop_loss_asset_name = self.symbol_info['base']
+        if self.exchange == "binance.com":
+            self.stop_loss_asset_name = self.symbol_info['baseAsset']
+        else:
+            self.stop_loss_asset_name = self.symbol_info['base']
         self.exchange_info = self.get_exchange_info()
         self.update_stop_loss_asset_amount()
 
@@ -1133,23 +1234,25 @@ class BinanceTrailingStopLossManager(threading.Thread):
         """
         return self.stop_manager()
 
-    def stop_manager(self) -> bool:
+    def stop_manager(self, close_api_session: bool = True) -> bool:
         """
         Stop stop_loss! :)
 
         :return: bool
         """
         self.logger.info(f"BinanceTrailingStopLossManager.stop_manager() - Gracefully stopping "
-                         f"unicorn-binance-stop-loss engine")
-        self.stop_request = True
-        try:
-            self.ubwa.stop_manager_with_all_streams()
-            return True
-        except KeyboardInterrupt:
-            print("\nStopping ... just wait a few seconds!")
+                         f"unicorn-binance-trailing-stop-loss engine")
+        self.stop_manager_request = True
+        if self.ubwa is not None:
+            self.ubwa.stop_manager()
+        if self.ubra is not None:
+            self.ubra.stop_manager()
+        # close lucit license manger and the api session
+        if close_api_session is True:
+            self.llm.close()
+        return True
 
-    def set_stop_loss_price(self,
-                            stop_loss_price: float = None) -> bool:
+    def set_stop_loss_price(self, stop_loss_price: float = None) -> bool:
         """
         Set the stop/loss price.
 

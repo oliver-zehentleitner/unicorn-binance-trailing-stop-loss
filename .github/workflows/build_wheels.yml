@@ -1,0 +1,95 @@
+name: Build and Publish GH+PyPi
+
+on:
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    env:
+      CIBW_PYPY_VERSION: "7.3.10*"
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-2025, macos-14]
+    steps:
+      - name: GitHub Checkout
+        uses: actions/checkout@v4
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Set up Environment
+        run: echo "CIBW_SKIP=pp36-* pp37-*" >> $GITHUB_ENV
+
+      - name: Check ENV
+        if: matrix.os == 'ubuntu-20.04'
+        run: echo $PATH
+
+      - name: Build wheels Linux
+        if: matrix.os == 'ubuntu-24.04'
+        uses: pypa/cibuildwheel@v3.4.1
+
+      - name: Build wheels Mac
+        if: matrix.os == 'macos-14'
+        uses: pypa/cibuildwheel@v3.4.1
+
+      - name: Build wheels Windows
+        if: matrix.os == 'windows-2025'
+        uses: pypa/cibuildwheel@v3.4.1
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./wheelhouse/*.whl
+
+  build_sdist:
+    name: Build source distribution
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Checkout
+        uses: actions/checkout@v4
+
+      - name: Build sdist
+        run: pipx run build --sdist
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist/*.tar.gz
+
+  Release:
+    needs: [build_wheels, build_sdist]
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      contents: write
+      discussions: write
+      id-token: write
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact
+          path: dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: |
+            Please read the [CHANGELOG](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html) for further information.
+          discussion_category_name: releases
+          draft: false
+          files: | 
+            dist/*.tar.gz
+            dist/*.whl
+          generate_release_notes: true
+          name: unicorn-binance-trailing-stop-loss
+          prerelease: false
+          tag_name: 1.1.0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create PyPi Release
+        uses: pypa/gh-action-pypi-publish@release/v1

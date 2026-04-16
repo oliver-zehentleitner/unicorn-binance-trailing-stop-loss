@@ -1,23 +1,25 @@
-[![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
+[![Get a UNICORN Binance Suite License](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/logo/LUCIT-UBS-License-Offer.png)](https://shop.lucit.services)
 
-[![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
 [![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/releases)
 [![GitHub Downloads](https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/total?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/releases)
-[![Conda Release](https://img.shields.io/conda/vn/conda-forge/unicorn-binance-trailing-stop-loss.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-trailing-stop-loss)
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/unicorn-binance-trailing-stop-loss.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-trailing-stop-loss)
+![Anaconda Release](https://img.shields.io/conda/v/lucit/unicorn-binance-trailing-stop-loss?color=blue)
+![Anaconda Downloads](https://img.shields.io/conda/dn/lucit/unicorn-binance-trailing-stop-loss?color=blue)
 [![PyPi Release](https://img.shields.io/pypi/v/unicorn-binance-trailing-stop-loss?color=blue)](https://pypi.org/project/unicorn-binance-trailing-stop-loss/)
 [![PyPi Downloads](https://pepy.tech/badge/unicorn-binance-trailing-stop-loss)](https://pepy.tech/project/unicorn-binance-trailing-stop-loss)
-[![License](https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss.svg?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-LSOSL-blue)](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/license.html)
 [![Supported Python Version](https://img.shields.io/pypi/pyversions/unicorn_binance_trailing_stop_loss.svg)](https://www.python.org/downloads/)
 [![PyPI - Status](https://img.shields.io/pypi/status/unicorn_binance_trailing_stop_loss.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues)
+[![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
 [![CodeQL](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml)
 [![Unit Tests](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml)
-[![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-trailing-stop-loss-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15963&branchName=main)
-[![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
+[![Build and Publish GH+PyPi](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml)
+[![Build and Publish Anaconda](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml)
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/)
 [![Read How To`s](https://img.shields.io/badge/read-%20howto-yellow)](https://medium.lucit.tech)
-[![Telegram](https://img.shields.io/badge/chat-telegram-41ab8c)](https://t.me/unicorndevs)
-[![Gitter](https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-trailing-stop-loss.svg)](https://gitter.im/unicorn-binance-suite/unicorn-binance-trailing-stop-loss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
+[![Telegram](https://img.shields.io/badge/community-telegram-41ab8c)](https://t.me/unicorndevs)
+[![Gitter](https://img.shields.io/badge/community-gitter-41ab8c)](https://gitter.im/unicorn-binance-suite/unicorn-binance-trailing-stop-loss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Get Free Professional Support](https://img.shields.io/badge/chat-lucit%20support-004166)](https://www.lucit.tech/get-support.html)
 
 [![LUCIT-UBTSL-Banner](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/logo/LUCIT-UBTSL-Banner-Readme.png)](https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html)
 
@@ -26,13 +28,10 @@
 [Description](#description) | [Smart Entry](#smart-entry) | [Installation](#installation-and-upgrade) | 
 [Documentation](#documentation) | [Examples](#examples) | [Change Log](#change-log) | [Wiki](#wiki) | [Social](#social) |
 [Notifications](#receive-notifications) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
-[Contributing](#contributing) | [Leave a review](#you-want-to-say-thank-you) | [Disclaimer](#disclaimer) | [Commercial Support](#commercial-support)
+[Contributing](#contributing) | [Disclaimer](#disclaimer) | [Commercial Support](#commercial-support)
 
-A Python library with a [command line interface](https://www.lucit.tech/ubtsl-cli.html) for a trailing stop loss and 
+A Python library by [LUCIT](https://www.lucit.tech) with a [command line interface](https://www.lucit.tech/ubtsl-cli.html) for a trailing stop loss and 
 [smart entry](https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html#smart-entry) on the Binance exchange.
-
-As [`UNICORN Binance Trailing Stop Loss Bot`](https://www.lucit.tech/unicorn-binance-trailing-stop-loss-bot.html)
-we also offer a standalone version that does not require an installed Python environment.
 
 Please read carefully all provided [documentation](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/), our
 [disclaimer](#disclaimer) and look in the 
@@ -41,11 +40,17 @@ problems before using this tool - ***you use it at your own risk!***
 
 If you put this engine on a market, you should stop trading manually on this market yourself!
 
-Part of ['UNICORN Binance Suite'](https://www.lucit.tech/unicorn-binance-suite.html).
+Part of '[UNICORN Binance Suite](https://www.lucit.tech/unicorn-binance-suite.html)'.
+
+[Get help](https://www.lucit.tech/get-support.html) with the integration of the `UNICORN Binance Suite` modules!
+
+## Get a UNICORN Binance Suite License
+
+To run modules of the *UNICORN Binance Suite* you need a [valid license](https://medium.lucit.tech/how-to-obtain-and-use-a-unicorn-binance-suite-license-key-and-run-the-ubs-module-according-to-best-87b0088124a8#4ca4)!
 
 ## How to start the trailing stop loss engine:
 ```python
-from unicorn_binance_trailing_stop_loss.manager import BinanceTrailingStopLossManager
+from unicorn_binance_trailing_stop_loss import BinanceTrailingStopLossManager
 
 
 def callback_error(msg):
@@ -83,15 +88,11 @@ ubtsl = BinanceTrailingStopLossManager(callback_error=callback_error,
                                        telegram_send_to="telegram_send_to")
 ```
 
-### Stop the engine:
+## Stop the engine:
 ```python
 ubtsl.stop_manager()
 ```
 
-### Get the right [logger](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/example_logging.py):
-```python
-logging.getLogger("unicorn_binance_trailing_stop_loss")
-```
 
 [Discover more possibilities](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/unicorn_binance_trailing_stop_loss.html).
 
@@ -107,7 +108,7 @@ The Python package [UNICORN Binance Trailing Stop Loss](https://www.lucit.tech/u
 provides a reuseable library and [CLI interface](https://www.lucit.tech/ubtsl-cli.html).
 
 After starting the engine, a stop/loss order is placed on Binance and trailed until it is completely fulfilled. If desired, a 
-notification can be sent via email and Telegram afterwards. Then it calls the function 
+notification can be sent via email and Telegram afterward. Then it calls the function 
 passed with the `callback_finished` parameter or on error it calls the function passed to `callback_error`. 
 
 Partially filled orders are currently not handled by the engine. If you want to react individually to this event, you 
@@ -132,10 +133,17 @@ used API weight!)
 | [Binance Margin](https://www.binance.com)          | `binance.com-margin`          | ![yes](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/ok-icon.png) | ![yes](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/x-icon.png)                 |
 
 - All parameters that expect numbers can be configured with fixed numerical values as well as with percentage values.
+
 - Integrated notification system (e-Mail and Telegram).
+
 - Test "notification", "binance-connectivity" and "streams" without starting the engine.
+
 - Powered by [UNICORN Binance REST API](https://www.lucit.tech/unicorn-binance-rest-api.html) and 
 [UNICORN Binance WebSocket API](https://www.lucit.tech/unicorn-binance-websocket-api.html).
+
+- Available as a package via `pip` and `conda` as precompiled C extension with stub files for improved Intellisense 
+  functions and source code for easier debugging of the source code. [To the installation.](#installation-and-upgrade)
+
 - Well tested on Linux, Mac and Windows.
 
 If you like the project, please [![star](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/star.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/stargazers) it on 
@@ -150,36 +158,78 @@ By activating the `jump-in-and-trail` engine, the engine first buys the predefin
 automatically. 
 
 ## Installation and Upgrade
-The module requires Python 3.7 or above.
+The module requires Python 3.7 and runs smoothly up to and including Python 3.12.
 
-The current dependencies are listed 
-[here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/requirements.txt).
+For the PyPy interpreter we offer packages only from Python version 3.9 and higher.
 
-If you run into errors during the installation take a look [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/wiki/Installation).
+Anaconda packages are available from Python version 3.8 and higher, but only in the latest version!
 
-If you just want to install the `UNICORN Binance Trailing Stop Loss Bot` read 
-[this!](https://www.lucit.tech/unicorn-binance-trailing-stop-loss-bot.html)
+The current dependencies are listed [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/requirements.txt).
 
-### A wheel and a source file of the latest release with `pip` from [PyPI](https://pypi.org/project/unicorn-binance-trailing-stop-loss/)
+If you run into errors during the installation take a look [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite/wiki/Installation).
+
+### Packages are created automatically with GitHub Actions
+When a new release is to be created, we start two GitHubActions: 
+
+- [Build and Publish Anaconda](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml)
+- [Build and Publish GH+PyPi](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml) 
+
+Both start virtual Windows/Linux/Mac servers provided by GitHub in the cloud with preconfigured environments and 
+create the respective compilations and stub files, pack them into wheels and conda packages and then publish them on 
+GitHub, PYPI and Anaconda. This is a transparent method that makes it possible to trace the source code behind a 
+compilation.
+
+### A Cython binary, PyPy or source code based CPython wheel of the latest version with `pip` from [PyPI](https://pypi.org/project/unicorn-binance-rest-api/)
+Our [Cython](https://cython.org/) and [PyPy](https://www.pypy.org/) Wheels are available on [PyPI](https://pypi.org/), 
+these wheels offer significant advantages for Python developers:
+
+- ***Performance Boost with Cython Wheels:*** Cython is a programming language that supplements Python with static typing and C-level performance. By compiling 
+  Python code into C, Cython Wheels can significantly enhance the execution speed of Python code, especially in 
+  computationally intensive tasks. This means faster runtimes and more efficient processing for users of our package. 
+
+- ***PyPy Wheels for Enhanced Efficiency:*** PyPy is an alternative Python interpreter known for its speed and efficiency. It uses Just-In-Time (JIT) compilation, 
+  which can dramatically improve the performance of Python code. Our PyPy Wheels are tailored for compatibility with 
+  PyPy, allowing users to leverage this speed advantage seamlessly.
+
+Both Cython and PyPy Wheels on PyPI make the installation process simpler and more straightforward. They ensure that 
+you get the optimized version of our package with minimal setup, allowing you to focus on development rather than 
+configuration.
+
+#### Installation
+`pip install unicorn-binance-trailing-stop-loss`
+
+#### Update
 `pip install unicorn-binance-trailing-stop-loss --upgrade`
 
-### A conda package of the latest release with `conda` from [Anaconda](https://anaconda.org/conda-forge/unicorn-fy) via [CONDA-FORGE](https://conda-forge.org).
-`conda install -c conda-forge unicorn-binance-trailing-stop-loss`
+### A Conda Package of the latest version with `conda` from [Anaconda](https://anaconda.org/lucit)
+The `unicorn-binance-trailing-stop-loss` package is also available as a Cython version for the `linux-64`, `osx-64` 
+and `win-64` architectures with [Conda](https://docs.conda.io/en/latest/) through the [`lucit` channel](https://anaconda.org/lucit). 
 
-`conda update -c conda-forge unicorn-binance-trailing-stop-loss`
+For optimal compatibility and performance, it is recommended to source the necessary dependencies from the 
+[`conda-forge` channel](https://anaconda.org/conda-forge). 
 
-### From source of the latest release with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
+#### Installation
+```
+conda config --add channels conda-forge
+conda config --add channels lucit
+conda install -c lucit unicorn-binance-trailing-stop-loss
+```
+
+#### Update
+`conda update -c lucit unicorn-binance-trailing-stop-loss`
+
+### From source of the latest release with PIP from [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
 #### Linux, macOS, ...
 Run in bash:
 
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/archive/$(curl -s https://api.github.com/repos/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 
 #### Windows
-Use the below command with the version (such as 0.7.0) you determined 
+Use the below command with the version (such as 1.1.0) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/releases/latest):
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/archive/0.7.0.tar.gz --upgrade`
-### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/archive/1.1.0.tar.gz --upgrade`
+### From the latest source (dev-stage) with PIP from [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
 This is not a release version and can not be considered to be stable!
 
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/tarball/master --upgrade`
@@ -190,6 +240,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
  and use:
 
 - ./environment.yml
+- ./pyproject.toml
 - ./requirements.txt
 - ./setup.py
 
@@ -199,14 +250,16 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 ## Documentation
 - [General](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech)
 - [Modules](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/modules.html)
-- [CLI](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/CLI.html)
-- [Bot](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/Bot.html)
+- [CLI](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/cli.html)
 
 ## Examples
 - [example_logging.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/example_logging.py)
 
+## Howto
+- [How to Obtain and Use a Unicorn Binance Suite License Key and Run the UBS Module According to Best Practice](https://medium.lucit.tech/how-to-obtain-and-use-a-unicorn-binance-suite-license-key-and-run-the-ubs-module-according-to-best-87b0088124a8)
+
 ## Project Homepage
-[https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)
+[https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html](https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html)
 
 ## Wiki
 [https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/wiki](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/wiki)
@@ -227,16 +280,15 @@ with using
 or you use the 
 [monitoring API service](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/wiki/UNICORN-Monitoring-API-Service).
 
-Follow us on [Twitter](https://twitter.com/LUCIT_SysDev) or on [Facebook](https://www.facebook.com/lucit.systems.and.development) for general news about the [unicorn-binance-suite](https://www.lucit.tech/unicorn-binance-suite.html)!
+Follow us on [LinkedIn](https://www.linkedin.com/company/lucit-systems-and-development), 
+[X](https://twitter.com/LUCIT_SysDev) or [Facebook](https://www.facebook.com/lucit.systems.and.development)!
 
 To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups: 
 
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
 - [https://t.me/binance_api_english](https://t.me/binance_api_english)
-- [https://t.me/Binance_JEX_EN](https://t.me/Binance_JEX_EN)
 - [https://t.me/Binance_USA](https://t.me/Binance_USA)
 - [https://t.me/TRBinanceTR](https://t.me/TRBinanceTR)
-- [https://t.me/BinanceDEXchange](https://t.me/BinanceDEXchange)
 - [https://t.me/BinanceExchange](https://t.me/BinanceExchange)
 
 ## How to report Bugs or suggest Improvements?
@@ -246,7 +298,7 @@ click ![thumbs-up](https://raw.githubusercontent.com/lucit-systems-and-developme
 Before you report a bug, [try the latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss#installation-and-upgrade). If the issue still exists, provide the error trace, OS 
 and Python version and explain how to reproduce the error. A demo script is appreciated.
 
-If you dont find an issue related to your topic, please open a new [issue](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues)!
+If you don't find an issue related to your topic, please open a new [issue](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/issues)!
 
 [Report a security bug!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/security/policy)
 
@@ -260,9 +312,6 @@ contribute follow
 [![Contributors](https://contributors-img.web.app/image?repo=LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/graphs/contributors)
 
 We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-trailing-stop-loss/master/images/misc/heart.png) open source!
-
-## You want to say Thank You?
-We hope you are enjoying using our libraries and that they are proving to be useful to you. If you have a moment, we would greatly appreciate it if you could leave us a [review on Google](https://g.page/r/CbfHlcs8BfG8EAg/review). Thank you for your support!
 
 ## Disclaimer
 This project is for informational purposes only. You should not construe this information or any other material as 

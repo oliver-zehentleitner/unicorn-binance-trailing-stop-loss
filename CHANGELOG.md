@@ -5,11 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to 
 [Semantic Versioning](http://semver.org/).
 
-[How to upgrade to the latest version!](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/README.html#installation-and-upgrade)
+[How to upgrade to the latest version!](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 0.8.0.dev (development stage/unreleased/unstable)
+## 1.1.0.dev (development stage/unreleased/unstable)
+### Changed
+- build_wheels.yml: Upgraded `cibuildwheel` from `v2.16.2` to `v3.4.1`; updated runner OS from `ubuntu-20.04`/`windows-2019`/`macos-11` to `ubuntu-24.04`/`windows-2025`/`macos-14`; upgraded `upload-artifact`, `download-artifact` to `v4` and `action-gh-release` to `v2`
+
+## 1.1.0
+### Added
+- `manager.is_manager_stopping()`
+- Support for "binance.com"
+
+## 1.0.0
 ### Added
 - Additional info for a better user experience
+- Support for Python 3.11 and 3.12
+- Integration of the `lucit-licensing-python` library for verifying the UNICORN Binance Suite license. A license can be 
+  purchased in the LUCIT Online Shop: https://shop.lucit.services/software/unicorn-binance-suite
+- License change from MIT to LSOSL - LUCIT Synergetic Open Source License:
+  https://github.com/LUCIT-Systems-and-Development/unicorn-binance-trailing-stop-loss/blob/master/LICENSE
+- Conversion to a C++ compiled Cython package with precompiled as well as PyPy and source code wheels.
+- Setup of a "Trusted Publisher" deployment chain. The source code is transparently packaged into wheels directly from
+  the GitHub repository by a GitHub action for all possible platforms and published directly as a new release on GitHub
+  and PyPi. A second process from Conda-Forge then uploads it to Anaconda. Thus, the entire deployment process is
+  transparent and the user can be sure that the compilation of a version fully corresponds to the source code.
+- Support for `with`-context.
 
 ## 0.8.0
 ### Added
