@@ -50,7 +50,6 @@ setup(
         'Changes': 'https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html',
         'License': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE',
         'Issue Tracker': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues',
-        'Chat': 'https://gitter.im/unicorn-binance-suite/unicorn-binance-trailing-stop-loss',
         'Telegram': 'https://t.me/unicorndevs',
      },
      python_requires='>=3.9.0',

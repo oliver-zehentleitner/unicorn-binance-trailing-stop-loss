@@ -18,7 +18,6 @@ repository = "https://github.com/oliver-zehentleitner/unicorn-binance-trailing-s
 'License' = 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE'
 'Issue Tracker' = 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues'
 'Telegram' = 'https://t.me/unicorndevs'
-'Chat' = 'https://app.gitter.im/#/room/#unicorn-binance-trailing-stop-loss:gitter.im'
 
 [tool.poetry.dependencies]
 python = ">=3.9.0"
