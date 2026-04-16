@@ -10,7 +10,10 @@ jobs:
     name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     env:
-      CIBW_PYPY_VERSION: "7.3.10*"
+      CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*"
+      CIBW_ARCHS_LINUX: "x86_64"
+      CIBW_ARCHS_MACOS: "x86_64 arm64 universal2"
+      CIBW_ARCHS_WINDOWS: "AMD64"
     strategy:
       matrix:
         os: [ubuntu-24.04, windows-2025, macos-14]
@@ -25,8 +28,14 @@ jobs:
         run: echo "CIBW_SKIP=pp36-* pp37-*" >> $GITHUB_ENV
 
       - name: Check ENV
-        if: matrix.os == 'ubuntu-20.04'
+        if: matrix.os == 'ubuntu-24.04'
         run: echo $PATH
+
+      - name: Setup Python 3.13+ for non-Windows
+        if: matrix.os != 'windows-2025'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
 
       - name: Build wheels Linux
         if: matrix.os == 'ubuntu-24.04'
@@ -43,6 +52,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
+          name: artifact-${{ matrix.os }}
           path: ./wheelhouse/*.whl
 
   build_sdist:
@@ -59,6 +69,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: dist/*.tar.gz
+          overwrite: true
 
   Release:
     needs: [build_wheels, build_sdist]
@@ -72,8 +83,14 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
-          name: artifact
           path: dist
+
+      - name: Move all artifacts into dist_upload/
+        run: |
+          rm -rf dist_upload
+          mkdir -p dist_upload
+          find dist -name '*.whl' -exec cp {} dist_upload/ \;
+          find dist -name '*.tar.gz' -exec cp {} dist_upload/ \;
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -82,9 +99,9 @@ jobs:
             Please read the [CHANGELOG](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/CHANGELOG.md) for further information.
           discussion_category_name: releases
           draft: false
-          files: | 
-            dist/*.tar.gz
-            dist/*.whl
+          files: |
+            dist_upload/*.tar.gz
+            dist_upload/*.whl
           generate_release_notes: true
           name: unicorn-binance-trailing-stop-loss
           prerelease: false
@@ -93,3 +110,7 @@ jobs:
 
       - name: Create PyPi Release
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist_upload
+          verbose: true
+          print-hash: true
