@@ -34,6 +34,7 @@ import ssl
 import sys
 import threading
 import time
+from discord import SyncWebhook
 
 __app_name__ = "unicorn-binance-trailing-stop-loss"
 __version__ = "1.1.0.dev"
@@ -182,6 +183,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
                  callback_finished: Optional[type(abs)] = None,
                  callback_partially_filled: Optional[type(abs)] = None,
                  disable_colorama: bool = False,
+                 discord_webhook: str = None,
                  engine: str = "trail",
                  exchange: str = "binance.com",
                  keep_threshold: str = None,
@@ -227,6 +229,9 @@ class BinanceTrailingStopLossManager(threading.Thread):
         self.callback_finished = callback_finished
         self.callback_partially_filled = callback_partially_filled
         self.current_price: float = 0.0
+        if discord_webhook is not None:
+            self.discord_webhook = discord_webhook
+            self.client_discord = SyncWebhook.from_url(discord_webhook)
         self.engine = engine
         self.exchange = exchange
         self.exchange_info: dict = {}
@@ -1166,6 +1171,25 @@ class BinanceTrailingStopLossManager(threading.Thread):
             self.logger.info(f"BinanceTrailingStopLossManager.start() - Using provided stop_loss_price="
                              f"{self.stop_loss_price}")
             self.create_stop_loss_order(self.stop_loss_price)
+
+    def send_discord_notification(self, message: str = None) -> bool:
+        """
+        Send a notification via discord!
+
+        :param message: Text to send via discord.
+        :type message: str
+
+        :return:
+        """
+        self.logger.debug(f"BinanceTrailingStopLossManager.send_discord_notification() - msg: {message}")
+        if self.discord_webhook:
+            try:
+                self.client_discord.send(message)
+                self.logger.info(f"BinanceTrailingStopLossManager.send_discord_notification() - message sent")
+                return True
+            except Exception as error_msg:
+                self.logger.info(f"BinanceTrailingStopLossManager.send_discord_notification() - {error_msg}")
+                return False
 
     def send_email_notification(self,
                                 message: str = None) -> bool:
