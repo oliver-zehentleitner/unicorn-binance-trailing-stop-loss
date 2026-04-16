@@ -49,9 +49,9 @@ async def cli():
     log_format = "{asctime} [{levelname:8}] {process} {thread} {module}: {message}"
 
     parser = argparse.ArgumentParser(
-        description=f"UNICORN Binance Trailing Stop Loss {version} by Oliver Zehentleitner "
-                    f"(MIT License)",
-        prog=f"ubtsl",
+        prog='ubtsl',
+        description=f'UNICORN Binance Trailing Stop Loss {version}\n'
+                    f'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=textwrap.dedent('''\
              examples:
@@ -60,39 +60,27 @@ async def cli():
 
                  Show program version:
                  $ ubtsl --version
-                 
+
                  Test the connectivity to the Binance API:
                  $ ubtsl --test binance-connectivity
 
                  Test notifications:
                  $ ubtsl --test notification
-                 
+
                  Start with profile "BTCUSDT_SELL" and overwrite the stoplosslimit:
                  $ ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
- 
+
                  List all open orders:
-                 $ ubtsl --exchange "binance.com" --market "BTCUSDT" --listopenorders 
-                 $ ubtsl --profile BTCUSDT_SELL --listopenorders 
-             
-             additional information:
-                 Author: https://about.me/oliver-zehentleitner
-                 Changes: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html
-                 Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
-                 Issue Tracker: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues
-                 Source: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
-                 Wiki: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/wiki
-                 
+                 $ ubtsl --exchange "binance.com" --market "BTCUSDT" --listopenorders
+                 $ ubtsl --profile BTCUSDT_SELL --listopenorders
+
              disclaimer:
-                 This project is for informational purposes only. You should not construe this information or any other material as 
-                 legal, tax, investment, financial or other advice. Nothing contained herein constitutes a solicitation, recommendation, 
-                 endorsement or offer by us or any third party provider to buy or sell any securities or other financial instruments in 
-                 this or any other jurisdiction in which such solicitation or offer would be unlawful under the securities laws of such 
-                 jurisdiction.
-                
-                 If you intend to use real money, use it at your own risk.
-                
-                 Under no circumstances will we be responsible or liable for any claims, damages, losses, expenses, costs or liabilities 
-                 of any kind, including but not limited to direct or indirect damages for loss of profits.
+                 This project is for informational purposes only. You should not construe this
+                 information or any other material as legal, tax, investment, financial or other
+                 advice. If you intend to use real money, use it at your own risk. Under no
+                 circumstances will we be responsible or liable for any claims, damages, losses,
+                 expenses, costs or liabilities of any kind, including but not limited to direct
+                 or indirect damages for loss of profits.
              '''))
 
     parser.add_argument('-ak', '--apikey',
