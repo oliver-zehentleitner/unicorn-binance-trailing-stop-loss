@@ -27,7 +27,7 @@ author = 'Oliver Zehentleitner'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '1.1.0'
+release = '1.2.0'
 
 html_last_updated_fmt = "%b %d %Y at %H:%M (CET)"
 
@@ -87,8 +87,6 @@ html_theme = 'python_docs_theme_ubs'
 html_context = {'github_user_name': 'oliver-zehentleitner',
                 'github_repo_name': 'unicorn-binance-trailing-stop-loss',
                 'project_name': project,
-                'matomo_url': "https://webmon.lucit.services/matomo.php?idsite=9&amp;rec=1",
-                'freshchat_src': "//eu.fw-cdn.com/10659511/361973.js",
                 'lucit': True}
 
 myst_heading_anchors = 3

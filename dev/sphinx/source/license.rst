@@ -1,5 +1,5 @@
 MIT License
-============================================
+===========
 
 Copyright (c) 2022-2025 Oliver Zehentleitner, https://about.me/oliver-zehentleitner
 

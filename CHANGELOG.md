@@ -7,7 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 1.1.0.dev (development stage/unreleased/unstable)
+## 1.2.0.dev (development stage/unreleased/unstable)
+
+## 1.2.0
 ### Changed
 - build_wheels.yml: Upgraded `cibuildwheel` from `v2.16.2` to `v3.4.1`; updated runner OS from `ubuntu-20.04`/`windows-2019`/`macos-11` to `ubuntu-24.04`/`windows-2025`/`macos-14`; upgraded `upload-artifact`, `download-artifact` to `v4` and `action-gh-release` to `v2`
 
