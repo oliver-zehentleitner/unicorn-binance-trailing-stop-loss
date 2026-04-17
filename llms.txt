@@ -1,0 +1,79 @@
+# UNICORN Binance Trailing Stop Loss (UBTSL)
+
+> Trailing stop loss engine for Binance. Available as Python SDK and CLI tool.
+> Part of [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
+
+Install: `pip install unicorn-binance-trailing-stop-loss`
+Import: `from unicorn_binance_trailing_stop_loss import BinanceTrailingStopLossManager`
+
+## Quick Start — SDK
+
+```python
+# use case: trail a stop loss on BTCUSDT
+from unicorn_binance_trailing_stop_loss import BinanceTrailingStopLossManager
+
+def on_error(msg):
+    print(f"Error: {msg}")
+
+def on_finished(msg):
+    print(f"Finished: {msg}")
+
+with BinanceTrailingStopLossManager(
+    api_key="...",
+    api_secret="...",
+    exchange="binance.com",
+    market="BTCUSDT",
+    stop_loss_limit="2%",
+    stop_loss_order_type="LIMIT",
+    callback_error=on_error,
+    callback_finished=on_finished,
+    print_notifications=True
+) as ubtsl:
+    while not ubtsl.is_manager_stopping():
+        pass
+```
+
+## Quick Start — CLI
+
+```sh
+pip install unicorn-binance-trailing-stop-loss
+
+# Create config files
+ubtsl --createconfigini
+ubtsl --createprofilesini
+
+# Run with profile
+ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
+
+# Test connectivity
+ubtsl --test binance-connectivity
+```
+
+## Key Parameters
+
+### BinanceTrailingStopLossManager()
+| Parameter | Type | Default | Purpose |
+|-----------|------|---------|---------|
+| api_key | str | None | Binance API key |
+| api_secret | str | None | Binance API secret |
+| exchange | str | "binance.com" | Exchange endpoint |
+| market | str | None | Trading pair, e.g. "BTCUSDT" |
+| stop_loss_limit | str | None | Trail distance: "2%" or "50" (fixed) |
+| stop_loss_order_type | str | None | "LIMIT" or "MARKET" |
+| stop_loss_price | float | None | Initial stop loss price |
+| engine | str | "trail" | "trail" or "jump-in-and-trail" (smart entry) |
+| callback_error | callable | None | Called on error |
+| callback_finished | callable | None | Called when order filled |
+| callback_partially_filled | callable | None | Called on partial fill |
+| print_notifications | bool | False | Print status to terminal |
+| start_engine | bool | True | Start trailing immediately |
+
+## Supported Exchanges
+
+`binance.com`, `binance.com-testnet`, `binance.com-futures`, `binance.com-margin`, `binance.com-isolated_margin`
+
+## Common Mistakes
+
+- `stop_loss_order_type` must be set or the engine will NOT start
+- The engine runs in a background thread — use `with` context or a while loop
+- For smart entry, set `engine="jump-in-and-trail"` AND provide `borrow_threshold`
