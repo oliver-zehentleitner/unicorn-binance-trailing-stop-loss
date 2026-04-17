@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [How to upgrade to the latest version!](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/readme.html#installation-and-upgrade)
 
 ## 1.3.0.dev (development stage/unreleased/unstable)
+### Fixed
+- Added `MANIFEST.in` so the source tarball on PyPI actually ships the
+  Python sources of the package. Previously only `setup.py` was included
+  which made the sdist unbuildable (e.g. conda-forge builds from sdist).
 
 ## 1.3.0
 ### Added

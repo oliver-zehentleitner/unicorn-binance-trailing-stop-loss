@@ -1,0 +1,1 @@
+recursive-include unicorn_binance_trailing_stop_loss *.py *.pyi *.c *.pyx *.so *.dll *.pyd
