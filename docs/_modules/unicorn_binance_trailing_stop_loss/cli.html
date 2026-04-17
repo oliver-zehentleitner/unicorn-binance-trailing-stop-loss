@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>unicorn_binance_trailing_stop_loss.cli &#8212; unicorn-binance-trailing-stop-loss 1.2.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unicorn_binance_trailing_stop_loss.cli &#8212; unicorn-binance-trailing-stop-loss 1.3.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../../_static/pydoctheme.css?v=fdf8e9ae" />
@@ -95,8 +95,8 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
               
-              <li><img src="../../_static/github-logo.png" alt="GitHub Logo" style="vertical-align: middle; margin-top: -1px"/></li>
               <li><a href="https://oliver-zehentleitner.github.io/unicorn-binance-suite/docs_index.html">Docs Index</a> | </li>
+              <li><img src="../../_static/github-logo.png" alt="GitHub Logo" style="vertical-align: middle; margin-top: -1px"/></li>
               <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss">unicorn-binance-trailing-stop-loss</a> &#187;</li>
               
               
@@ -176,7 +176,9 @@
     <span class="n">version</span> <span class="o">=</span> <span class="n">BinanceTrailingStopLossManager</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
     <span class="n">os_type</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
     <span class="n">home_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="si">}{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="n">config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">home_path</span><span class="si">}</span><span class="s2">.lucit</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">ubs_base</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">home_path</span><span class="si">}</span><span class="s2">.unicorn-binance-suite</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">config_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ubs_base</span><span class="si">}</span><span class="s2">config</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">log_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ubs_base</span><span class="si">}</span><span class="s2">logs</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">log_format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{asctime}</span><span class="s2"> [</span><span class="si">{levelname:8}</span><span class="s2">] </span><span class="si">{process}</span><span class="s2"> </span><span class="si">{thread}</span><span class="s2"> </span><span class="si">{module}</span><span class="s2">: </span><span class="si">{message}</span><span class="s2">&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
@@ -350,7 +352,7 @@
     <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">logfile</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">logfile</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">logfile</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">logfile</span> <span class="o">=</span> <span class="n">config_path</span> <span class="o">+</span> <span class="s1">&#39;ubtsl.log&#39;</span>
+        <span class="n">logfile</span> <span class="o">=</span> <span class="n">log_path</span> <span class="o">+</span> <span class="s1">&#39;ubtsl.log&#39;</span>
 
     <span class="c1"># Log level</span>
     <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">loglevel</span> <span class="o">==</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">:</span>
@@ -512,12 +514,9 @@
         <span class="n">config_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">configfile</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Load config from default filenames</span>
-        <span class="n">config_file_lucit</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config_path</span><span class="si">}</span><span class="s2">trading_tools.ini&quot;</span>
-        <span class="n">config_file_cwd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ubtsl_config.ini&quot;</span>
+        <span class="n">config_file_cwd</span> <span class="o">=</span> <span class="s2">&quot;ubtsl_config.ini&quot;</span>
         <span class="n">config_file_home</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config_path</span><span class="si">}</span><span class="s2">ubtsl_config.ini&quot;</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">config_file_lucit</span><span class="p">):</span>
-            <span class="n">config_file</span> <span class="o">=</span> <span class="n">config_file_lucit</span>
-        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">config_file_cwd</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">config_file_cwd</span><span class="p">):</span>
             <span class="n">config_file</span> <span class="o">=</span> <span class="n">config_file_cwd</span>
         <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">config_file_home</span><span class="p">):</span>
             <span class="n">config_file</span> <span class="o">=</span> <span class="n">config_file_home</span>
@@ -858,8 +857,8 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
               
-              <li><img src="../../_static/github-logo.png" alt="GitHub Logo" style="vertical-align: middle; margin-top: -1px"/></li>
               <li><a href="https://oliver-zehentleitner.github.io/unicorn-binance-suite/docs_index.html">Docs Index</a> | </li>
+              <li><img src="../../_static/github-logo.png" alt="GitHub Logo" style="vertical-align: middle; margin-top: -1px"/></li>
               <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss">unicorn-binance-trailing-stop-loss</a> &#187;</li>
               
               
@@ -887,7 +886,7 @@
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-suite#documentation">Index of all docs</a><br />
     &copy; <a href="/license.html">Copyright</a> 2022-2025, Oliver Zehentleitner.
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Apr 16 2026 at 19:47 (CET).
+    Last updated on Apr 17 2026 at 14:47 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
