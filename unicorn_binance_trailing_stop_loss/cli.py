@@ -45,7 +45,10 @@ async def cli():
     version = BinanceTrailingStopLossManager.get_version()
     os_type = platform.system()
     home_path = f"{Path.home()}{os.sep}"
-    config_path = f"{home_path}.lucit{os.sep}"
+    ubs_base = f"{home_path}.unicorn-binance-suite{os.sep}"
+    config_path = f"{ubs_base}config{os.sep}"
+    log_path = f"{ubs_base}logs{os.sep}"
+    legacy_config_path = f"{home_path}.lucit{os.sep}"
     log_format = "{asctime} [{levelname:8}] {process} {thread} {module}: {message}"
 
     parser = argparse.ArgumentParser(
@@ -219,7 +222,7 @@ async def cli():
     if options.logfile is True:
         logfile = options.logfile
     else:
-        logfile = config_path + 'ubtsl.log'
+        logfile = log_path + 'ubtsl.log'
 
     # Log level
     if options.loglevel == "DEBUG":
@@ -381,15 +384,22 @@ async def cli():
         config_file = str(options.configfile)
     else:
         # Load config from default filenames
-        config_file_lucit = f"{config_path}trading_tools.ini"
-        config_file_cwd = f"ubtsl_config.ini"
+        config_file_cwd = "ubtsl_config.ini"
         config_file_home = f"{config_path}ubtsl_config.ini"
-        if os.path.isfile(config_file_lucit):
-            config_file = config_file_lucit
-        elif os.path.isfile(config_file_cwd):
+        config_file_legacy = f"{legacy_config_path}ubtsl_config.ini"
+        config_file_legacy_tt = f"{legacy_config_path}trading_tools.ini"
+        if os.path.isfile(config_file_cwd):
             config_file = config_file_cwd
         elif os.path.isfile(config_file_home):
             config_file = config_file_home
+        elif os.path.isfile(config_file_legacy):
+            config_file = config_file_legacy
+            print(f"WARNING: Loading config from deprecated path `{config_file_legacy}`. "
+                  f"Please move your config files to `{config_path}`.")
+        elif os.path.isfile(config_file_legacy_tt):
+            config_file = config_file_legacy_tt
+            print(f"WARNING: Loading config from deprecated path `{config_file_legacy_tt}`. "
+                  f"Please move your config files to `{config_path}`.")
         else:
             config_file = None
             if not options.openconfigini and not options.openprofilesini:
@@ -407,10 +417,15 @@ async def cli():
     else:
         profiles_file_cwd = "ubtsl_profiles.ini"
         profiles_file_home = f"{config_path}ubtsl_profiles.ini"
+        profiles_file_legacy = f"{legacy_config_path}ubtsl_profiles.ini"
         if os.path.isfile(profiles_file_cwd):
             profiles_file = profiles_file_cwd
         elif os.path.isfile(profiles_file_home):
             profiles_file = profiles_file_home
+        elif os.path.isfile(profiles_file_legacy):
+            profiles_file = profiles_file_legacy
+            print(f"WARNING: Loading profiles from deprecated path `{profiles_file_legacy}`. "
+                  f"Please move your config files to `{config_path}`.")
         else:
             profiles_file = None
 

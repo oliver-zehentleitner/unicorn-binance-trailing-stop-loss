@@ -37,7 +37,7 @@ After startup `ubtsl` tries to load a
 [`ubtsl_config.ini`](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_config.ini)
 and a
 [`ubtsl_profiles.ini`](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini)
-file from the `{home}/.lucit/` and the current working directory. Alternatively, you can specify these files explicitly with the
+file from the `{home}/.unicorn-binance-suite/config/` and the current working directory. Alternatively, you can specify these files explicitly with the
 `--configfile` and `--profilesfile` parameters.
 
 Once the tool is started, it trails the stop/loss order until it is completely fulfilled, sends the notifications, and
