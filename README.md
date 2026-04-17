@@ -10,7 +10,7 @@
 [![Unit Tests](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml)
 [![Build and Publish GH+PyPi](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml)
 [![Build and Publish Anaconda](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_conda.yml)
-[![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/)
+[![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/)
 [![Read How To`s](https://img.shields.io/badge/read-%20howto-yellow)](https://technopathy.club)
 [![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
 [![Telegram](https://img.shields.io/badge/community-telegram-41ab8c)](https://t.me/unicorndevs)
@@ -22,10 +22,10 @@
 [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
 [Contributing](#contributing) | [Disclaimer](#disclaimer)
 
-A Python library with a [command line interface](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/cli.html) for a trailing stop loss and 
+A Python library with a [command line interface](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html) for a trailing stop loss and 
 smart entry on the Binance exchange.
 
-Please read carefully all provided [documentation](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/), our
+Please read carefully all provided [documentation](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/), our
 [disclaimer](#disclaimer) and look in the 
 [issues](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues) about known 
 problems before using this tool - ***you use it at your own risk!***
@@ -80,18 +80,18 @@ ubtsl.stop_manager()
 ```
 
 
-[Discover more possibilities](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/unicorn_binance_trailing_stop_loss.html).
+[Discover more possibilities](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/unicorn_binance_trailing_stop_loss.html).
 
 ## Start the engine on the command line (Windows, Linux and Mac):
 ```sh
 $ ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
 ```
 
-Read about the [CLI usage](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/cli.html).
+Read about the [CLI usage](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html).
 
 ## Description
 The Python package [UNICORN Binance Trailing Stop Loss](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss) 
-provides a reuseable library and [CLI interface](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/cli.html).
+provides a reuseable library and [CLI interface](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html).
 
 After starting the engine, a stop/loss order is placed on Binance and trailed until it is completely fulfilled. If desired, a 
 notification can be sent via email and Telegram afterward. Then it calls the function 
@@ -233,12 +233,12 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 - ./setup.py
 
 ## Change Log
-[https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/CHANGELOG.html](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/CHANGELOG.html)
+[https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/CHANGELOG.html](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/CHANGELOG.html)
 
 ## Documentation
-- [General](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech)
-- [Modules](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/modules.html)
-- [CLI](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/cli.html)
+- [General](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss)
+- [Modules](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/modules.html)
+- [CLI](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html)
 
 ## Examples
 - [example_logging.py](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/example_logging.py)
@@ -260,7 +260,7 @@ To receive notifications on available updates you can
 the repository on [GitHub](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss), write your 
 [own script](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/example_version_of_this_package.py) 
 with using 
-[`is_update_available()`](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/unicorn_binance_trailing_stop_loss.html#unicorn_binance_trailing_stop_loss.manager.BinanceWebSocketApiManager.is_update_availabe).
+[`is_update_available()`](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/unicorn_binance_trailing_stop_loss.html#unicorn_binance_trailing_stop_loss.manager.BinanceWebSocketApiManager.is_update_availabe).
 
 To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups: 
 
