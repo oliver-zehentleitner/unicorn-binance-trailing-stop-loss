@@ -4,9 +4,9 @@
 # File: unittest_binance_trailing_stop_loss.py
 #
 # Part of ‘UNICORN Binance Trailing Stop Loss’
-# Project website: https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html
+# Project website: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
 # Github: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
-# Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
+# Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss
 # PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss
 #
 # License: MIT

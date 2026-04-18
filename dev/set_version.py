@@ -4,9 +4,9 @@
 # File: dev/set_version.sh
 #
 # Part of ‘UNICORN Binance Local Depth Cache’
-# Project website: https://www.lucit.tech/unicorn-binance-local-depth-cache.html
+# Project website: https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache
 # Github: https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache
-# Documentation: https://unicorn-binance-local-depth-cache.docs.lucit.tech
+# Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-local-depth-cache
 # PyPI: https://pypi.org/project/unicorn-binance-local-depth-cache
 
 #

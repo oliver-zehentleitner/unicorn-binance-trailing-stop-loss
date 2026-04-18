@@ -4,9 +4,9 @@
 # File: setup.py
 #
 # Part of 'UNICORN Binance Trailing Stop Loss'
-# Project website: https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html
+# Project website: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
 # Github: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
-# Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
+# Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss
 # PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss
 #
 # License: MIT
@@ -44,10 +44,10 @@ setup(
      keywords='Binance, Binance Futures, Binance Margin, Binance Isolated Margin, Binance Testnet, Trailing Stop Loss, '
               'Smart Entry',
      project_urls={
-        'Documentation': 'https://unicorn-binance-trailing-stop-loss.docs.lucit.tech',
+        'Documentation': 'https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss',
         'Wiki': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/wiki',
         'Author': 'https://about.me/oliver-zehentleitner',
-        'Changes': 'https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html',
+        'Changes': 'https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/changelog.html',
         'License': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE',
         'Issue Tracker': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues',
         'Telegram': 'https://t.me/unicorndevs',
