@@ -9,6 +9,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 1.3.0.dev (development stage/unreleased/unstable)
 ### Changed
+- Bumped minimum `unicorn-binance-websocket-api` dependency from
+  `>=2.1.1` to `>=2.12.2` in `setup.py`, `requirements.txt`,
+  `pyproject.toml`, `environment.yml` and `meta.yaml`. 2.12.2 is the
+  cleanup-round UBWA release; also adds support for features relied
+  on since UBWA 2.12.
 - Replaced all remaining `lucit.tech` URLs in source files, tests and
   config with their github.com / github.io equivalents:
   - Package headers (`manager.py`, `cli.py`, `__init__.py`,
@@ -21,7 +26,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     GitHub Security Advisories private-reporting URL.
   - `CODE_OF_CONDUCT.md`: replaced the lucit.tech contact form URL
     with the project maintainer's GitHub profile.
-### Changed
 - README: switched all conda references from the legacy `lucit` channel
   to `conda-forge`. Added conda-forge version / downloads / feedstock
   build badges. Replaced the old multi-channel install block with a
