@@ -1,10 +1,10 @@
 # Changes must also be made in the following files:
 # ./environment.yml
-# ./meta.yaml
 # ./pyproject.toml
 # ./setup.py
+# https://github.com/conda-forge/unicorn-binance-trailing-stop-loss-feedstock/blob/main/recipe/meta.yaml
 
-requests
 Cython
+requests
 unicorn-binance-rest-api>=2.2.0
 unicorn-binance-websocket-api>=2.1.1
