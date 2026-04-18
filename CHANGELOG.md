@@ -8,10 +8,38 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [How to upgrade to the latest version!](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/readme.html#installation-and-upgrade)
 
 ## 1.3.0.dev (development stage/unreleased/unstable)
+### Changed
+- README: switched all conda references from the legacy `lucit` channel
+  to `conda-forge`. Added conda-forge version / downloads / feedstock
+  build badges. Replaced the old multi-channel install block with a
+  single `conda install -c conda-forge unicorn-binance-trailing-stop-loss`.
+- README: reworded the PyPy paragraph to
+  "PyPy wheels are available for all supported Python versions."
+  The old wording made sense when we shipped wheels for pre-3.9 CPython.
+  Also dropped the stale "Anaconda packages are available from Python
+  version 3.9 and higher" line.
+- Removed the "Build and Publish Anaconda" badge from the header and
+  updated the "Packages are created automatically" section to reflect
+  that conda packaging is handled by the conda-forge feedstock.
+- Aligned dependency lists across `requirements.txt`, `setup.py`,
+  `pyproject.toml`, `environment.yml` and `meta.yaml` using `setup.py`
+  as the source of truth. Added explicit `>=2.2.0` / `>=2.1.1` pins
+  on `unicorn-binance-rest-api` / `unicorn-binance-websocket-api` in
+  `environment.yml` (they had no constraint).
+- `environment.yml`: dropped the `lucit` and `defaults` channels;
+  removed `lucit::` prefixes on suite deps.
+- `meta.yaml`: removed the leftover `channels:` and `dependencies:`
+  blocks (they are `environment.yml` keys, not valid in `meta.yaml`).
+  Dropped the `lucit::` channel prefixes from suite deps. Re-embedded
+  the current `README.md` into `about.description`.
 ### Fixed
 - Added `MANIFEST.in` so the source tarball on PyPI actually ships the
   Python sources of the package. Previously only `setup.py` was included
   which made the sdist unbuildable (e.g. conda-forge builds from sdist).
+### Removed
+- `.github/workflows/build_conda.yml`: the conda-forge feedstock
+  (`conda-forge/unicorn-binance-trailing-stop-loss-feedstock`) now
+  builds and publishes the conda package; no in-repo build is needed.
 
 ## 1.3.0
 ### Added
