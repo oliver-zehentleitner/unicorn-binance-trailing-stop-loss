@@ -3,6 +3,8 @@
 > Trailing stop loss engine for Binance. Available as Python SDK and CLI tool.
 > Part of [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
+Version: 1.3.x. Python 3.9 – 3.14.
+
 Install: `pip install unicorn-binance-trailing-stop-loss`
 Import: `from unicorn_binance_trailing_stop_loss import BinanceTrailingStopLossManager`
 
@@ -58,7 +60,7 @@ ubtsl --test binance-connectivity
 | api_secret | str | None | Binance API secret |
 | exchange | str | "binance.com" | Exchange endpoint |
 | market | str | None | Trading pair, e.g. "BTCUSDT" |
-| stop_loss_limit | str | None | Trail distance: "2%" or "50" (fixed) |
+| stop_loss_limit | str | None | Trail distance: "2%" (percent) or "50" (absolute price) |
 | stop_loss_order_type | str | None | "LIMIT" or "MARKET" |
 | stop_loss_price | float | None | Initial stop loss price |
 | engine | str | "trail" | "trail" or "jump-in-and-trail" (smart entry) |
@@ -77,3 +79,23 @@ ubtsl --test binance-connectivity
 - `stop_loss_order_type` must be set or the engine will NOT start
 - The engine runs in a background thread — use `with` context or a while loop
 - For smart entry, set `engine="jump-in-and-trail"` AND provide `borrow_threshold`
+- `stop_loss_limit="2%"` trails at 2% below the reference price; `stop_loss_limit="50"` is a fixed absolute price distance:
+  ```python
+  # percent-based trail (moves with market)
+  BinanceTrailingStopLossManager(..., stop_loss_limit="2%")
+  # absolute-price trail (e.g. BTCUSDT: stop 50 USD below current)
+  BinanceTrailingStopLossManager(..., stop_loss_limit="50")
+  ```
+
+## Related Modules
+
+- [UBWA](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api) — WebSocket feed the engine trails against (can be shared via `ubwa_manager=...`).
+- [UBRA](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api) — REST client for order placement (can be shared via `ubra_manager=...`).
+
+## Docs
+
+- Repo: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
+- Docs: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/
+- PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss/
+- conda-forge: https://anaconda.org/conda-forge/unicorn-binance-trailing-stop-loss
+- Changelog: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/CHANGELOG.md
