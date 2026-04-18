@@ -9,6 +9,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 1.3.0.dev (development stage/unreleased/unstable)
 ### Changed
+- Replaced all remaining `lucit.tech` URLs in source files, tests and
+  config with their github.com / github.io equivalents:
+  - Package headers (`manager.py`, `cli.py`, `__init__.py`,
+    `unittest_binance_trailing_stop_loss.py`, `example_binance_trailing_stop_loss.py`,
+    `dev/set_version.py`): project website, docs URL, changelog URL
+    and setup.py/pyproject.toml project_urls.
+  - `.github/ISSUE_TEMPLATE/config.yml`: documentation link.
+  - `.github/FUNDING.yml`: `shop.lucit.services` → `github.com/sponsors/oliver-zehentleitner`.
+  - `SECURITY.md`: replaced the lucit.tech contact form URL with the
+    GitHub Security Advisories private-reporting URL.
+  - `CODE_OF_CONDUCT.md`: replaced the lucit.tech contact form URL
+    with the project maintainer's GitHub profile.
+### Changed
 - README: switched all conda references from the legacy `lucit` channel
   to `conda-forge`. Added conda-forge version / downloads / feedstock
   build badges. Replaced the old multi-channel install block with a

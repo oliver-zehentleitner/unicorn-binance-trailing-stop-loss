@@ -11,8 +11,8 @@ This document outlines security procedures and general policies for the
 Thank you for improving the security of `unicorn-binance-trailing-stop-loss`. We appreciate your 
 efforts and responsible disclosure and will make every effort to acknowledge your contributions.
 
-Report security bugs via our contact form: 
-https://www.lucit.tech/contact-unicorn-developers.html
+Please report security bugs privately via GitHub Security Advisories:
+https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/security/advisories/new
 
 The lead maintainer will acknowledge your email within 48 hours, and will send a
 more detailed response within 48 hours indicating the next steps in handling

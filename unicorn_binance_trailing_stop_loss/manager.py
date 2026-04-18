@@ -4,9 +4,9 @@
 # File: unicorn_binance_trailing_stop_loss/manager.py
 #
 # Part of ‘UNICORN Binance Trailing Stop Loss’
-# Project website: https://www.lucit.tech/unicorn-binance-trailing-stop-loss.html
+# Project website: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
 # Github: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
-# Documentation: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech
+# Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss
 # PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss
 #
 # License: MIT
@@ -260,7 +260,7 @@ class BinanceTrailingStopLossManager(threading.Thread):
                                                                                  warn_on_update=warn_on_update)
         if warn_on_update and self.is_update_available():
             update_msg = f"Release {self.name}_{self.get_latest_version()} is available, please consider updating! " \
-                         f"(Changelog: https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/changelog.html)"
+                         f"(Changelog: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/changelog.html)"
             print(update_msg)
             self.logger.warning(update_msg)
         try:
