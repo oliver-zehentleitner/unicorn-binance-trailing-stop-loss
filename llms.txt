@@ -3,7 +3,7 @@
 > Trailing stop loss engine for Binance. Available as Python SDK and CLI tool.
 > Part of [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
-Version: 1.3.x. Python 3.9 – 3.14.
+Version: 1.3.1. Python 3.9 – 3.14.
 
 Install: `pip install unicorn-binance-trailing-stop-loss`
 Import: `from unicorn_binance_trailing_stop_loss import BinanceTrailingStopLossManager`
