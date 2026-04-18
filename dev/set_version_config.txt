@@ -1,2 +1,2 @@
-1.3.0
+1.3.1
 meta.yaml,pyproject.toml,setup.py,README.md,.github/workflows/build_wheels.yml,dev/sphinx/source/conf.py,unicorn_binance_trailing_stop_loss/manager.py

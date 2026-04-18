@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>unicorn-binance-trailing-stop-loss Change Log &#8212; unicorn-binance-trailing-stop-loss 1.3.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unicorn-binance-trailing-stop-loss Change Log &#8212; unicorn-binance-trailing-stop-loss 1.3.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=fdf8e9ae" />
@@ -52,69 +52,75 @@
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">unicorn-binance-trailing-stop-loss Change Log</a><ul>
-<li><a class="reference internal" href="#dev-development-stage-unreleased-unstable">1.3.0.dev (development stage/unreleased/unstable)</a></li>
-<li><a class="reference internal" href="#id1">1.3.0</a><ul>
-<li><a class="reference internal" href="#added">Added</a></li>
+<li><a class="reference internal" href="#dev-development-stage-unreleased-unstable">1.3.1.dev (development stage/unreleased/unstable)</a></li>
+<li><a class="reference internal" href="#id1">1.3.1</a><ul>
 <li><a class="reference internal" href="#changed">Changed</a></li>
+<li><a class="reference internal" href="#fixed">Fixed</a></li>
 <li><a class="reference internal" href="#removed">Removed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2">1.1.0</a><ul>
-<li><a class="reference internal" href="#id3">Added</a></li>
+<li><a class="reference internal" href="#id2">1.3.0</a><ul>
+<li><a class="reference internal" href="#added">Added</a></li>
+<li><a class="reference internal" href="#id3">Changed</a></li>
+<li><a class="reference internal" href="#id4">Removed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4">1.0.0</a><ul>
-<li><a class="reference internal" href="#id5">Added</a></li>
+<li><a class="reference internal" href="#id5">1.1.0</a><ul>
+<li><a class="reference internal" href="#id6">Added</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">0.8.0</a><ul>
-<li><a class="reference internal" href="#id7">Added</a></li>
-<li><a class="reference internal" href="#fixed">Fixed</a></li>
+<li><a class="reference internal" href="#id7">1.0.0</a><ul>
+<li><a class="reference internal" href="#id8">Added</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8">0.7.1</a><ul>
-<li><a class="reference internal" href="#id9">Fixed</a></li>
+<li><a class="reference internal" href="#id9">0.8.0</a><ul>
+<li><a class="reference internal" href="#id10">Added</a></li>
+<li><a class="reference internal" href="#id11">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10">0.7.0</a><ul>
-<li><a class="reference internal" href="#id11">Added</a></li>
-<li><a class="reference internal" href="#id12">Changed</a></li>
+<li><a class="reference internal" href="#id12">0.7.1</a><ul>
+<li><a class="reference internal" href="#id13">Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14">0.7.0</a><ul>
+<li><a class="reference internal" href="#id15">Added</a></li>
+<li><a class="reference internal" href="#id16">Changed</a></li>
 <li><a class="reference internal" href="#renamed">Renamed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id13">0.6.0</a><ul>
-<li><a class="reference internal" href="#id14">Added</a></li>
-<li><a class="reference internal" href="#id15">Changed</a></li>
+<li><a class="reference internal" href="#id17">0.6.0</a><ul>
+<li><a class="reference internal" href="#id18">Added</a></li>
+<li><a class="reference internal" href="#id19">Changed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id16">0.5.0</a><ul>
-<li><a class="reference internal" href="#id17">Added</a></li>
-<li><a class="reference internal" href="#id18">Changed</a></li>
-<li><a class="reference internal" href="#id19">Fixed</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id20">0.4.2</a><ul>
-<li><a class="reference internal" href="#id21">Fixed</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id22">0.4.1</a><ul>
+<li><a class="reference internal" href="#id20">0.5.0</a><ul>
+<li><a class="reference internal" href="#id21">Added</a></li>
+<li><a class="reference internal" href="#id22">Changed</a></li>
 <li><a class="reference internal" href="#id23">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id24">0.4.0</a><ul>
-<li><a class="reference internal" href="#id25">Changed</a></li>
+<li><a class="reference internal" href="#id24">0.4.2</a><ul>
+<li><a class="reference internal" href="#id25">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id26">0.3.0</a><ul>
-<li><a class="reference internal" href="#id27">Added</a></li>
-<li><a class="reference internal" href="#id28">Changed</a></li>
-<li><a class="reference internal" href="#id29">Fixed</a></li>
+<li><a class="reference internal" href="#id26">0.4.1</a><ul>
+<li><a class="reference internal" href="#id27">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id30">0.2.0</a></li>
-<li><a class="reference internal" href="#id31">0.1.2</a></li>
-<li><a class="reference internal" href="#id32">0.1.1</a></li>
-<li><a class="reference internal" href="#id33">0.1.0</a></li>
+<li><a class="reference internal" href="#id28">0.4.0</a><ul>
+<li><a class="reference internal" href="#id29">Changed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id30">0.3.0</a><ul>
+<li><a class="reference internal" href="#id31">Added</a></li>
+<li><a class="reference internal" href="#id32">Changed</a></li>
+<li><a class="reference internal" href="#id33">Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id34">0.2.0</a></li>
+<li><a class="reference internal" href="#id35">0.1.2</a></li>
+<li><a class="reference internal" href="#id36">0.1.1</a></li>
+<li><a class="reference internal" href="#id37">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -230,10 +236,77 @@
 <a class="reference external" href="http://semver.org/">Semantic Versioning</a>.</p>
 <p><a class="reference external" href="https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/readme.html#installation-and-upgrade">How to upgrade to the latest version!</a></p>
 <section id="dev-development-stage-unreleased-unstable">
-<h2>1.3.0.dev (development stage/unreleased/unstable)<a class="headerlink" href="#dev-development-stage-unreleased-unstable" title="Link to this heading">¶</a></h2>
+<h2>1.3.1.dev (development stage/unreleased/unstable)<a class="headerlink" href="#dev-development-stage-unreleased-unstable" title="Link to this heading">¶</a></h2>
 </section>
 <section id="id1">
-<h2>1.3.0<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2>1.3.1<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Bumped minimum <code class="docutils literal notranslate"><span class="pre">unicorn-binance-websocket-api</span></code> dependency from
+<code class="docutils literal notranslate"><span class="pre">&gt;=2.1.1</span></code> to <code class="docutils literal notranslate"><span class="pre">&gt;=2.12.2</span></code> in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code>. 2.12.2 is the
+cleanup-round UBWA release; also adds support for features relied
+on since UBWA 2.12.</p></li>
+<li><p>Replaced all remaining <code class="docutils literal notranslate"><span class="pre">lucit.tech</span></code> URLs in source files, tests and
+config with their github.com / github.io equivalents:</p>
+<ul>
+<li><p>Package headers (<code class="docutils literal notranslate"><span class="pre">manager.py</span></code>, <code class="docutils literal notranslate"><span class="pre">cli.py</span></code>, <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">unittest_binance_trailing_stop_loss.py</span></code>, <code class="docutils literal notranslate"><span class="pre">example_binance_trailing_stop_loss.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dev/set_version.py</span></code>): project website, docs URL, changelog URL
+and setup.py/pyproject.toml project_urls.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.github/ISSUE_TEMPLATE/config.yml</span></code>: documentation link.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.github/FUNDING.yml</span></code>: <code class="docutils literal notranslate"><span class="pre">shop.lucit.services</span></code> → <code class="docutils literal notranslate"><span class="pre">github.com/sponsors/oliver-zehentleitner</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SECURITY.md</span></code>: replaced the lucit.tech contact form URL with the
+GitHub Security Advisories private-reporting URL.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CODE_OF_CONDUCT.md</span></code>: replaced the lucit.tech contact form URL
+with the project maintainer’s GitHub profile.</p></li>
+</ul>
+</li>
+<li><p>README: switched all conda references from the legacy <code class="docutils literal notranslate"><span class="pre">lucit</span></code> channel
+to <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>. Added conda-forge version / downloads / feedstock
+build badges. Replaced the old multi-channel install block with a
+single <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">unicorn-binance-trailing-stop-loss</span></code>.</p></li>
+<li><p>README: reworded the PyPy paragraph to
+“PyPy wheels are available for all supported Python versions.”
+The old wording made sense when we shipped wheels for pre-3.9 CPython.
+Also dropped the stale “Anaconda packages are available from Python
+version 3.9 and higher” line.</p></li>
+<li><p>Removed the “Build and Publish Anaconda” badge from the header and
+updated the “Packages are created automatically” section to reflect
+that conda packaging is handled by the conda-forge feedstock.</p></li>
+<li><p>Aligned dependency lists across <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code> using <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>
+as the source of truth. Added explicit <code class="docutils literal notranslate"><span class="pre">&gt;=2.2.0</span></code> / <code class="docutils literal notranslate"><span class="pre">&gt;=2.1.1</span></code> pins
+on <code class="docutils literal notranslate"><span class="pre">unicorn-binance-rest-api</span></code> / <code class="docutils literal notranslate"><span class="pre">unicorn-binance-websocket-api</span></code> in
+<code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> (they had no constraint).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>: dropped the <code class="docutils literal notranslate"><span class="pre">lucit</span></code> and <code class="docutils literal notranslate"><span class="pre">defaults</span></code> channels;
+removed <code class="docutils literal notranslate"><span class="pre">lucit::</span></code> prefixes on suite deps.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code>: removed the leftover <code class="docutils literal notranslate"><span class="pre">channels:</span></code> and <code class="docutils literal notranslate"><span class="pre">dependencies:</span></code>
+blocks (they are <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> keys, not valid in <code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code>).
+Dropped the <code class="docutils literal notranslate"><span class="pre">lucit::</span></code> channel prefixes from suite deps. Re-embedded
+the current <code class="docutils literal notranslate"><span class="pre">README.md</span></code> into <code class="docutils literal notranslate"><span class="pre">about.description</span></code>.</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> so the source tarball on PyPI actually ships the
+Python sources of the package. Previously only <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> was included
+which made the sdist unbuildable (e.g. conda-forge builds from sdist).</p></li>
+</ul>
+</section>
+<section id="removed">
+<h3>Removed<a class="headerlink" href="#removed" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.github/workflows/build_conda.yml</span></code>: the conda-forge feedstock
+(<code class="docutils literal notranslate"><span class="pre">conda-forge/unicorn-binance-trailing-stop-loss-feedstock</span></code>) now
+builds and publishes the conda package; no in-repo build is needed.</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>1.3.0<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <section id="added">
 <h3>Added<a class="headerlink" href="#added" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -241,8 +314,8 @@
 <li><p>Unit tests now run on all supported Python versions (3.9-3.14)</p></li>
 </ul>
 </section>
-<section id="changed">
-<h3>Changed<a class="headerlink" href="#changed" title="Link to this heading">¶</a></h3>
+<section id="id3">
+<h3>Changed<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>License changed back from LSOSL to MIT</p></li>
 <li><p>Author/copyright updated to Oliver Zehentleitner</p></li>
@@ -253,8 +326,8 @@
 <li><p>Unit tests switched to <code class="docutils literal notranslate"><span class="pre">binance.us</span></code> exchange for CI compatibility</p></li>
 </ul>
 </section>
-<section id="removed">
-<h3>Removed<a class="headerlink" href="#removed" title="Link to this heading">¶</a></h3>
+<section id="id4">
+<h3>Removed<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>LUCIT licensing dependency (<code class="docutils literal notranslate"><span class="pre">lucit-licensing-python</span></code>, <code class="docutils literal notranslate"><span class="pre">LucitLicensingManager</span></code>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">licensing_manager.py</span></code> and <code class="docutils literal notranslate"><span class="pre">licensing_exceptions.py</span></code></p></li>
@@ -263,20 +336,20 @@
 </ul>
 </section>
 </section>
-<section id="id2">
-<h2>1.1.0<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<section id="id3">
-<h3>Added<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="id5">
+<h2>1.1.0<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<section id="id6">
+<h3>Added<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">manager.is_manager_stopping()</span></code></p></li>
 <li><p>Support for “binance.com”</p></li>
 </ul>
 </section>
 </section>
-<section id="id4">
-<h2>1.0.0<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
-<section id="id5">
-<h3>Added<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<section id="id7">
+<h2>1.0.0<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<section id="id8">
+<h3>Added<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Additional info for a better user experience</p></li>
 <li><p>Support for Python 3.11 and 3.12</p></li>
@@ -293,16 +366,16 @@ transparent and the user can be sure that the compilation of a version fully cor
 </ul>
 </section>
 </section>
-<section id="id6">
-<h2>0.8.0<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
-<section id="id7">
-<h3>Added<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<section id="id9">
+<h2>0.8.0<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<section id="id10">
+<h3>Added<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Parameter <code class="docutils literal notranslate"><span class="pre">installupdate</span></code> (only available in Bot mode)</p></li>
 </ul>
 </section>
-<section id="fixed">
-<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading">¶</a></h3>
+<section id="id11">
+<h3>Fixed<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Create logfile parent dir if not exists</p></li>
 <li><p>Handling exceptions while opening a non existing ini file</p></li>
@@ -310,19 +383,19 @@ transparent and the user can be sure that the compilation of a version fully cor
 </ul>
 </section>
 </section>
-<section id="id8">
-<h2>0.7.1<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
-<section id="id9">
-<h3>Fixed<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<section id="id12">
+<h2>0.7.1<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
+<section id="id13">
+<h3>Fixed<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">self.test</span></code> not iterable as None type</p></li>
 </ul>
 </section>
 </section>
-<section id="id10">
-<h2>0.7.0<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
-<section id="id11">
-<h3>Added<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<section id="id14">
+<h2>0.7.0<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
+<section id="id15">
+<h3>Added<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">engine</span></code> parameter to manager class and integrate <code class="docutils literal notranslate"><span class="pre">jump-in-and-trail</span></code> mode to <code class="docutils literal notranslate"><span class="pre">manager.py</span></code></p></li>
 <li><p>Parameter <code class="docutils literal notranslate"><span class="pre">stop_loss_start_limit</span></code>, <code class="docutils literal notranslate"><span class="pre">callback_partially_filled</span></code>, <code class="docutils literal notranslate"><span class="pre">ubra_manager</span></code> and <code class="docutils literal notranslate"><span class="pre">ubwa_manager</span></code> to <code class="docutils literal notranslate"><span class="pre">manager.py</span></code></p></li>
@@ -331,8 +404,8 @@ transparent and the user can be sure that the compilation of a version fully cor
 <li><p>Test <code class="docutils literal notranslate"><span class="pre">streams</span></code></p></li>
 </ul>
 </section>
-<section id="id12">
-<h3>Changed<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<section id="id16">
+<h3>Changed<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">manager.py.calculate_stop_loss_price()</span></code> is a static method now</p></li>
 <li><p>Instead of creating two ubwa instances we use the new stream specific <code class="docutils literal notranslate"><span class="pre">process_stream_data</span></code> parameter within one instance</p></li>
@@ -346,10 +419,10 @@ transparent and the user can be sure that the compilation of a version fully cor
 </ul>
 </section>
 </section>
-<section id="id13">
-<h2>0.6.0<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
-<section id="id14">
-<h3>Added<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<section id="id17">
+<h2>0.6.0<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
+<section id="id18">
+<h3>Added<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Parameter <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">createconfigini</span></code> to cli interface</p></li>
 <li><p>Parameter <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">createprofilesini</span></code> to cli interface</p></li>
@@ -359,32 +432,32 @@ transparent and the user can be sure that the compilation of a version fully cor
 <li><p><code class="docutils literal notranslate"><span class="pre">cli.load_examples_ini_from_git_hub()</span></code></p></li>
 </ul>
 </section>
-<section id="id15">
-<h3>Changed<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
+<section id="id19">
+<h3>Changed<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ini files are no longer included into setup files of standalone versions</p></li>
 <li><p>Messages of test notification are now specific not general</p></li>
 </ul>
 </section>
 </section>
-<section id="id16">
-<h2>0.5.0<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
-<section id="id17">
-<h3>Added<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<section id="id20">
+<h2>0.5.0<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h2>
+<section id="id21">
+<h3>Added<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Warn on updates parameter</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to dependencies</p></li>
 </ul>
 </section>
-<section id="id18">
-<h3>Changed<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
+<section id="id22">
+<h3>Changed<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>CLI help msg</p></li>
 <li><p>Config file path to {home}/.lucit/ubtsl_*.ini</p></li>
 </ul>
 </section>
-<section id="id19">
-<h3>Fixed<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
+<section id="id23">
+<h3>Fixed<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Ignore missing ubtsl_profile.ini if test is not None</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Optional</span></code> bracket in <code class="docutils literal notranslate"><span class="pre">manager.get_exchange_info()</span></code></p></li>
@@ -392,37 +465,37 @@ transparent and the user can be sure that the compilation of a version fully cor
 </ul>
 </section>
 </section>
-<section id="id20">
-<h2>0.4.2<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h2>
-<section id="id21">
-<h3>Fixed<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
+<section id="id24">
+<h2>0.4.2<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h2>
+<section id="id25">
+<h3>Fixed<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Module name for console_scripts in setup.py</p></li>
 </ul>
 </section>
 </section>
-<section id="id22">
-<h2>0.4.1<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h2>
-<section id="id23">
-<h3>Fixed<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h3>
+<section id="id26">
+<h2>0.4.1<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h2>
+<section id="id27">
+<h3>Fixed<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Installation via PIP on Windows</p></li>
 </ul>
 </section>
 </section>
-<section id="id24">
-<h2>0.4.0<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h2>
-<section id="id25">
-<h3>Changed<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
+<section id="id28">
+<h2>0.4.0<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h2>
+<section id="id29">
+<h3>Changed<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Many updates in the command line interface <code class="docutils literal notranslate"><span class="pre">ubtsl</span></code></p></li>
 </ul>
 </section>
 </section>
-<section id="id26">
-<h2>0.3.0<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h2>
-<section id="id27">
-<h3>Added<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
+<section id="id30">
+<h2>0.3.0<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h2>
+<section id="id31">
+<h3>Added<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Parameter <code class="docutils literal notranslate"><span class="pre">test</span></code> to lib and cli. Supported mode is “notification” to test email and telegram notifications.</p></li>
 <li><p>Parameter <code class="docutils literal notranslate"><span class="pre">print_notificatons</span></code>. If True the lib is printing user friendly information to terminal.</p></li>
@@ -430,33 +503,33 @@ transparent and the user can be sure that the compilation of a version fully cor
 <li><p>General output to CLI interface</p></li>
 </ul>
 </section>
-<section id="id28">
-<h3>Changed<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h3>
+<section id="id32">
+<h3>Changed<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Returning order details instead of text msg to callback_finished function</p></li>
 </ul>
 </section>
-<section id="id29">
-<h3>Fixed<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h3>
+<section id="id33">
+<h3>Fixed<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Control notification settings to avoid exceptions</p></li>
 </ul>
 </section>
 </section>
-<section id="id30">
-<h2>0.2.0<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h2>
+<section id="id34">
+<h2>0.2.0<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h2>
 <p>CLI update</p>
 </section>
-<section id="id31">
-<h2>0.1.2<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h2>
+<section id="id35">
+<h2>0.1.2<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h2>
 <p>General updates</p>
 </section>
-<section id="id32">
-<h2>0.1.1<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h2>
+<section id="id36">
+<h2>0.1.1<a class="headerlink" href="#id36" title="Link to this heading">¶</a></h2>
 <p>General updates</p>
 </section>
-<section id="id33">
-<h2>0.1.0<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h2>
+<section id="id37">
+<h2>0.1.0<a class="headerlink" href="#id37" title="Link to this heading">¶</a></h2>
 <p>Init</p>
 </section>
 </section>
@@ -477,69 +550,75 @@ transparent and the user can be sure that the compilation of a version fully cor
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">unicorn-binance-trailing-stop-loss Change Log</a><ul>
-<li><a class="reference internal" href="#dev-development-stage-unreleased-unstable">1.3.0.dev (development stage/unreleased/unstable)</a></li>
-<li><a class="reference internal" href="#id1">1.3.0</a><ul>
-<li><a class="reference internal" href="#added">Added</a></li>
+<li><a class="reference internal" href="#dev-development-stage-unreleased-unstable">1.3.1.dev (development stage/unreleased/unstable)</a></li>
+<li><a class="reference internal" href="#id1">1.3.1</a><ul>
 <li><a class="reference internal" href="#changed">Changed</a></li>
+<li><a class="reference internal" href="#fixed">Fixed</a></li>
 <li><a class="reference internal" href="#removed">Removed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id2">1.1.0</a><ul>
-<li><a class="reference internal" href="#id3">Added</a></li>
+<li><a class="reference internal" href="#id2">1.3.0</a><ul>
+<li><a class="reference internal" href="#added">Added</a></li>
+<li><a class="reference internal" href="#id3">Changed</a></li>
+<li><a class="reference internal" href="#id4">Removed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4">1.0.0</a><ul>
-<li><a class="reference internal" href="#id5">Added</a></li>
+<li><a class="reference internal" href="#id5">1.1.0</a><ul>
+<li><a class="reference internal" href="#id6">Added</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">0.8.0</a><ul>
-<li><a class="reference internal" href="#id7">Added</a></li>
-<li><a class="reference internal" href="#fixed">Fixed</a></li>
+<li><a class="reference internal" href="#id7">1.0.0</a><ul>
+<li><a class="reference internal" href="#id8">Added</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8">0.7.1</a><ul>
-<li><a class="reference internal" href="#id9">Fixed</a></li>
+<li><a class="reference internal" href="#id9">0.8.0</a><ul>
+<li><a class="reference internal" href="#id10">Added</a></li>
+<li><a class="reference internal" href="#id11">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10">0.7.0</a><ul>
-<li><a class="reference internal" href="#id11">Added</a></li>
-<li><a class="reference internal" href="#id12">Changed</a></li>
+<li><a class="reference internal" href="#id12">0.7.1</a><ul>
+<li><a class="reference internal" href="#id13">Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14">0.7.0</a><ul>
+<li><a class="reference internal" href="#id15">Added</a></li>
+<li><a class="reference internal" href="#id16">Changed</a></li>
 <li><a class="reference internal" href="#renamed">Renamed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id13">0.6.0</a><ul>
-<li><a class="reference internal" href="#id14">Added</a></li>
-<li><a class="reference internal" href="#id15">Changed</a></li>
+<li><a class="reference internal" href="#id17">0.6.0</a><ul>
+<li><a class="reference internal" href="#id18">Added</a></li>
+<li><a class="reference internal" href="#id19">Changed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id16">0.5.0</a><ul>
-<li><a class="reference internal" href="#id17">Added</a></li>
-<li><a class="reference internal" href="#id18">Changed</a></li>
-<li><a class="reference internal" href="#id19">Fixed</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id20">0.4.2</a><ul>
-<li><a class="reference internal" href="#id21">Fixed</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id22">0.4.1</a><ul>
+<li><a class="reference internal" href="#id20">0.5.0</a><ul>
+<li><a class="reference internal" href="#id21">Added</a></li>
+<li><a class="reference internal" href="#id22">Changed</a></li>
 <li><a class="reference internal" href="#id23">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id24">0.4.0</a><ul>
-<li><a class="reference internal" href="#id25">Changed</a></li>
+<li><a class="reference internal" href="#id24">0.4.2</a><ul>
+<li><a class="reference internal" href="#id25">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id26">0.3.0</a><ul>
-<li><a class="reference internal" href="#id27">Added</a></li>
-<li><a class="reference internal" href="#id28">Changed</a></li>
-<li><a class="reference internal" href="#id29">Fixed</a></li>
+<li><a class="reference internal" href="#id26">0.4.1</a><ul>
+<li><a class="reference internal" href="#id27">Fixed</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id30">0.2.0</a></li>
-<li><a class="reference internal" href="#id31">0.1.2</a></li>
-<li><a class="reference internal" href="#id32">0.1.1</a></li>
-<li><a class="reference internal" href="#id33">0.1.0</a></li>
+<li><a class="reference internal" href="#id28">0.4.0</a><ul>
+<li><a class="reference internal" href="#id29">Changed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id30">0.3.0</a><ul>
+<li><a class="reference internal" href="#id31">Added</a></li>
+<li><a class="reference internal" href="#id32">Changed</a></li>
+<li><a class="reference internal" href="#id33">Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id34">0.2.0</a></li>
+<li><a class="reference internal" href="#id35">0.1.2</a></li>
+<li><a class="reference internal" href="#id36">0.1.1</a></li>
+<li><a class="reference internal" href="#id37">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -646,7 +725,7 @@ transparent and the user can be sure that the compilation of a version fully cor
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-suite#documentation">Index of all docs</a><br />
     &copy; <a href="/license.html">Copyright</a> 2022-2025, Oliver Zehentleitner.
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Apr 17 2026 at 14:47 (CET).
+    Last updated on Apr 18 2026 at 21:14 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.

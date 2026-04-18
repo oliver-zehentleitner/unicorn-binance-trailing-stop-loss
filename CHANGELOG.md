@@ -7,7 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 1.3.0.dev (development stage/unreleased/unstable)
+## 1.3.1.dev (development stage/unreleased/unstable)
+
+## 1.3.1
 ### Changed
 - Bumped minimum `unicorn-binance-websocket-api` dependency from
   `>=2.1.1` to `>=2.12.2` in `setup.py`, `requirements.txt`,

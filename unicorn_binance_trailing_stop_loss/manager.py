@@ -34,7 +34,7 @@ import threading
 import time
 
 __app_name__ = "unicorn-binance-trailing-stop-loss"
-__version__ = "1.3.0"
+__version__ = "1.3.1"
 __logger__ = logging.getLogger("unicorn_binance_trailing_stop_loss")
 
 
