@@ -95,6 +95,7 @@ ubtsl --test binance-connectivity
 ## Docs
 
 - Repo: https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss
+- AGENTS.md (for AI agents working on this repo): https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/AGENTS.md
 - Docs: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/
 - PyPI: https://pypi.org/project/unicorn-binance-trailing-stop-loss/
 - conda-forge: https://anaconda.org/conda-forge/unicorn-binance-trailing-stop-loss
