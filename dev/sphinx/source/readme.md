@@ -13,7 +13,7 @@
 [![Build and Publish GH+PyPi](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml)
 [![Conda-Forge Build](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-trailing-stop-loss-feedstock?branchName=main)](https://github.com/conda-forge/unicorn-binance-trailing-stop-loss-feedstock)
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/)
-[![Read How To`s](https://img.shields.io/badge/read-%20howto-yellow)](https://technopathy.club)
+[![Read How To`s](https://img.shields.io/badge/read-%20howto-yellow)](https://blog.technopathy.club/series/unicorn-binance-suite)
 [![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
 [![Telegram](https://img.shields.io/badge/community-telegram-41ab8c)](https://t.me/unicorndevs)
 
@@ -21,10 +21,8 @@
 
 # UNICORN Binance Trailing Stop Loss
 
-[Description](#description) | [Smart Entry](#smart-entry) | [Installation](#installation-and-upgrade) | 
-[Documentation](#documentation) | [Examples](#examples) | [Change Log](#change-log) | [Wiki](#wiki) | [Social](#social) |
-[Bugs](#how-to-report-bugs-or-suggest-improvements) | 
-[Contributing](#contributing) | [Disclaimer](#disclaimer)
+[Description](#description) | [Smart Entry](#smart-entry) | [Installation](#installation-and-upgrade) | [Documentation](#documentation) | [Examples](#examples) | 
+[Change Log](#change-log) | [Wiki](#wiki) | [Social](#social) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | [Contributing](#contributing) | [Disclaimer](#disclaimer)
 
 A Python library with a [command line interface](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html) for a trailing stop loss and 
 smart entry on the Binance exchange.
@@ -152,6 +150,9 @@ The module requires Python 3.9 and runs smoothly up to and including Python 3.14
 
 PyPy wheels are available for all supported Python versions.
 
+**conda-forge note:** Conda packages are provided for Python 3.10 – 3.14. Python 3.9 is not available on conda-forge — it was dropped from the global pinning after reaching end-of-life in October 2025. For Python 3.9, use `pip install`.
+
+
 The current dependencies are listed [here](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/requirements.txt).
 
 If you run into errors during the installation take a look [here](https://github.com/oliver-zehentleitner/unicorn-binance-suite/wiki/Installation).
@@ -228,6 +229,9 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 
 ## Examples
 - [example_logging.py](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/example_logging.py)
+
+## Related Articles
+- [UNICORN Binance Suite Article Series](https://blog.technopathy.club/series/unicorn-binance-suite)
 
 ## Project Homepage
 [https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
