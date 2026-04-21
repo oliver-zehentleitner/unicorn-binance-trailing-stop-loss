@@ -231,6 +231,7 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 - [example_logging.py](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/example_logging.py)
 
 ## Related Articles
+- [How to create a Binance API Key and API Secret?](https://blog.technopathy.club/how-to-create-a-binance-api-key-and-api-secret)
 - [UNICORN Binance Suite Article Series](https://blog.technopathy.club/series/unicorn-binance-suite)
 
 ## Project Homepage
