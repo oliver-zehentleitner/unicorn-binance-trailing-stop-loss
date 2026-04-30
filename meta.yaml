@@ -25,13 +25,13 @@ requirements:
     - Cython
     - requests
     - unicorn-binance-rest-api >=2.2.0
-    - unicorn-binance-websocket-api >=2.12.2
+    - unicorn-binance-websocket-api >=2.13.0
   run:
     - python
     - Cython
     - requests
     - unicorn-binance-rest-api >=2.2.0
-    - unicorn-binance-websocket-api >=2.12.2
+    - unicorn-binance-websocket-api >=2.13.0
 
 test:
   imports:
