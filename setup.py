@@ -39,7 +39,7 @@ setup(
      long_description=long_description,
      long_description_content_type="text/markdown",
      license='MIT',
-     install_requires=['Cython', 'requests', 'unicorn-binance-websocket-api>=2.12.2',
+     install_requires=['Cython', 'requests', 'unicorn-binance-websocket-api>=2.13.0',
                        'unicorn-binance-rest-api>=2.2.0'],
      keywords='Binance, Binance Futures, Binance Margin, Binance Isolated Margin, Binance Testnet, Trailing Stop Loss, '
               'Smart Entry',
