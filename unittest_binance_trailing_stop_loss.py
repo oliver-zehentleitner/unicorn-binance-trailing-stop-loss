@@ -14,7 +14,7 @@
 #
 # Author: Oliver Zehentleitner
 #
-# Copyright (c) 2022-2025, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
+# Copyright (c) 2022-2026, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
 # All rights reserved.
 
 from unicorn_binance_trailing_stop_loss.cli import main
