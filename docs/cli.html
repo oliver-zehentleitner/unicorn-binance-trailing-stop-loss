@@ -323,11 +323,11 @@ usability immensely.</p>
 <section id="test-data-streams">
 <h3>Test data streams<a class="headerlink" href="#test-data-streams" title="Link to this heading">¶</a></h3>
 <p>Test the data streams, this test needs a defined exchange and market parameter:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--test<span class="w"> </span>streams<span class="w"> </span>--exchange<span class="w"> </span>binance.com<span class="w"> </span>--market<span class="w"> </span>BTCUSDT
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--test<span class="w"> </span>streams<span class="w"> </span>--exchange<span class="w"> </span>binance.com<span class="w"> </span>--market<span class="w"> </span>BTCUSDC
 </pre></div>
 </div>
 <p>It is possible to use <code class="docutils literal notranslate"><span class="pre">exchange</span></code> and <code class="docutils literal notranslate"><span class="pre">market</span></code> values of a profile.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span><span class="s2">&quot;BTCUSDT_SELL&quot;</span><span class="w"> </span>--test<span class="w"> </span>streams
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span><span class="s2">&quot;BTCUSDC_SELL&quot;</span><span class="w"> </span>--test<span class="w"> </span>streams
 </pre></div>
 </div>
 </section>
@@ -349,7 +349,7 @@ usability immensely.</p>
 <section id="load-a-profile">
 <h3>Load a profile<a class="headerlink" href="#load-a-profile" title="Link to this heading">¶</a></h3>
 <p>If profiles are available, they can be activated with the <code class="docutils literal notranslate"><span class="pre">--profile</span></code> parameter at startup.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDT_SELL
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDC_SELL
 </pre></div>
 </div>
 </section>
@@ -377,40 +377,40 @@ usability immensely.</p>
 <section id="overwrite-values">
 <h3>Overwrite values<a class="headerlink" href="#overwrite-values" title="Link to this heading">¶</a></h3>
 <p>Arguments defined in the CLI overrule values from the loaded profile!</p>
-<p>Start with profile “BTCUSDT_SELL” and overwrite the stoplosslimit:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDT_SELL<span class="w"> </span>--stoplosslimit<span class="w"> </span><span class="m">0</span>.5%
+<p>Start with profile “BTCUSDC_SELL” and overwrite the stoplosslimit:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDC_SELL<span class="w"> </span>--stoplosslimit<span class="w"> </span><span class="m">0</span>.5%
 </pre></div>
 </div>
 </section>
 <section id="smart-entry">
 <h3>Smart entry<a class="headerlink" href="#smart-entry" title="Link to this heading">¶</a></h3>
 <p><em><strong>This function is still in an experimental phase and only available for Isolated Margin.</strong></em></p>
-<p>Do a smart entry by using <code class="docutils literal notranslate"><span class="pre">engine</span> <span class="pre">=</span> <span class="pre">jump-in-and-trail</span></code> like it is defined within the profile <code class="docutils literal notranslate"><span class="pre">BTCUSDT_SMART_ENTRY</span></code>
+<p>Do a smart entry by using <code class="docutils literal notranslate"><span class="pre">engine</span> <span class="pre">=</span> <span class="pre">jump-in-and-trail</span></code> like it is defined within the profile <code class="docutils literal notranslate"><span class="pre">BTCUSDC_SMART_ENTRY</span></code>
 of the <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/cli/example_ubtsl_profiles.ini">example_ubtsl_profiles.ini</a>.</p>
 <p>By activating the <code class="docutils literal notranslate"><span class="pre">jump-in-and-trail</span></code> engine, it first buys the predefined asset amount and then trails them
 automatically.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDT_SMART_ENTRY
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDC_SMART_ENTRY
 </pre></div>
 </div>
 </section>
 <section id="list-all-open-orders">
 <h3>List all open orders<a class="headerlink" href="#list-all-open-orders" title="Link to this heading">¶</a></h3>
 <p>Get a list of all open orders.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--exchange<span class="w"> </span><span class="s2">&quot;binance.com&quot;</span><span class="w"> </span>--market<span class="w"> </span><span class="s2">&quot;BTCUSDT&quot;</span><span class="w"> </span>--listopenorders
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--exchange<span class="w"> </span><span class="s2">&quot;binance.com&quot;</span><span class="w"> </span>--market<span class="w"> </span><span class="s2">&quot;BTCUSDC&quot;</span><span class="w"> </span>--listopenorders
 </pre></div>
 </div>
 <p>It is possible to use <code class="docutils literal notranslate"><span class="pre">exchange</span></code> and <code class="docutils literal notranslate"><span class="pre">market</span></code> values of a profile.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span><span class="s2">&quot;BTCUSDT_SELL&quot;</span><span class="w"> </span>--listopenorders
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span><span class="s2">&quot;BTCUSDC_SELL&quot;</span><span class="w"> </span>--listopenorders
 </pre></div>
 </div>
 </section>
 <section id="cancel-all-open-orders">
 <h3>Cancel all open orders<a class="headerlink" href="#cancel-all-open-orders" title="Link to this heading">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--exchange<span class="w"> </span><span class="s2">&quot;binance.com&quot;</span><span class="w"> </span>--market<span class="w"> </span><span class="s2">&quot;BTCUSDT&quot;</span><span class="w"> </span>--cancelopenorders
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--exchange<span class="w"> </span><span class="s2">&quot;binance.com&quot;</span><span class="w"> </span>--market<span class="w"> </span><span class="s2">&quot;BTCUSDC&quot;</span><span class="w"> </span>--cancelopenorders
 </pre></div>
 </div>
 <p>It’s possible to use <code class="docutils literal notranslate"><span class="pre">exchange</span></code> and <code class="docutils literal notranslate"><span class="pre">market</span></code> values of a profile.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span><span class="s2">&quot;BTCUSDT_SELL&quot;</span><span class="w"> </span>--cancelopenorders
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span><span class="s2">&quot;BTCUSDC_SELL&quot;</span><span class="w"> </span>--cancelopenorders
 </pre></div>
 </div>
 </section>
@@ -598,7 +598,7 @@ of any kind, including but not limited to direct or indirect damages for loss of
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-suite#documentation">Index of all docs</a><br />
     &copy; <a href="/license.html">Copyright</a> 2022-2025, Oliver Zehentleitner.
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Apr 28 2026 at 08:34 (CET).
+    Last updated on May 12 2026 at 16:55 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.

@@ -69,12 +69,12 @@ async def cli():
                  Test notifications:
                  $ ubtsl --test notification
 
-                 Start with profile "BTCUSDT_SELL" and overwrite the stoplosslimit:
-                 $ ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
+                 Start with profile "BTCUSDC_SELL" and overwrite the stoplosslimit:
+                 $ ubtsl --profile BTCUSDC_SELL --stoplosslimit 0.5%
 
                  List all open orders:
-                 $ ubtsl --exchange "binance.com" --market "BTCUSDT" --listopenorders
-                 $ ubtsl --profile BTCUSDT_SELL --listopenorders
+                 $ ubtsl --exchange "binance.com" --market "BTCUSDC" --listopenorders
+                 $ ubtsl --profile BTCUSDC_SELL --listopenorders
 
              disclaimer:
                  This project is for informational purposes only. You should not construe this

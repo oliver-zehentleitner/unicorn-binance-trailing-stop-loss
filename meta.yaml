@@ -111,7 +111,7 @@ about:
                                            borrow_threshold="100%",
                                            exchange="binance.com",
                                            keep_threshold="20%",
-                                           market="BTCUSDT",
+                                           market="BTCUSDC",
                                            print_notifications=True,
                                            reset_stop_loss_price=True,
                                            send_to_email_address="blah@example.com",
@@ -137,7 +137,7 @@ about:
     
     ## Start the engine on the command line (Windows, Linux and Mac):
     ```sh
-    $ ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
+    $ ubtsl --profile BTCUSDC_SELL --stoplosslimit 0.5%
     ```
     
     Read about the [CLI usage](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html).

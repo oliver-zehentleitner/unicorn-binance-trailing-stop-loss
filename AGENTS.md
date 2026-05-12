@@ -153,7 +153,7 @@ with BinanceTrailingStopLossManager(
     api_key="...",
     api_secret="...",
     exchange="binance.com",
-    market="BTCUSDT",
+    market="BTCUSDC",
     stop_loss_limit="2%",
     stop_loss_order_type="LIMIT",
     callback_error=on_error,
@@ -172,7 +172,7 @@ ubtsl --createconfigini
 ubtsl --createprofilesini
 
 # Run with profile
-ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
+ubtsl --profile BTCUSDC_SELL --stoplosslimit 0.5%
 
 # Test
 ubtsl --test binance-connectivity

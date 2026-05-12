@@ -58,12 +58,12 @@ def callback_partially_filled(msg):
 ubtsl = BinanceTrailingStopLossManager(callback_error=callback_error,
                                        callback_finished=callback_finished,
                                        callback_partially_filled=callback_partially_filled,
-                                       binance_public_key="aaa",
-                                       binance_private_key="bbb",
+                                       api_key="aaa",
+                                       api_secret="bbb",
                                        borrow_threshold="100%",
                                        exchange="binance.com",
                                        keep_threshold="20%",
-                                       market="BTCUSDT",
+                                       market="BTCUSDC",
                                        print_notifications=True,
                                        reset_stop_loss_price=True,
                                        send_to_email_address="blah@example.com",
@@ -89,7 +89,23 @@ ubtsl.stop_manager()
 
 ## Start the engine on the command line (Windows, Linux and Mac):
 ```sh
-$ ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
+# add binance api key and secret
+ubtsl --createconfigini
+ubtsl --openonfigini  
+
+# test connectivity
+ubtsl --test binance-connectivity
+
+# start trailing
+ubtsl -m RENDERUSDC -n trail --stoplosslimit 1% -e binance.com
+
+# use a profile:
+ubtsl --createprofilesini
+ubtsl --openprofilesini
+ubtsl --profile BTCUSDC_SELL --stoplosslimit 1.5%
+
+# Help
+ubtsl -h
 ```
 
 Read about the [CLI usage](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html).

@@ -23,7 +23,7 @@ Import: `from unicorn_binance_trailing_stop_loss import BinanceTrailingStopLossM
 ## Quick Start — SDK
 
 ```python
-# use case: trail a stop loss on BTCUSDT
+# use case: trail a stop loss on BTCUSDC
 from unicorn_binance_trailing_stop_loss import BinanceTrailingStopLossManager
 
 def on_error(msg):
@@ -36,7 +36,7 @@ with BinanceTrailingStopLossManager(
     api_key="...",
     api_secret="...",
     exchange="binance.com",
-    market="BTCUSDT",
+    market="BTCUSDC",
     stop_loss_limit="2%",
     stop_loss_order_type="LIMIT",
     callback_error=on_error,
@@ -57,7 +57,7 @@ ubtsl --createconfigini
 ubtsl --createprofilesini
 
 # Run with profile
-ubtsl --profile BTCUSDT_SELL --stoplosslimit 0.5%
+ubtsl --profile BTCUSDC_SELL --stoplosslimit 0.5%
 
 # Test connectivity
 ubtsl --test binance-connectivity
@@ -71,7 +71,7 @@ ubtsl --test binance-connectivity
 | api_key | str | None | Binance API key |
 | api_secret | str | None | Binance API secret |
 | exchange | str | "binance.com" | Exchange endpoint |
-| market | str | None | Trading pair, e.g. "BTCUSDT" |
+| market | str | None | Trading pair, e.g. "BTCUSDC" |
 | stop_loss_limit | str | None | Trail distance: "2%" (percent) or "50" (absolute price) |
 | stop_loss_order_type | str | None | "LIMIT" or "MARKET" |
 | stop_loss_price | float | None | Initial stop loss price |
@@ -95,7 +95,7 @@ ubtsl --test binance-connectivity
   ```python
   # percent-based trail (moves with market)
   BinanceTrailingStopLossManager(..., stop_loss_limit="2%")
-  # absolute-price trail (e.g. BTCUSDT: stop 50 USD below current)
+  # absolute-price trail (e.g. BTCUSDC: stop 50 USD below current)
   BinanceTrailingStopLossManager(..., stop_loss_limit="50")
   ```
 

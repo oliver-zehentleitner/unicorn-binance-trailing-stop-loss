@@ -257,12 +257,12 @@ problems before using this tool - <em><strong>you use it at your own risk!</stro
 <span class="n">ubtsl</span> <span class="o">=</span> <span class="n">BinanceTrailingStopLossManager</span><span class="p">(</span><span class="n">callback_error</span><span class="o">=</span><span class="n">callback_error</span><span class="p">,</span>
                                        <span class="n">callback_finished</span><span class="o">=</span><span class="n">callback_finished</span><span class="p">,</span>
                                        <span class="n">callback_partially_filled</span><span class="o">=</span><span class="n">callback_partially_filled</span><span class="p">,</span>
-                                       <span class="n">binance_public_key</span><span class="o">=</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span>
-                                       <span class="n">binance_private_key</span><span class="o">=</span><span class="s2">&quot;bbb&quot;</span><span class="p">,</span>
+                                       <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span>
+                                       <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;bbb&quot;</span><span class="p">,</span>
                                        <span class="n">borrow_threshold</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span>
                                        <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">,</span>
                                        <span class="n">keep_threshold</span><span class="o">=</span><span class="s2">&quot;20%&quot;</span><span class="p">,</span>
-                                       <span class="n">market</span><span class="o">=</span><span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+                                       <span class="n">market</span><span class="o">=</span><span class="s2">&quot;BTCUSDC&quot;</span><span class="p">,</span>
                                        <span class="n">print_notifications</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                        <span class="n">reset_stop_loss_price</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                        <span class="n">send_to_email_address</span><span class="o">=</span><span class="s2">&quot;blah@example.com&quot;</span><span class="p">,</span>
@@ -288,7 +288,23 @@ problems before using this tool - <em><strong>you use it at your own risk!</stro
 </section>
 <section id="start-the-engine-on-the-command-line-windows-linux-and-mac">
 <h2>Start the engine on the command line (Windows, Linux and Mac):<a class="headerlink" href="#start-the-engine-on-the-command-line-windows-linux-and-mac" title="Link to this heading">¶</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDT_SELL<span class="w"> </span>--stoplosslimit<span class="w"> </span><span class="m">0</span>.5%
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># add binance api key and secret</span>
+ubtsl<span class="w"> </span>--createconfigini
+ubtsl<span class="w"> </span>--openonfigini<span class="w">  </span>
+
+<span class="c1"># test connectivity</span>
+ubtsl<span class="w"> </span>--test<span class="w"> </span>binance-connectivity
+
+<span class="c1"># start trailing</span>
+ubtsl<span class="w"> </span>-m<span class="w"> </span>RENDERUSDC<span class="w"> </span>-n<span class="w"> </span>trail<span class="w"> </span>--stoplosslimit<span class="w"> </span><span class="m">1</span>%<span class="w"> </span>-e<span class="w"> </span>binance.com
+
+<span class="c1"># use a profile:</span>
+ubtsl<span class="w"> </span>--createprofilesini
+ubtsl<span class="w"> </span>--openprofilesini
+ubtsl<span class="w"> </span>--profile<span class="w"> </span>BTCUSDC_SELL<span class="w"> </span>--stoplosslimit<span class="w"> </span><span class="m">1</span>.5%
+
+<span class="c1"># Help</span>
+ubtsl<span class="w"> </span>-h
 </pre></div>
 </div>
 <p>Read about the <a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html">CLI usage</a>.</p>
@@ -721,7 +737,7 @@ of any kind, including but not limited to direct or indirect damages for loss of
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-suite#documentation">Index of all docs</a><br />
     &copy; <a href="/license.html">Copyright</a> 2022-2025, Oliver Zehentleitner.
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Apr 28 2026 at 08:34 (CET).
+    Last updated on May 12 2026 at 16:55 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
