@@ -483,12 +483,14 @@ class BinanceTrailingStopLossManager(threading.Thread):
             if self.cancel_open_stop_loss_order():
                 return True
             total, free = self.update_stop_loss_asset_amount()
-            if self.keep_threshold is not None:
+            if self.keep_threshold:
                 stop_loss_quantity = self.round_decimals_down(self.update_stop_loss_quantity(total=total,
                                                                                              free=free),
                                                               self.precision_quantity)
             else:
-                stop_loss_quantity = self.calculate_stop_loss_amount(free)
+                stop_loss_quantity = self.round_decimals_down(self.calculate_stop_loss_amount(free),
+                                                              self.precision_quantity)
+            self.stop_loss_quantity = stop_loss_quantity
 
             free = free - stop_loss_quantity
             self.stop_loss_asset_amount_free = free
@@ -638,11 +640,11 @@ class BinanceTrailingStopLossManager(threading.Thread):
         return False
 
     def get_open_orders(self,
-                        market: str = None) -> Optional[dict]:
+                        market: str = None) -> Optional[list]:
         """
         Get the open orders on a given market.
 
-        :return: dict or None
+        :return: list or None
         """
         try:
             if self.exchange == "binance.com" or self.exchange == "binance.com-testnet":
@@ -933,21 +935,23 @@ class BinanceTrailingStopLossManager(threading.Thread):
         self.logger.debug(f"BinanceTrailingStopLossManager.process_price_feed_stream(stream_data={stream_data}, "
                           f"stream_buffer_name={stream_buffer_name}) started")
         if self.is_manager_stopping() is False:
-            if stream_data.get('price'):
-                self.current_price = stream_data.get('price')
-                sl_price = self.calculate_stop_loss_price(stream_data.get('price'), self.stop_loss_limit)
+            raw_price = stream_data.get('price')
+            if raw_price:
+                current_price = float(raw_price)
+                self.current_price = current_price
+                sl_price = self.calculate_stop_loss_price(current_price, self.stop_loss_limit)
                 if self.stop_loss_price is None:
                     self.logger.info(f"BinanceTrailingStopLossManager.process_price_feed_stream() - Setting "
                                      f"stop_loss_price from None to {sl_price}!")
                     if self.print_notifications:
                         print(f"Setting stop_loss_price from None to {sl_price}!")
-                    self.create_stop_loss_order(sl_price, current_price=stream_data.get('price'))
+                    self.create_stop_loss_order(sl_price, current_price=current_price)
                 elif self.stop_loss_price < sl_price:
                     self.logger.info(f"BinanceTrailingStopLossManager.process_price_feed_stream() - Setting "
                                      f"stop_loss_price from {self.stop_loss_price} to {sl_price}!")
                     if self.print_notifications:
                         print(f"Setting stop_loss_price from {self.stop_loss_price} to {sl_price}!")
-                    self.create_stop_loss_order(sl_price, current_price=stream_data.get('price'))
+                    self.create_stop_loss_order(sl_price, current_price=current_price)
 
     @staticmethod
     def round_decimals_down(number: float,
@@ -1271,7 +1275,20 @@ class BinanceTrailingStopLossManager(threading.Thread):
         :return: tuple
         """
         if total is None or free is None:
-            total, free = self.get_owning_amount(base_asset=self.stop_loss_asset_name)
+            owning_amount = self.get_owning_amount(base_asset=self.stop_loss_asset_name)
+            if owning_amount is None:
+                msg = (f"Asset `{self.stop_loss_asset_name}` not found on `{self.exchange}` - "
+                       f"no balance or asset not listed for this account. Stopping engine.")
+                self.logger.critical(f"BinanceTrailingStopLossManager.update_stop_loss_asset_amount() - {msg}")
+                if self.print_notifications:
+                    print(f"ERROR: {msg}")
+                self.send_email_notification(msg)
+                self.send_telegram_notification(msg)
+                self.stop_manager()
+                if self.callback_error is not None:
+                    self.callback_error(msg)
+                sys.exit(1)
+            total, free = owning_amount
         self.stop_loss_asset_amount = float(total)
         self.stop_loss_asset_amount_free = float(free)
         return total, free
