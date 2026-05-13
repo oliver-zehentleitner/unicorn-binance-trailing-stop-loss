@@ -91,13 +91,13 @@ ubtsl.stop_manager()
 ```sh
 # add binance api key and secret
 ubtsl --createconfigini
-ubtsl --openonfigini  
+ubtsl --openconfigini  
 
 # test connectivity
 ubtsl --test binance-connectivity
 
 # start trailing
-ubtsl -m RENDERUSDC -n trail --stoplosslimit 1% -e binance.com
+ubtsl -m BTCUSDC -n trail --stoplosslimit 1% -e binance.com
 
 # use a profile:
 ubtsl --createprofilesini
