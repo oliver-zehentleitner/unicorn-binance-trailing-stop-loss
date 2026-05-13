@@ -8,6 +8,53 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [How to upgrade to the latest version!](https://unicorn-binance-trailing-stop-loss.docs.lucit.tech/readme.html#installation-and-upgrade)
 
 ## 1.3.1.dev (development stage/unreleased/unstable)
+### Fixed
+- `BinanceTrailingStopLossManager.get_open_orders()` return type
+  annotation was `Optional[dict]` while Binance's
+  `GET /api/v3/openOrders`, `cancel_all_open_margin_orders` and
+  `futures_get_open_orders` all return a `list`. The Cython-compiled
+  module enforced the dict annotation and raised
+  `TypeError: Expected dict, got list` on SPOT/Margin engine start
+  whenever an open order existed for the symbol. Corrected the
+  annotation and docstring to `Optional[list]`.
+- `BinanceTrailingStopLossManager.process_price_feed_stream()` passed
+  the raw aggTrade `price` (a `str` from the Binance payload) into
+  `create_stop_loss_order(current_price=...)`, which is Cython-typed
+  as `float` and raised
+  `TypeError: Argument 'current_price' has incorrect type (expected float, got str)`.
+  The price is now converted once via `float()` and the same float
+  value is reused for `self.current_price`, the
+  `calculate_stop_loss_price()` call and the
+  `create_stop_loss_order()` call, keeping the instance attribute
+  consistent with its `float` class annotation.
+- `BinanceTrailingStopLossManager.create_stop_loss_order()` checked
+  `if self.keep_threshold is not None:` but the CLI initialises
+  `keep_threshold = ""`. When no `--keepthreshold` was given the
+  empty string passed the not-None gate and `float("")` raised
+  `ValueError`. Replaced with a truthy check, matching the existing
+  `borrow_threshold` / `stop_loss_start_limit` handling.
+- `self.stop_loss_quantity` was only assigned in the
+  `keep_threshold` branch (via `update_stop_loss_quantity()`), so
+  the engine's "Created stop/loss order" notification displayed the
+  stale init value `0.0` whenever no keep_threshold was used. The
+  instance attribute is now assigned after both branches with the
+  rounded quantity that is actually sent to Binance, and the
+  `calculate_stop_loss_amount()` path now also applies
+  `round_decimals_down()` for parity with the `keep_threshold`
+  path.
+- `BinanceTrailingStopLossManager.update_stop_loss_asset_amount()`
+  unpacked the `get_owning_amount()` result without checking for
+  `None`, which happens whenever the configured asset has no
+  balance / is not listed for the account (typical for
+  `binance.com-isolated_margin` if the trading pair was never
+  activated). This raised a bare
+  `TypeError: 'NoneType' object is not iterable` deep inside the
+  engine thread and left the streams running. The engine now
+  fails loud with a clear message ("Asset `X` not found on
+  `EXCHANGE` - no balance or asset not listed for this account.
+  Stopping engine."), dispatches the email/Telegram/`callback_error`
+  notifications, calls `stop_manager()` and exits, matching the
+  existing fail-loud pattern used for `symbol_info is None`.
 
 ## 1.3.2
 ### Changed
