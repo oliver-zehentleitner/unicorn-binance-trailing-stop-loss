@@ -1,11 +1,24 @@
 [![GitHub Release](https://img.shields.io/github/release/oliver-zehentleitner/unicorn-binance-trailing-stop-loss.svg?label=github)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/total?color=blue)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/releases)
 [![PyPi Release](https://img.shields.io/pypi/v/unicorn-binance-trailing-stop-loss?color=blue)](https://pypi.org/project/unicorn-binance-trailing-stop-loss/)
+[![PyPi Downloads](https://pepy.tech/badge/unicorn-binance-trailing-stop-loss)](https://pepy.tech/project/unicorn-binance-trailing-stop-loss)
+[![Conda-Forge Version](https://img.shields.io/conda/v/conda-forge/unicorn-binance-trailing-stop-loss?color=blue&label=conda)](https://anaconda.org/conda-forge/unicorn-binance-trailing-stop-loss)
+[![Conda-Forge Downloads](https://img.shields.io/conda/dn/conda-forge/unicorn-binance-trailing-stop-loss?color=blue&label=downloads)](https://anaconda.org/conda-forge/unicorn-binance-trailing-stop-loss)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE)
 [![Supported Python Version](https://img.shields.io/pypi/pyversions/unicorn_binance_trailing_stop_loss.svg)](https://www.python.org/downloads/)
+[![PyPI - Status](https://img.shields.io/pypi/status/unicorn_binance_trailing_stop_loss.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues)
+[![codecov](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
+[![CodeQL](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/codeql-analysis.yml)
 [![Unit Tests](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/unit-tests.yml)
+[![Build and Publish GH+PyPi](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/actions/workflows/build_wheels.yml)
+[![Conda-Forge Build](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-trailing-stop-loss-feedstock?branchName=main)](https://github.com/conda-forge/unicorn-binance-trailing-stop-loss-feedstock)
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/)
+[![Read How To`s](https://img.shields.io/badge/read-%20howto-yellow)](https://blog.technopathy.club/series/unicorn-binance-suite)
+[![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss)
 [![Telegram](https://img.shields.io/badge/community-telegram-41ab8c)](https://t.me/unicorndevs)
 [![Reddit](https://img.shields.io/badge/community-reddit-41ab8c)](https://www.reddit.com/r/UNICORNBinanceSuite)
+
+[![UBS-Banner](https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-suite/master/images/logo/UBS-Banner-Readme.png)](https://github.com/oliver-zehentleitner/unicorn-binance-suite)
 
 # UNICORN Binance Trailing Stop Loss CLI
 
