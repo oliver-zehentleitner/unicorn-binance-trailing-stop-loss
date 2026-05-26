@@ -260,7 +260,8 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 
 ## Social
 - [Discussions](https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/discussions)
-- [https://t.me/unicorndevs](https://t.me/unicorndevs)
+- [Telegram](https://t.me/unicorndevs) 
+- [Reddit Community](https://www.reddit.com/r/UNICORNBinanceSuite/) 
 - [https://dev.binance.vision](https://dev.binance.vision)
 
 ## Receive Notifications
