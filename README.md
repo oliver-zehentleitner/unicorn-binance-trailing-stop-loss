@@ -35,7 +35,7 @@ problems before using this tool - ***you use it at your own risk!***
 
 If you put this engine on a market, you should stop trading manually on this market yourself!
 
-Part of '[UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite)'.
+Part of '[UNICORN Binance Suite](https://blog.technopathy.club/page/unicorn-binance-suite)'.
 
 ## How to start the trailing stop loss engine:
 ```python
