@@ -55,8 +55,7 @@ setup(
         'Umbrella Project': 'https://github.com/oliver-zehentleitner/unicorn-binance-suite',
      },
      python_requires='>=3.9.0',
-     package_data={'': ['unicorn_binance_trailing_stop_loss/*.so',
-                        'unicorn_binance_trailing_stop_loss/*.dll']},
+     package_data={'': ['*.so', '*.dll', '*.py', '*.pyd', '*.pyi']},
      entry_points={
          "console_scripts": [
              "ubtsl = unicorn_binance_trailing_stop_loss.cli:main",
