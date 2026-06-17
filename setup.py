@@ -44,9 +44,10 @@ setup(
      keywords='Binance, Binance Futures, Binance Margin, Binance Isolated Margin, Binance Testnet, Trailing Stop Loss, '
               'Smart Entry',
      project_urls={
-        'Documentation': 'https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss#related-articles',
+        'Howto': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss#related-articles',
+        'Documentation': 'https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss',
         'Wiki': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/wiki',
-        'Author': 'https://about.me/oliver-zehentleitner',
+        'Author': 'https://www.linkedin.com/in/oliver-zehentleitner',
         'Changes': 'https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/changelog.html',
         'License': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/blob/master/LICENSE',
         'Issue Tracker': 'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss/issues',
