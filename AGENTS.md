@@ -3,6 +3,10 @@
 > **End-user cheatsheet for AI-assisted consumption:** [`llms.txt`](llms.txt) — use that one if you're writing code *against* this library.
 > **This file** is for AI agents working *on* this repo itself.
 
+## Why things are the way they are
+
+See [`context/index.md`](context/index.md) before making non-trivial changes — it points to the reasoning behind design decisions, rejected alternatives, and constraints that aren't visible in the code. If `AGENTS.local.md` exists in this repo, that's personal/local notes, not relevant to anyone else.
+
 ## Planning & Backlog
 
 Open development tasks and decisions are tracked in **[TASKS.md](TASKS.md)**.
@@ -56,7 +60,7 @@ Configured via the `exchange` constructor parameter:
 
 Managed in `requirements.txt`, `setup.py`, `pyproject.toml`, `environment.yml` and `meta.yaml` — **all five must be kept in sync manually**, with `setup.py` as source of truth:
 
-- `unicorn-binance-websocket-api>=2.12.2` — WebSocket stream management (UBWA)
+- `unicorn-binance-websocket-api>=2.13.0` — WebSocket stream management (UBWA)
 - `unicorn-binance-rest-api>=2.2.0` — REST order placement (UBRA)
 - `requests` — HTTP
 - `Cython` — C extension compilation (release builds only)
@@ -187,4 +191,10 @@ ubtsl --test binance-connectivity
 - For `jump-in-and-trail`, the `borrow_threshold` parameter is required on margin exchanges; missing it leads to silent non-entry
 - `stop_loss_limit="2%"` vs. `"50"` semantics differ: percent is relative, bare number is an absolute price distance
 - Partially filled orders are not handled automatically — use `callback_partially_filled` if reaction is needed
-- CLI config files default to `~/.lucit/ubtsl_*.ini` (legacy path — not renamed)
+- CLI config files default to `~/.unicorn-binance-suite/config/ubtsl_*.ini` — see [`context/history.md`](context/history.md) for the `.lucit`-path migration this replaced
+- On missing balance, `update_stop_loss_asset_amount` fails loud (notifications + `stop_manager()` + exit) rather than crashing silently — see [`context/fail-loud.md`](context/fail-loud.md)
+
+<!-- keep-the-why:config -->
+- context: `context/`
+- init: complete
+<!-- /keep-the-why:config -->
