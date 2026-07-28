@@ -37,3 +37,7 @@ ubtsl = "unicorn_binance_trailing_stop_loss.cli:main"
 
 [tool.poetry.package_data]
 unicorn_binance_trailing_stop_loss = ["*.so", "*.dll"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]

@@ -20,9 +20,16 @@
 try:
     from .manager import BinanceTrailingStopLossManager
 except ModuleNotFoundError:
-    from unicorn_binance_trailing_stop_loss.manager import BinanceTrailingStopLossManager
+    from unicorn_binance_trailing_stop_loss.manager import (
+        BinanceTrailingStopLossManager,
+    )
 from unicorn_binance_rest_api.manager import BinanceRestApiManager, BinanceAPIException
-from configparser import ConfigParser, ExtendedInterpolation, MissingSectionHeaderError, ParsingError
+from configparser import (
+    ConfigParser,
+    ExtendedInterpolation,
+    MissingSectionHeaderError,
+    ParsingError,
+)
 from pathlib import Path
 from typing import Optional
 import asyncio
@@ -38,9 +45,9 @@ import webbrowser
 
 async def cli():
     """
-        UNICORN Binance Trailing Stop Loss Command Line Interface Documentation
+    UNICORN Binance Trailing Stop Loss Command Line Interface Documentation
 
-        More info: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html
+    More info: https://oliver-zehentleitner.github.io/unicorn-binance-trailing-stop-loss/cli.html
     """
     version = BinanceTrailingStopLossManager.get_version()
     os_type = platform.system()
@@ -51,11 +58,11 @@ async def cli():
     log_format = "{asctime} [{levelname:8}] {process} {thread} {module}: {message}"
 
     parser = argparse.ArgumentParser(
-        prog='ubtsl',
-        description=f'UNICORN Binance Trailing Stop Loss {version}\n'
-                    f'https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss',
+        prog="ubtsl",
+        description=f"UNICORN Binance Trailing Stop Loss {version}\n"
+        f"https://github.com/oliver-zehentleitner/unicorn-binance-trailing-stop-loss",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=textwrap.dedent('''\
+        epilog=textwrap.dedent("""\
              examples:
                  Check if a new update is available:
                  $ ubtsl --checkupdate
@@ -83,127 +90,195 @@ async def cli():
                  circumstances will we be responsible or liable for any claims, damages, losses,
                  expenses, costs or liabilities of any kind, including but not limited to direct
                  or indirect damages for loss of profits.
-             '''))
+             """),
+    )
 
-    parser.add_argument('-ak', '--apikey',
-                        type=str,
-                        help="The API key",
-                        required=False)
-    parser.add_argument('-as', '--apisecret',
-                        type=str,
-                        help="The Binance API secret.",
-                        required=False)
-    parser.add_argument('-bt', '--borrowthreshold',
-                        type=str,
-                        help="How much of the possible credit line to exhaust. (Only available in Margin)",
-                        required=False)
-    parser.add_argument('-coo', '--cancelopenorders',
-                        help=f'Cancel all open orders and then stop. Only valid in combination with parameter '
-                             f'`exchange` and `market`.',
-                        required=False,
-                        action='store_true')
-    parser.add_argument('-cci', '--createconfigini',
-                        help=f'Create the config file and then stop.',
-                        required=False,
-                        action='store_true')
-    parser.add_argument('-cpi', '--createprofilesini',
-                        help=f'Create the profiles file and then stop.',
-                        required=False,
-                        action='store_true')
-    parser.add_argument('-cf', '--configfile',
-                        type=str,
-                        help=f"Specify path including filename to the config file (ex: `~/my_config.ini`). If not "
-                             f"provided ubtsl tries to load a `ubtsl_config.ini` from the `{config_path}` and the "
-                             f"current working directory.",
-                        required=False)
-    parser.add_argument('-cu', '--checkupdate',
-                        help=f'Check if update is available and then stop.',
-                        required=False,
-                        action='store_true')
-    parser.add_argument('-ex', '--example',
-                        type=str,
-                        help=f'Show an example ini file from GitHub and then stop. Options: `config` or `profiles`.',
-                        required=False)
-    parser.add_argument('-e', '--exchange',
-                        type=str,
-                        help="Exchange: binance.com, binance.com-testnet, binance.com-futures, "
-                             "binance.com-isolated_margin, binance.com-margin",
-                        required=False)
-    parser.add_argument('-n', '--engine',
-                        type=str,
-                        help='Choose the engine. Default: `trail` Options: `jump-in-and-trail` to place a buy order '
-                             'and trail.',
-                        required=False)
-    parser.add_argument('-k', '--keepthreshold',
-                        type=str,
-                        help="Set the threshold to be kept. This is the amount that will not get sold.",
-                        required=False)
-    parser.add_argument('-lf', '--logfile',
-                        type=str,
-                        help='Specify path including filename to the logfile. Default is logfile path is '
-                             '`{config_path}`',
-                        required=False)
-    parser.add_argument('-ll', '--loglevel',
-                        type=str,
-                        help='Choose a loglevel. Default: INFO; Options: DEBUG, INFO, WARNING, ERROR and CRITICAL',
-                        required=False)
-    parser.add_argument('-loo', '--listopenorders',
-                        help=f'List all open orders and then stop. Only valid in combination with parameter '
-                             f'`exchange` and `market`.',
-                        required=False,
-                        action='store_true')
-    parser.add_argument('-m', '--market',
-                        type=str,
-                        help='The market on which is traded.',
-                        required=False)
-    parser.add_argument('-oci', '--openconfigini',
-                        help=f'Open the used config file and then stop.',
-                        required=False,
-                        action='store_true')
-    parser.add_argument('-opi', '--openprofilesini',
-                        help=f'Open the used profiles file and then stop.',
-                        required=False,
-                        action='store_true')
-    parser.add_argument('-ot', '--ordertype',
-                        type=str,
-                        help="Use `limit` or `market`.",
-                        required=False)
-    parser.add_argument('-pf', '--profile',
-                        type=str,
-                        help='Name of the profile to load from ubtsl_profiles.ini!',
-                        required=False)
-    parser.add_argument('-pff', '--profilesfile',
-                        type=str,
-                        help=f"Specify path including filename to the profiles file (ex: `~/my_profiles.ini`). If not "
-                             f"available ubtsl tries to load a ubtsl_profile.ini from the `{config_path}` and the "
-                             f"current working directory.",
-                        required=False)
-    parser.add_argument('-r', '--resetstoplossprice',
-                        type=str,
-                        help='Reset the existing stop_loss_price! usage: True anything else is False.',
-                        required=False)
-    parser.add_argument('-l', '--stoplosslimit',
-                        type=str,
-                        help='Stop/loss limit in float or percent.',
-                        required=False)
-    parser.add_argument('-sl', '--stoplossstartlimit',
-                        type=str,
-                        help='Set the start stop/loss limit in float or percent.',
-                        required=False)
-    parser.add_argument('-p', '--stoplossprice',
-                        type=float,
-                        help='Set the start stop/loss price as float value.',
-                        required=False)
-    parser.add_argument('-t', '--test',
-                        type=str,
-                        help='Use this to test specific systems like "notification", "binance-connectivity" and '
-                             '"streams". The streams test needs a valid exchange and market. If test is not None the '
-                             'engine will NOT start! It only tests!',
-                        required=False)
-    parser.add_argument('-v', '--version',
-                        help=f'Show the program version and then stop. The version is `{version}` by the way :)',
-                        required=False,
-                        action='store_true')
+    parser.add_argument("-ak", "--apikey", type=str, help="The API key", required=False)
+    parser.add_argument(
+        "-as", "--apisecret", type=str, help="The Binance API secret.", required=False
+    )
+    parser.add_argument(
+        "-bt",
+        "--borrowthreshold",
+        type=str,
+        help="How much of the possible credit line to exhaust. (Only available in Margin)",
+        required=False,
+    )
+    parser.add_argument(
+        "-coo",
+        "--cancelopenorders",
+        help=f"Cancel all open orders and then stop. Only valid in combination with parameter "
+        f"`exchange` and `market`.",
+        required=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-cci",
+        "--createconfigini",
+        help=f"Create the config file and then stop.",
+        required=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-cpi",
+        "--createprofilesini",
+        help=f"Create the profiles file and then stop.",
+        required=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-cf",
+        "--configfile",
+        type=str,
+        help=f"Specify path including filename to the config file (ex: `~/my_config.ini`). If not "
+        f"provided ubtsl tries to load a `ubtsl_config.ini` from the `{config_path}` and the "
+        f"current working directory.",
+        required=False,
+    )
+    parser.add_argument(
+        "-cu",
+        "--checkupdate",
+        help=f"Check if update is available and then stop.",
+        required=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-ex",
+        "--example",
+        type=str,
+        help=f"Show an example ini file from GitHub and then stop. Options: `config` or `profiles`.",
+        required=False,
+    )
+    parser.add_argument(
+        "-e",
+        "--exchange",
+        type=str,
+        help="Exchange: binance.com, binance.com-testnet, binance.com-futures, "
+        "binance.com-isolated_margin, binance.com-margin",
+        required=False,
+    )
+    parser.add_argument(
+        "-n",
+        "--engine",
+        type=str,
+        help="Choose the engine. Default: `trail` Options: `jump-in-and-trail` to place a buy order "
+        "and trail.",
+        required=False,
+    )
+    parser.add_argument(
+        "-k",
+        "--keepthreshold",
+        type=str,
+        help="Set the threshold to be kept. This is the amount that will not get sold.",
+        required=False,
+    )
+    parser.add_argument(
+        "-lf",
+        "--logfile",
+        type=str,
+        help="Specify path including filename to the logfile. Default is logfile path is "
+        "`{config_path}`",
+        required=False,
+    )
+    parser.add_argument(
+        "-ll",
+        "--loglevel",
+        type=str,
+        help="Choose a loglevel. Default: INFO; Options: DEBUG, INFO, WARNING, ERROR and CRITICAL",
+        required=False,
+    )
+    parser.add_argument(
+        "-loo",
+        "--listopenorders",
+        help=f"List all open orders and then stop. Only valid in combination with parameter "
+        f"`exchange` and `market`.",
+        required=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-m",
+        "--market",
+        type=str,
+        help="The market on which is traded.",
+        required=False,
+    )
+    parser.add_argument(
+        "-oci",
+        "--openconfigini",
+        help=f"Open the used config file and then stop.",
+        required=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-opi",
+        "--openprofilesini",
+        help=f"Open the used profiles file and then stop.",
+        required=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-ot", "--ordertype", type=str, help="Use `limit` or `market`.", required=False
+    )
+    parser.add_argument(
+        "-pf",
+        "--profile",
+        type=str,
+        help="Name of the profile to load from ubtsl_profiles.ini!",
+        required=False,
+    )
+    parser.add_argument(
+        "-pff",
+        "--profilesfile",
+        type=str,
+        help=f"Specify path including filename to the profiles file (ex: `~/my_profiles.ini`). If not "
+        f"available ubtsl tries to load a ubtsl_profile.ini from the `{config_path}` and the "
+        f"current working directory.",
+        required=False,
+    )
+    parser.add_argument(
+        "-r",
+        "--resetstoplossprice",
+        type=str,
+        help="Reset the existing stop_loss_price! usage: True anything else is False.",
+        required=False,
+    )
+    parser.add_argument(
+        "-l",
+        "--stoplosslimit",
+        type=str,
+        help="Stop/loss limit in float or percent.",
+        required=False,
+    )
+    parser.add_argument(
+        "-sl",
+        "--stoplossstartlimit",
+        type=str,
+        help="Set the start stop/loss limit in float or percent.",
+        required=False,
+    )
+    parser.add_argument(
+        "-p",
+        "--stoplossprice",
+        type=float,
+        help="Set the start stop/loss price as float value.",
+        required=False,
+    )
+    parser.add_argument(
+        "-t",
+        "--test",
+        type=str,
+        help='Use this to test specific systems like "notification", "binance-connectivity" and '
+        '"streams". The streams test needs a valid exchange and market. If test is not None the '
+        "engine will NOT start! It only tests!",
+        required=False,
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        help=f"Show the program version and then stop. The version is `{version}` by the way :)",
+        required=False,
+        action="store_true",
+    )
     options = parser.parse_args()
 
     # Vars
@@ -221,7 +296,7 @@ async def cli():
     if options.logfile is True:
         logfile = options.logfile
     else:
-        logfile = log_path + 'ubtsl.log'
+        logfile = log_path + "ubtsl.log"
 
     # Log level
     if options.loglevel == "DEBUG":
@@ -242,10 +317,9 @@ async def cli():
     if not os.path.isdir(parent_dir):
         os.makedirs(parent_dir)
     try:
-        logging.basicConfig(level=loglevel,
-                            filename=logfile,
-                            format=log_format,
-                            style="{")
+        logging.basicConfig(
+            level=loglevel, filename=logfile, format=log_format, style="{"
+        )
     except FileNotFoundError as error_msg:
         print(f"File not found: {error_msg}")
     logger = logging.getLogger("unicorn_binance_trailing_stop_loss")
@@ -274,13 +348,18 @@ async def cli():
             trade_fee = ubra.get_trade_fee(symbol=market)
             print(f"trade_fee: {trade_fee}")
             fee = 0.2
-            profit = fee*(float(feedback['sell_order']['order_price'])-float(feedback['buy_order']['order_price']))
-            print(f"======================================================\r\n"
-                  f"buy_price: {float(feedback['buy_order']['order_price']):g}\r\n"
-                  f"sell_price: {float(feedback['sell_order']['order_price']):g}\r\n"
-                  f"fee: ~{fee}%\r\n"
-                  f"------------------------------------------------------\r\n"
-                  f"profit: {profit}")
+            profit = fee * (
+                float(feedback["sell_order"]["order_price"])
+                - float(feedback["buy_order"]["order_price"])
+            )
+            print(
+                f"======================================================\r\n"
+                f"buy_price: {float(feedback['buy_order']['order_price']):g}\r\n"
+                f"sell_price: {float(feedback['sell_order']['order_price']):g}\r\n"
+                f"fee: ~{fee}%\r\n"
+                f"------------------------------------------------------\r\n"
+                f"profit: {profit}"
+            )
         ubtsl.stop_manager()
 
     def load_examples_ini_from_github(example_name: str = None) -> Optional[str]:
@@ -294,8 +373,10 @@ async def cli():
         logger.info(f"load_examples_ini_from_github() started ")
         if example_name is None:
             return None
-        example_ini = f"https://raw.githubusercontent.com/oliver-zehentleitner/" \
-                      f"unicorn-binance-trailing-stop-loss/master/cli/example_ubtsl_{example_name}.ini"
+        example_ini = (
+            f"https://raw.githubusercontent.com/oliver-zehentleitner/"
+            f"unicorn-binance-trailing-stop-loss/master/cli/example_ubtsl_{example_name}.ini"
+        )
         response = requests.get(example_ini)
         return response.text
 
@@ -326,7 +407,9 @@ async def cli():
         config_file_path = f"{config_path}ubtsl_config.ini"
         print("Creating config ini file ")
         if os.path.isfile(config_file_path):
-            decision = input(f"The file `{config_file_path}` already exists. Do you want to overwrite it? [y/N]")
+            decision = input(
+                f"The file `{config_file_path}` already exists. Do you want to overwrite it? [y/N]"
+            )
             if decision.upper() != "Y":
                 return False
         create_directory(str(config_path))
@@ -342,7 +425,9 @@ async def cli():
         profiles_file_path = f"{config_path}ubtsl_profiles.ini"
         print("Creating profiles ini file ")
         if os.path.isfile(profiles_file_path):
-            decision = input(f"The file `{profiles_file_path}` already exists. Do you want to overwrite it? [y/N]")
+            decision = input(
+                f"The file `{profiles_file_path}` already exists. Do you want to overwrite it? [y/N]"
+            )
             if decision.upper() != "Y":
                 return False
         create_directory(str(config_path))
@@ -357,8 +442,10 @@ async def cli():
     if options.checkupdate is True:
         ubtsl = BinanceTrailingStopLossManager(start_engine=False, warn_on_update=False)
         if ubtsl.is_update_available():
-            print("A new update is available: https://github.com/oliver-zehentleitner/"
-                  "unicorn-binance-trailing-stop-loss/releases/latest")
+            print(
+                "A new update is available: https://github.com/oliver-zehentleitner/"
+                "unicorn-binance-trailing-stop-loss/releases/latest"
+            )
         else:
             print("No available updates found!")
         ubtsl.stop_manager()
@@ -372,9 +459,13 @@ async def cli():
     # Print examples ini files:
     if options.example is not None:
         if options.example == "config":
-            print(f"{options.example}.ini example:\r\n{load_examples_ini_from_github(example_name=options.example)}")
+            print(
+                f"{options.example}.ini example:\r\n{load_examples_ini_from_github(example_name=options.example)}"
+            )
         if options.example == "profiles":
-            print(f"{options.example}.ini example:\r\n{load_examples_ini_from_github(example_name=options.example)}")
+            print(
+                f"{options.example}.ini example:\r\n{load_examples_ini_from_github(example_name=options.example)}"
+            )
         sys.exit(0)
 
     # Choose config file
@@ -393,8 +484,10 @@ async def cli():
             config_file = None
             if not options.openconfigini and not options.openprofilesini:
                 if options.apikey is None or options.apisecret is None:
-                    msg = f"You must provide a valid Binance API key and secret, either as commandline parameter or as " \
-                          f"profile parameter.  Please use `ubtsl --help` for further information!"
+                    msg = (
+                        f"You must provide a valid Binance API key and secret, either as commandline parameter or as "
+                        f"profile parameter.  Please use `ubtsl --help` for further information!"
+                    )
                     logger.critical(msg)
                     print(msg)
                     sys.exit(1)
@@ -416,8 +509,10 @@ async def cli():
     # Open ini files
     if options.openconfigini:
         if config_file is None:
-            print(f"No config file found!\r\n"
-                  f"Use `ubtsl --createconfigini` to create one.")
+            print(
+                f"No config file found!\r\n"
+                f"Use `ubtsl --createconfigini` to create one."
+            )
         else:
             print(f"Opening `{config_file}`")
             webbrowser.open(config_file)
@@ -425,8 +520,10 @@ async def cli():
 
     if options.openprofilesini:
         if profiles_file is None:
-            print(f"No profiles file found!\r\n"
-                  f"Use `ubtsl --createprofilesini` to create one.")
+            print(
+                f"No profiles file found!\r\n"
+                f"Use `ubtsl --createprofilesini` to create one."
+            )
         else:
             print(f"Opening `{profiles_file}`")
             webbrowser.open(profiles_file)
@@ -444,24 +541,28 @@ async def cli():
         try:
             config.read(config_file)
         except (MissingSectionHeaderError, ParsingError) as error_msg:
-            msg = f"Error: Config file `{config_file}` is invalid: {error_msg}\n" \
-                  f"Use `ubtsl --createconfigini` to create a valid config file."
+            msg = (
+                f"Error: Config file `{config_file}` is invalid: {error_msg}\n"
+                f"Use `ubtsl --createconfigini` to create a valid config file."
+            )
             logger.critical(msg)
             print(msg)
             sys.exit(1)
         try:
-            public_key = config['BINANCE']['api_key']
-            private_key = config['BINANCE']['api_secret']
-            send_to_email_address = config['EMAIL']['send_to_email']
-            send_from_email_address = config['EMAIL']['send_from_email']
-            send_from_email_password = config['EMAIL']['send_from_password']
-            send_from_email_server = config['EMAIL']['send_from_server']
-            send_from_email_port = config['EMAIL']['send_from_port']
-            telegram_bot_token = config['TELEGRAM']['bot_token']
-            telegram_send_to = config['TELEGRAM']['send_to']
+            public_key = config["BINANCE"]["api_key"]
+            private_key = config["BINANCE"]["api_secret"]
+            send_to_email_address = config["EMAIL"]["send_to_email"]
+            send_from_email_address = config["EMAIL"]["send_from_email"]
+            send_from_email_password = config["EMAIL"]["send_from_password"]
+            send_from_email_server = config["EMAIL"]["send_from_server"]
+            send_from_email_port = config["EMAIL"]["send_from_port"]
+            telegram_bot_token = config["TELEGRAM"]["bot_token"]
+            telegram_send_to = config["TELEGRAM"]["send_to"]
         except KeyError as error_msg:
-            msg = f"Error: Missing section or key in config file `{config_file}`: {error_msg}\n" \
-                  f"Use `ubtsl --createconfigini` to create a valid config file."
+            msg = (
+                f"Error: Missing section or key in config file `{config_file}`: {error_msg}\n"
+                f"Use `ubtsl --createconfigini` to create a valid config file."
+            )
             logger.critical(msg)
             print(msg)
             sys.exit(1)
@@ -492,43 +593,51 @@ async def cli():
         try:
             if profiles[options.profile]:
                 try:
-                    borrow_threshold = profiles[options.profile]['borrow_threshold']
+                    borrow_threshold = profiles[options.profile]["borrow_threshold"]
                 except KeyError:
                     pass
                 try:
-                    exchange = profiles[options.profile]['exchange']
+                    exchange = profiles[options.profile]["exchange"]
                 except KeyError:
                     pass
                 try:
-                    keep_threshold = profiles[options.profile]['keep_threshold']
+                    keep_threshold = profiles[options.profile]["keep_threshold"]
                 except KeyError:
                     pass
                 try:
-                    reset_stop_loss_price = profiles[options.profile]['reset_stop_loss_price']
+                    reset_stop_loss_price = profiles[options.profile][
+                        "reset_stop_loss_price"
+                    ]
                 except KeyError:
                     pass
                 try:
-                    engine = profiles[options.profile]['engine']
+                    engine = profiles[options.profile]["engine"]
                 except KeyError:
                     pass
                 try:
-                    market = profiles[options.profile]['market']
+                    market = profiles[options.profile]["market"]
                 except KeyError:
                     pass
                 try:
-                    stop_loss_limit = profiles[options.profile]['stop_loss_limit']
+                    stop_loss_limit = profiles[options.profile]["stop_loss_limit"]
                 except KeyError:
                     pass
                 try:
-                    stop_loss_start_limit = profiles[options.profile]['stop_loss_start_limit']
+                    stop_loss_start_limit = profiles[options.profile][
+                        "stop_loss_start_limit"
+                    ]
                 except KeyError:
                     pass
                 try:
-                    stop_loss_order_type = profiles[options.profile]['stop_loss_order_type']
+                    stop_loss_order_type = profiles[options.profile][
+                        "stop_loss_order_type"
+                    ]
                 except KeyError:
                     pass
                 try:
-                    stop_loss_price = float(profiles[options.profile]['stop_loss_price'])
+                    stop_loss_price = float(
+                        profiles[options.profile]["stop_loss_price"]
+                    )
                 except KeyError:
                     pass
         except KeyError as error_msg:
@@ -580,7 +689,9 @@ async def cli():
             elif exchange == "binance.com-margin":
                 canceled_orders = ubra.cancel_all_open_margin_orders(symbol=market)
             elif exchange == "binance.com-isolated_margin":
-                canceled_orders = ubra.cancel_all_open_margin_orders(symbol=market, isIsolated="TRUE")
+                canceled_orders = ubra.cancel_all_open_margin_orders(
+                    symbol=market, isIsolated="TRUE"
+                )
             elif exchange == "binance.com-futures":
                 canceled_orders = ubra.futures_cancel_all_open_orders(symbol=market)
             else:
@@ -603,7 +714,9 @@ async def cli():
             elif exchange == "binance.com-margin":
                 open_orders = ubra.get_open_margin_orders(symbol=market)
             elif exchange == "binance.com-isolated_margin":
-                open_orders = ubra.get_open_margin_orders(symbol=market, isIsolated="TRUE")
+                open_orders = ubra.get_open_margin_orders(
+                    symbol=market, isIsolated="TRUE"
+                )
             elif exchange == "binance.com-futures":
                 open_orders = ubra.futures_get_open_orders(symbol=market)
             else:
@@ -616,33 +729,35 @@ async def cli():
         sys.exit(0)
 
     # Starting the Trailing Stop/Loss Engine
-    with BinanceTrailingStopLossManager(callback_error=callback_error,
-                                        callback_finished=callback_finished,
-                                        callback_partially_filled=None,
-                                        api_key=public_key,
-                                        api_secret=private_key,
-                                        borrow_threshold=borrow_threshold,
-                                        engine=engine,
-                                        exchange=exchange,
-                                        keep_threshold=keep_threshold,
-                                        market=market,
-                                        print_notifications=True,
-                                        reset_stop_loss_price=reset_stop_loss_price,
-                                        send_to_email_address=send_to_email_address,
-                                        send_from_email_address=send_from_email_address,
-                                        send_from_email_password=send_from_email_password,
-                                        send_from_email_server=send_from_email_server,
-                                        send_from_email_port=int(send_from_email_port),
-                                        stop_loss_limit=stop_loss_limit,
-                                        stop_loss_order_type=stop_loss_order_type,
-                                        stop_loss_price=stop_loss_price,
-                                        stop_loss_start_limit=stop_loss_start_limit,
-                                        telegram_bot_token=telegram_bot_token,
-                                        telegram_send_to=telegram_send_to,
-                                        test=test,
-                                        ubra_manager=ubra,
-                                        ubwa_manager=None,
-                                        warn_on_update=False) as ubtsl:
+    with BinanceTrailingStopLossManager(
+        callback_error=callback_error,
+        callback_finished=callback_finished,
+        callback_partially_filled=None,
+        api_key=public_key,
+        api_secret=private_key,
+        borrow_threshold=borrow_threshold,
+        engine=engine,
+        exchange=exchange,
+        keep_threshold=keep_threshold,
+        market=market,
+        print_notifications=True,
+        reset_stop_loss_price=reset_stop_loss_price,
+        send_to_email_address=send_to_email_address,
+        send_from_email_address=send_from_email_address,
+        send_from_email_password=send_from_email_password,
+        send_from_email_server=send_from_email_server,
+        send_from_email_port=int(send_from_email_port),
+        stop_loss_limit=stop_loss_limit,
+        stop_loss_order_type=stop_loss_order_type,
+        stop_loss_price=stop_loss_price,
+        stop_loss_start_limit=stop_loss_start_limit,
+        telegram_bot_token=telegram_bot_token,
+        telegram_send_to=telegram_send_to,
+        test=test,
+        ubra_manager=ubra,
+        ubwa_manager=None,
+        warn_on_update=False,
+    ) as ubtsl:
         if test is None:
             # Catch Keyboard Interrupt only if there is no test running
             while ubtsl.is_manager_stopping() is False:
