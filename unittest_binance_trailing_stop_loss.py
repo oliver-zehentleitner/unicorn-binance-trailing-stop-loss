@@ -26,11 +26,15 @@ import os
 BINANCE_COM_API_KEY = ""
 BINANCE_COM_API_SECRET = ""
 
-logging.getLogger("unicorn_binance_trailing_stop_loss.unicorn_binance_trailing_stop_loss_engine_manager")
-logging.basicConfig(level=logging.DEBUG,
-                    filename=os.path.basename(__file__) + '.log',
-                    format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
-                    style="{")
+logging.getLogger(
+    "unicorn_binance_trailing_stop_loss.unicorn_binance_trailing_stop_loss_engine_manager"
+)
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename=os.path.basename(__file__) + ".log",
+    format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
+    style="{",
+)
 
 print(f"Starting unittests:")
 
@@ -45,24 +49,26 @@ def callback_finished(msg):
     UBTSL.stop_manager()
 
 
-UBTSL = BinanceTrailingStopLossManager(callback_error=callback_error,
-                                       callback_finished=callback_finished,
-                                       api_key="aaa",
-                                       api_secret="bbb",
-                                       exchange="binance.us",
-                                       keep_threshold="20%",
-                                       reset_stop_loss_price=True,
-                                       send_to_email_address="blah@example.com",
-                                       send_from_email_address="blub@example.com",
-                                       send_from_email_password="pass",
-                                       send_from_email_server="mail.example.com",
-                                       send_from_email_port=25,
-                                       stop_loss_limit="1.5%",
-                                       market="BTCUSDC",
-                                       stop_loss_order_type="LIMIT",
-                                       stop_loss_price=88,
-                                       telegram_bot_token="telegram_bot_token",
-                                       telegram_send_to="telegram_send_to")
+UBTSL = BinanceTrailingStopLossManager(
+    callback_error=callback_error,
+    callback_finished=callback_finished,
+    api_key="aaa",
+    api_secret="bbb",
+    exchange="binance.us",
+    keep_threshold="20%",
+    reset_stop_loss_price=True,
+    send_to_email_address="blah@example.com",
+    send_from_email_address="blub@example.com",
+    send_from_email_password="pass",
+    send_from_email_server="mail.example.com",
+    send_from_email_port=25,
+    stop_loss_limit="1.5%",
+    market="BTCUSDC",
+    stop_loss_order_type="LIMIT",
+    stop_loss_price=88,
+    telegram_bot_token="telegram_bot_token",
+    telegram_send_to="telegram_send_to",
+)
 
 
 class TestBinanceComManager(unittest.TestCase):
@@ -76,5 +82,5 @@ class TestBinanceComManager(unittest.TestCase):
             pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
