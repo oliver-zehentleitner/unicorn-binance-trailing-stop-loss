@@ -3,7 +3,8 @@
 ## `update_stop_loss_asset_amount` fails loud instead of crashing silently deep in the engine thread
 
 **Status:** active
-**Confirmed** (commit `862a96b`, PR #63)
+**Evidence:** confirmed
+**Source:** commit `862a96b`, PR #63
 
 Found while reproducing a SPOT-exchange crash that didn't happen under `isolated_margin` — the same underlying bugs were present there too, just hidden. Root causes found and fixed together:
 - UBRA's `get_open_orders` actually returns a `list`, but Cython's strict typing enforced `Optional[dict]`
