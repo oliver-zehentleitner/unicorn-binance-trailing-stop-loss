@@ -2,6 +2,7 @@
 
 ## `update_stop_loss_asset_amount` fails loud instead of crashing silently deep in the engine thread
 
+**Type:** incident
 **Status:** active
 **Evidence:** confirmed
 **Source:** commit `862a96b`, PR #63
