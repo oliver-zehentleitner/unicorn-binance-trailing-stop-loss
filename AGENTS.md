@@ -194,9 +194,5 @@ ubtsl --test binance-connectivity
 - CLI config files default to `~/.unicorn-binance-suite/config/ubtsl_*.ini` — see [`context/history.md`](context/history.md) for the `.lucit`-path migration this replaced
 - On missing balance, `update_stop_loss_asset_amount` fails loud (notifications + `stop_manager()` + exit) rather than crashing silently — see [`context/fail-loud.md`](context/fail-loud.md)
 
-<!-- keep-the-why:config -->
-- context: `context/`
-- init: complete
-- context-schema: 0.9.0
-- capture-confirmation: confirm-when-unsure
-<!-- /keep-the-why:config -->
+Keep the Why's config for this project migrated to .keep-the-why on
+2026-09-04 — requires skill version 0.10.0 or later to read it.
