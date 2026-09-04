@@ -2,8 +2,10 @@
 
 ## LUCIT-Systems-and-Development origin, including a dropped commercial license
 
+> Superseded — repo now lives under `oliver-zehentleitner`, MIT-licensed.
+
 **Type:** decision
-**Status:** superseded — repo now lives under `oliver-zehentleitner`, MIT-licensed
+**Status:** superseded
 **Evidence:** confirmed
 **Source:** commit `4c14327` "Merge branch 'LUCIT-Systems-and-Development:master' into master"; commit `2d56481`
 
@@ -24,8 +26,10 @@ This repo once had a proprietary licensing layer: `license='LSOSL - LUCIT Synerg
 
 ## Stale doc found and fixed while writing this: CLI config path
 
+> Superseded — fixed in this pass.
+
 **Type:** decision
-**Status:** superseded — fixed in this pass
+**Status:** superseded
 **Evidence:** confirmed
 **Source:** commits `48f4450`, `0cb7324`; verified in `cli.py:47-49`
 
